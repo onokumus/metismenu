@@ -1,3 +1,10 @@
+/**
+* metisMenu v1.0.1
+* Author : Osman Nuri Okumuş
+* Copyright 2014
+* Licensed under MIT
+*/
+
 ;(function ($, window, document, undefined) {
 
     var pluginName = "metisMenu",
