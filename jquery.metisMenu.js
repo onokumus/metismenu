@@ -1,5 +1,5 @@
 /**
-* metisMenu v1.0.1
+* metisMenu v1.0.2
 * Author : Osman Nuri Okumuş
 * Copyright 2014
 * Licensed under MIT
@@ -26,8 +26,13 @@
             var $this = $(this.element),
                 $toggle = this.settings.toggle;
 
-            $this.find('li.active').has('ul').children('ul').addClass('collapse in');
-            $this.find('li').not('.active').has('ul').children('ul').addClass('collapse');
+            if (this.isIE() <= 9) {
+                $this.find('li.active').has('ul').children('ul').collapse('show');
+                $this.find('li').not('.active').has('ul').children('ul').collapse('hide');
+            } else {
+                $this.find('li.active').has('ul').children('ul').addClass('collapse in');
+                $this.find('li').not('.active').has('ul').children('ul').addClass('collapse');
+            }
 
             $this.find('li').has('ul').children('a').on('click', function (e) {
                 e.preventDefault();
@@ -38,6 +43,19 @@
                     $(this).parent('li').siblings().removeClass('active').children('ul.in').collapse('hide');
                 }
             });
+        },
+
+        isIE: function() {//https://gist.github.com/padolsey/527683
+            var undef,
+                v = 3,
+                div = document.createElement('div'),
+                all = div.getElementsByTagName('i');
+
+            while (
+                div.innerHTML = '<!--[if gt IE ' + (++v) + ']><i></i><![endif]-->',
+                all[0]
+            );
+            return v > 4 ? v : undef;
         }
     };
 

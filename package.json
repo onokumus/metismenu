@@ -1,6 +1,6 @@
 {
   "name": "metismenu",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Easy menu jQuery plugin for Twitter Bootstrap 3",
   "main": "jquery.metisMenu.js",
   "scripts": {

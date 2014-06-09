@@ -28,9 +28,14 @@
     $("#menu").metisMenu();
     ```
 
-#### [demo](http://onokumus.github.io/metisMenu/)
+#### [demo](http://demo.onokumus.com/metisMenu/)
 
 Contains a simple HTML file to demonstrate metisMenu plugin.
+
+### Release History
+**DATE**       **VERSION**   **CHANGES**                                        
+* 2014-06-10   v1.0.2        Fixed for IE8 & IE9   
+
 
 ## Author
 
