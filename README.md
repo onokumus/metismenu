@@ -2,6 +2,22 @@
 
 > Easy menu jQuery plugin for Twitter Bootstrap 3
 
+## Installation
+
+* [npm](http://npmjs.org/)
+
+```bash
+npm install metismenu
+```
+
+* [Bower](http://bower.io)
+
+```bash
+bower install metismenu
+```
+
+* [Download](https://github.com/onokumus/metisMenu/archive/master.zip)
+
 ## Usage
 
 1. Include jQuery
