@@ -23,6 +23,7 @@ bower install metismenu
 1. Include jQuery
 
     ```html
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     ```
 
