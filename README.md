@@ -20,26 +20,31 @@ bower install metismenu
 
 ## Usage
 
-1. Include jQuery
+1. Include Twitter Bootstrap StyleSheet
 
     ```html
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     ```
 
-2. Include Twitter Bootstrap
+2. Include jQuery
+
+    ```html
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    ```
+
+3. Include Twitter Bootstrap Script
 
     ```html
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     ```
 
-3. Include metisMenu plugin's code
+4. Include metisMenu plugin's code
 
     ```html
     <script src="jquery.metisMenu.js"></script>
     ```
 
-4. Call the plugin:
+5. Call the plugin:
 
     ```javascript
     $("#menu").metisMenu();
@@ -50,8 +55,9 @@ bower install metismenu
 Contains a simple HTML file to demonstrate metisMenu plugin.
 
 ### Release History
-**DATE**       **VERSION**   **CHANGES**                                        
-* 2014-06-10   v1.0.2        Fixed for IE8 & IE9   
+**DATE**       **VERSION**   **CHANGES**
+* 2014-06-18   v1.0.3        Create grunt task
+* 2014-06-10   v1.0.2        Fixed for IE8 & IE9
 
 
 ## Author
