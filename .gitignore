@@ -30,6 +30,7 @@ lib-cov
 .project
 .settings
 .tmproj
+.directory
 nbproject
 Thumbs.db
 
