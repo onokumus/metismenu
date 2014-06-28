@@ -25,10 +25,10 @@
 
             //Restores the menu state from cookies
             var documentCookie = document.cookie;
-            $this.find('li').has('ul').each(function (i) {
+            $this.find("li").has("ul").each(function (i) {
                 var pos = documentCookie.indexOf($cookieName + "_" + i + "=");
                 if (pos > -1) {
-                    documentCookie.substr(pos).split('=')[1].indexOf('false') ? $(this).addClass('active') : $(this).removeClass('active');
+                    documentCookie.substr(pos).split("=")[1].indexOf("false") ? $(this).addClass("active") : $(this).removeClass("active");
                 }
             });
 
@@ -55,15 +55,15 @@
                     var cookie = cookies[i];
                     var eqPos = cookie.indexOf("=");
                     var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-                    if (name.trim().slice(0, $cookieName.length) == $cookieName) {
+                    if (name.trim().slice(0, $cookieName.length) === $cookieName) {
                         document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
                     }
                 }
                 //Stores the menu state in cookies
                 var date = new Date();
                 date.setTime(date.getTime() + ($cookieExpiration * 24 * 60 * 60 * 1000));
-                $this.find('li').has('ul').each(function (i) {
-                    document.cookie = $cookieName + "_" + i + "=" + $(this).hasClass('active') + ";expires=" + date.toGMTString() + ";path=/";
+                $this.find("li").has("ul").each(function (i) {
+                    document.cookie = $cookieName + "_" + i + "=" + $(this).hasClass("active") + ";expires=" + date.toGMTString() + ";path=/";
                 });
             });
         },
