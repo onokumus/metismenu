@@ -6,7 +6,7 @@
     "onokumus <onokumus@gmail.com>"
   ],
   "description": "Easy menu jQuery plugin for Twitter Bootstrap 3",
-  "main": "jquery.metisMenu.js",
+  "main": "metisMenu.js",
   "keywords": [
     "twitter",
     "bootstrap",

@@ -2,7 +2,7 @@
   "name": "metismenu",
   "version": "1.0.3",
   "description": "Easy menu jQuery plugin for Twitter Bootstrap 3",
-  "main": "jquery.metisMenu.js",
+  "main": "metisMenu.js",
   "scripts": {
     "test": "grunt travis --verbose"
   },
