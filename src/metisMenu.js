@@ -44,7 +44,7 @@
                     //if we hit a second time on the link and the href is valid, navigate to that url
                     if (obj.doubleTapToGo($(this)) && $(this).attr("href") !== "#" && $(this).attr("href") !== "") {
                         e.stopPropagation();
-                        document.location = $(this).attr('href');
+                        document.location = $(this).attr("href");
                         return;
                     }
                 }
