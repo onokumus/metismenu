@@ -5,7 +5,7 @@
             toggle: true,
             doubleTapToGo : false
         };
-        
+
     function Plugin(element, options) {
         this.element = element;
         this.settings = $.extend({}, defaults, options);
@@ -29,21 +29,23 @@
                 $this.find("li").not(".active").has("ul").children("ul").addClass("collapse");
             }
 
+            //add the "doubleTapToGo" class to active items if needed
+            if(obj.settings.doubleTapToGo) {
+                $this.find("li.active").has("ul").children("a").addClass("doubleTapToGo");
+            }
+
             $this.find("li").has("ul").children("a").on("click", function (e) {
-               
+                e.preventDefault();
+
                 //Do we need to enable the double tap
                 if(obj.settings.doubleTapToGo) {
-                    //if we hit a second time on the link and the href is valid, navigate to that url
-                    if(obj.doubleTapToGo($(this)) && $(this).attr('href') != '#' && $(this).attr('href') != '' ) {
-                       return;
 
-                    //do nothing and preventDefault
-                    } else {
-                          e.preventDefault();
+                    //if we hit a second time on the link and the href is valid, navigate to that url
+                    if(obj.doubleTapToGo($(this)) && $(this).attr('href') !== '#' && $(this).attr('href') !== '' ) {
+                        e.stopPropagation();
+                        document.location = $(this).attr('href');
+                        return;
                     }
-                //do nothing and preventDefault
-                } else {
-                    e.preventDefault();
                 }
 
                 $(this).parent("li").toggleClass("active").children("ul").collapse("toggle");
@@ -51,6 +53,7 @@
                 if ($toggle) {
                     $(this).parent("li").siblings().removeClass("active").children("ul.in").collapse("hide");
                 }
+
             });
         },
 
@@ -62,8 +65,8 @@
 
             while (
                 div.innerHTML = "<!--[if gt IE " + (++v) + "]><i></i><![endif]-->",
-                all[0]
-            ) {
+                    all[0]
+                ) {
                 return v > 4 ? v : undef;
             }
         },
@@ -83,7 +86,7 @@
                 return false;
             }
         }
-        
+
     };
 
     $.fn[ pluginName ] = function (options) {
