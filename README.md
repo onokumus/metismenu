@@ -67,11 +67,11 @@ Default: `true`
 
 For auto collapse support.
 
-    ```javascript
-    $("#menu").metisMenu({
-      toggle: false
-    });
-    ```
+```javascript
+  $("#menu").metisMenu({
+    toggle: false
+  });
+```
 
 #### doubleTapToGo
 Type: `Boolean`
@@ -79,11 +79,11 @@ Default: `false`
 
 For double tap support.
 
-    ```javascript
-    $("#menu").metisMenu({
-      doubleTapToGo: true
-    });
-    ```
+```javascript
+  $("#menu").metisMenu({
+    doubleTapToGo: true
+  });
+```
 
 
 ### [DEMO](http://demo.onokumus.com/metisMenu/)
