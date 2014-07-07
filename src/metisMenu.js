@@ -2,7 +2,8 @@
 
     var pluginName = "metisMenu",
         defaults = {
-            toggle: true
+            toggle: true,
+            doubleTapToGo : false
         };
         
     function Plugin(element, options) {
@@ -17,7 +18,8 @@
         init: function () {
 
             var $this = $(this.element),
-                $toggle = this.settings.toggle;
+                $toggle = this.settings.toggle,
+                obj = this;
 
             if (this.isIE() <= 9) {
                 $this.find("li.active").has("ul").children("ul").collapse("show");
@@ -28,7 +30,21 @@
             }
 
             $this.find("li").has("ul").children("a").on("click", function (e) {
-                e.preventDefault();
+               
+                //Do we need to enable the double tap
+                if(obj.settings.doubleTapToGo) {
+                    //if we hit a second time on the link and the href is valid, navigate to that url
+                    if(obj.doubleTapToGo($(this)) && $(this).attr('href') != '#' && $(this).attr('href') != '' ) {
+                       return;
+
+                    //do nothing and preventDefault
+                    } else {
+                          e.preventDefault();
+                    }
+                //do nothing and preventDefault
+                } else {
+                    e.preventDefault();
+                }
 
                 $(this).parent("li").toggleClass("active").children("ul").collapse("toggle");
 
@@ -50,7 +66,24 @@
             ) {
                 return v > 4 ? v : undef;
             }
+        },
+
+        //Enable the link on the second click.
+        doubleTapToGo : function( elem ){
+
+            //if the class "doubleTapToGo" exists, remove it and return
+            if(elem.hasClass('doubleTapToGo')) {
+                elem.removeClass('doubleTapToGo');
+                return true;
+            }
+
+            //does not exists, add a new class and return false
+            if(elem.parent().children('ul').length) {
+                elem.addClass('doubleTapToGo');
+                return false;
+            }
         }
+        
     };
 
     $.fn[ pluginName ] = function (options) {
