@@ -44,12 +44,22 @@ module.exports = function(grunt) {
                 banner: "<%= banner %>"
             }
         },
+	cssmin: {
+	  options: {
+                banner: "<%= banner %>"
+          },
+	  menucss: {
+	    src: ["src/metisMenu.css"],
+	    dest: "dist/metisMenu.min.css"
+	  }
+	}
     });
     
     grunt.loadNpmTasks("grunt-contrib-jshint");
     grunt.loadNpmTasks("grunt-contrib-concat");
     grunt.loadNpmTasks("grunt-contrib-uglify");
+    grunt.loadNpmTasks("grunt-contrib-cssmin");
     
     grunt.registerTask("travis", ["jshint"]);
-    grunt.registerTask("default", ["jshint", "concat", "uglify"]);
+    grunt.registerTask("default", ["jshint", "concat", "uglify", "cssmin"]);
 };
