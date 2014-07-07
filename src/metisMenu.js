@@ -1,4 +1,3 @@
-;
 (function($, window, document, undefined) {
 
     var pluginName = "metisMenu",
