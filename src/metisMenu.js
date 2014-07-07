@@ -1,9 +1,10 @@
-;(function ($, window, document, undefined) {
+;
+(function($, window, document, undefined) {
 
     var pluginName = "metisMenu",
         defaults = {
             toggle: true,
-            doubleTapToGo : false
+            doubleTapToGo: false
         };
 
     function Plugin(element, options) {
@@ -15,7 +16,7 @@
     }
 
     Plugin.prototype = {
-        init: function () {
+        init: function() {
 
             var $this = $(this.element),
                 $toggle = this.settings.toggle,
@@ -30,18 +31,18 @@
             }
 
             //add the "doubleTapToGo" class to active items if needed
-            if(obj.settings.doubleTapToGo) {
+            if (obj.settings.doubleTapToGo) {
                 $this.find("li.active").has("ul").children("a").addClass("doubleTapToGo");
             }
 
-            $this.find("li").has("ul").children("a").on("click", function (e) {
+            $this.find("li").has("ul").children("a").on("click", function(e) {
                 e.preventDefault();
 
                 //Do we need to enable the double tap
-                if(obj.settings.doubleTapToGo) {
+                if (obj.settings.doubleTapToGo) {
 
                     //if we hit a second time on the link and the href is valid, navigate to that url
-                    if(obj.doubleTapToGo($(this)) && $(this).attr('href') !== '#' && $(this).attr('href') !== '' ) {
+                    if (obj.doubleTapToGo($(this)) && $(this).attr("href") !== "#" && $(this).attr("href") !== "") {
                         e.stopPropagation();
                         document.location = $(this).attr('href');
                         return;
@@ -57,7 +58,7 @@
             });
         },
 
-        isIE: function() {//https://gist.github.com/padolsey/527683
+        isIE: function() { //https://gist.github.com/padolsey/527683
             var undef,
                 v = 3,
                 div = document.createElement("div"),
@@ -65,32 +66,32 @@
 
             while (
                 div.innerHTML = "<!--[if gt IE " + (++v) + "]><i></i><![endif]-->",
-                    all[0]
-                ) {
+                all[0]
+            ) {
                 return v > 4 ? v : undef;
             }
         },
 
         //Enable the link on the second click.
-        doubleTapToGo : function( elem ){
+        doubleTapToGo: function(elem) {
 
             //if the class "doubleTapToGo" exists, remove it and return
-            if(elem.hasClass('doubleTapToGo')) {
-                elem.removeClass('doubleTapToGo');
+            if (elem.hasClass("doubleTapToGo")) {
+                elem.removeClass("doubleTapToGo");
                 return true;
             }
 
             //does not exists, add a new class and return false
-            if(elem.parent().children('ul').length) {
-                elem.addClass('doubleTapToGo');
+            if (elem.parent().children("ul").length) {
+                elem.addClass("doubleTapToGo");
                 return false;
             }
         }
 
     };
 
-    $.fn[ pluginName ] = function (options) {
-        return this.each(function () {
+    $.fn[pluginName] = function(options) {
+        return this.each(function() {
             if (!$.data(this, "plugin_" + pluginName)) {
                 $.data(this, "plugin_" + pluginName, new Plugin(this, options));
             }
