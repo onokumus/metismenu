@@ -8,6 +8,7 @@
  */
 .arrow {
     float: right;
+    line-height: 1.42857; //twitter bootstrap body element line-height
 }
 
 .glyphicon.arrow:before {
