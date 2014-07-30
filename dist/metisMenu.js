@@ -81,6 +81,7 @@
 
         //Enable the link on the second click.
         doubleTapToGo: function(elem) {
+            var $this = $(this.element);
 
             //if the class "doubleTapToGo" exists, remove it and return
             if (elem.hasClass("doubleTapToGo")) {
@@ -90,6 +91,9 @@
 
             //does not exists, add a new class and return false
             if (elem.parent().children("ul").length) {
+                 //first remove all other class
+                $this.find(".doubleTapToGo").removeClass("doubleTapToGo");
+                //add the class on the current element
                 elem.addClass("doubleTapToGo");
                 return false;
             }
