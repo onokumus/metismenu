@@ -101,8 +101,9 @@
     $.fn[pluginName] = function(options) {
         this.each(function () {
             var el = $(this);
-            if (el.data(pluginName))
+            if (el.data(pluginName)) {
                 el.data(pluginName).remove();
+            }
             el.data(pluginName, new Plugin(this, options));
         });
         return this;
