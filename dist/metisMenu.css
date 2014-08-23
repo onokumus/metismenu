@@ -1,5 +1,5 @@
 /*
- * metismenu - v1.1.1
+ * metismenu - v1.1.2
  * Easy menu jQuery plugin for Twitter Bootstrap 3
  * https://github.com/onokumus/metisMenu
  *
@@ -7,58 +7,47 @@
  * Under MIT License
  */
 .arrow {
-    float: right;
-    line-height: 1.42857; //twitter bootstrap body element line-height
+  float: right;
+  line-height: 1.42857;
+  /* twitter bootstrap body element line-height */
 }
-
 .glyphicon.arrow:before {
-    content: "\e079";
+  content: "\e079";
 }
-
 .active > a > .glyphicon.arrow:before {
-    content: "\e114";
+  content: "\e114";
 }
-
-
 /*
  * Require Font-Awesome
  * http://fortawesome.github.io/Font-Awesome/
 */
 
-
 .fa.arrow:before {
-    content: "\f104";
+  content: "\f104";
 }
-
 .active > a > .fa.arrow:before {
-    content: "\f107";
+  content: "\f107";
 }
-
 .plus-times {
-    float: right;
+  float: right;
 }
-
 .fa.plus-times:before {
-    content: "\f067";
+  content: "\f067";
 }
-
 .active > a > .fa.plus-times {
-    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
+  filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
-
 .plus-minus {
-    float: right;
+  float: right;
 }
-
 .fa.plus-minus:before {
-    content: "\f067";
+  content: "\f067";
 }
-
 .active > a > .fa.plus-minus:before {
-    content: "\f068";
+  content: "\f068";
 }

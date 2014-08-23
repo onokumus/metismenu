@@ -1,9 +1,9 @@
 {
   "name": "metisMenu",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "homepage": "https://github.com/onokumus/metisMenu",
   "authors": [
-    "onokumus <onokumus@gmail.com>"
+    "onokumus <onokumus@gmail.com> (http://onokumus.com)"
   ],
   "description": "Easy menu jQuery plugin for Twitter Bootstrap 3",
   "main": [
@@ -28,5 +28,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0"
+  }
 }
