@@ -15,7 +15,7 @@
         };
 
     function Plugin(element, options) {
-        this.element = element;
+        this.element = $(element);
         this.settings = $.extend({}, defaults, options);
         this._defaults = defaults;
         this._name = pluginName;
@@ -25,7 +25,7 @@
     Plugin.prototype = {
         init: function() {
 
-            var $this = $(this.element),
+            var $this = this.element,
                 $toggle = this.settings.toggle,
                 obj = this;
 
@@ -42,7 +42,7 @@
                 $this.find("li.active").has("ul").children("a").addClass("doubleTapToGo");
             }
 
-            $this.find("li").has("ul").children("a").on("click", function(e) {
+            $this.find("li").has("ul").children("a").on("click" + "." + pluginName, function(e) {
                 e.preventDefault();
 
                 //Do we need to enable the double tap
@@ -81,7 +81,7 @@
 
         //Enable the link on the second click.
         doubleTapToGo: function(elem) {
-            var $this = $(this.element);
+            var $this = this.element;
 
             //if the class "doubleTapToGo" exists, remove it and return
             if (elem.hasClass("doubleTapToGo")) {
@@ -97,16 +97,24 @@
                 elem.addClass("doubleTapToGo");
                 return false;
             }
+        },
+
+        remove: function() {
+            this.element.off("." + pluginName);
+            this.element.removeData(pluginName);
         }
 
     };
 
     $.fn[pluginName] = function(options) {
-        return this.each(function() {
-            if (!$.data(this, "plugin_" + pluginName)) {
-                $.data(this, "plugin_" + pluginName, new Plugin(this, options));
+        this.each(function () {
+            var el = $(this);
+            if (el.data(pluginName)) {
+                el.data(pluginName).remove();
             }
+            el.data(pluginName, new Plugin(this, options));
         });
+        return this;
     };
 
 })(jQuery, window, document);
