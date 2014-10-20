@@ -100,7 +100,7 @@
         },
 
         remove: function() {
-            this.element.off("." + pluginName);
+            this.element.find('a').off("." + pluginName);
             this.element.removeData(pluginName);
         }
 
