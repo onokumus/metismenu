@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>metisMenu</title>
 
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap.metismenu/1.1.0/css/metismenu.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap.metismenu/1.1.2/css/metismenu.min.css">
     <link rel="stylesheet" href="demo.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css">
-    
+
     <style>
       @media (min-width:768px) {
 	#menu li {
@@ -29,9 +29,10 @@
 	  display: block !important;
 	  height: auto !important;
 	  z-index: 1000;
-	  background: #444;      
+	  background: #444;
+    visibility: visible;
 	}
-      }    
+      }
     </style>
     <style>
       @media (max-width:767px) {
@@ -151,18 +152,18 @@
       </ul>
      </nav>
   </aside>
-  
+
   <section class="content">
     <div class="col-xs-12">
-      <h3>Please resize your browser window</h3>      
+      <h3>Please resize your browser window</h3>
     </div>
   </section>
 </div>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="//cdn.jsdelivr.net/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
-<script src="//cdn.jsdelivr.net/bootstrap.metismenu/1.1.0/js/metismenu.min.js"></script>
+<script src="//cdn.jsdelivr.net/bootstrap.metismenu/1.1.2/js/metismenu.min.js"></script>
 
 <script>
     $(function () {
@@ -174,9 +175,9 @@
 <script>
 (function($) {
   $(document).ready(function() {
-  
+
     var $this = $('#menu'), resizeTimer, self = this;
-    
+
     var initCollapse = function(el) {
       if ($(window).width() >= 768) {
 	this.find('li').has('ul').children('a').off('click');
@@ -187,7 +188,7 @@
 	clearTimeout(resizeTimer);
 	resizeTimer = setTimeout(self.initCollapse($this), 250);
     });
-    
+
   });
 })(jQuery);
 </script>

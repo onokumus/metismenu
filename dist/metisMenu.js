@@ -1,5 +1,5 @@
 /*
- * metismenu - v1.1.1
+ * metismenu - v1.1.3
  * Easy menu jQuery plugin for Twitter Bootstrap 3
  * https://github.com/onokumus/metisMenu
  *
@@ -100,7 +100,7 @@
         },
 
         remove: function() {
-            this.element.find('a').off("." + pluginName);
+            this.element.off("." + pluginName);
             this.element.removeData(pluginName);
         }
 

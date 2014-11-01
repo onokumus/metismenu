@@ -22,6 +22,12 @@
   margin: 0;
   list-style: none;
 }
+.sidebar-nav a,
+.sidebar-nav a:hover,
+.sidebar-nav a:focus,
+.sidebar-nav a:active {
+  outline: none;
+}
 .sidebar-nav ul li,
 .sidebar-nav ul a {
   display: block;
