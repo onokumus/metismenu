@@ -1,120 +1,201 @@
 /*
- * metismenu - v1.1.3
+ * metismenu - v2.0.0
  * Easy menu jQuery plugin for Twitter Bootstrap 3
  * https://github.com/onokumus/metisMenu
  *
  * Made by Osman Nuri Okumus
  * Under MIT License
  */
-;(function($, window, document, undefined) {
+(function($) {
+  'use strict';
 
-    var pluginName = "metisMenu",
-        defaults = {
-            toggle: true,
-            doubleTapToGo: false
+  function transitionEnd() {
+    var el = document.createElement('mm');
+
+    var transEndEventNames = {
+      WebkitTransition: 'webkitTransitionEnd',
+      MozTransition: 'transitionend',
+      OTransition: 'oTransitionEnd otransitionend',
+      transition: 'transitionend'
+    };
+
+    for (var name in transEndEventNames) {
+      if (el.style[name] !== undefined) {
+        return {
+          end: transEndEventNames[name]
         };
+      }
+    }
+    return false;
+  }
 
-    function Plugin(element, options) {
-        this.element = $(element);
-        this.settings = $.extend({}, defaults, options);
-        this._defaults = defaults;
-        this._name = pluginName;
-        this.init();
+  $.fn.emulateTransitionEnd = function(duration) {
+    var called = false;
+    var $el = this;
+    $(this).one('mmTransitionEnd', function() {
+      called = true;
+    });
+    var callback = function() {
+      if (!called) {
+        $($el).trigger($transition.end);
+      }
+    };
+    setTimeout(callback, duration);
+    return this;
+  };
+
+  var $transition = transitionEnd();
+  if (!!$transition) {
+    $.event.special.mmTransitionEnd = {
+      bindType: $transition.end,
+      delegateType: $transition.end,
+      handle: function(e) {
+        if ($(e.target).is(this)) {
+          return e.handleObj.handler.apply(this, arguments);
+        }
+      }
+    };
+  }
+
+  var MetisMenu = function(element, options) {
+    this.$element = $(element);
+    this.options = $.extend({}, MetisMenu.DEFAULTS, options);
+    this.transitioning = null;
+
+    if (this.options.toggle) {}
+    //this.show();
+    this.init();
+  };
+
+  MetisMenu.TRANSITION_DURATION = 350;
+
+  MetisMenu.DEFAULTS = {
+    toggle: true
+  };
+
+  MetisMenu.prototype.init = function() {
+    var $this = this;
+
+    this.$element.find('li.active').has('ul').children('ul').addClass('collapse in');
+    this.$element.find('li').not('.active').has('ul').children('ul').addClass('collapse');
+
+
+    this.$element.find('li').has('ul').children('a').on('click.metisMenu', function(e) {
+      var self = $(this);
+      var $parent = self.parent('li');
+      var $list = $parent.children('ul');
+      e.preventDefault();
+
+      if ($parent.hasClass('active')) {
+        $this.hide($list);
+      } else {
+        $this.show($list);
+      }
+    });
+  };
+
+  MetisMenu.prototype.toggle = function(el) {
+    this[$(el).hasClass('in') ? 'hide' : 'show'](el);
+  };
+
+
+  MetisMenu.prototype.show = function(el) {
+    var $this = $(el);
+    var $parent = $this.parent('li');
+    if (this.transitioning || $this.hasClass('in')) {
+      return;
     }
 
-    Plugin.prototype = {
-        init: function() {
 
-            var $this = this.element,
-                $toggle = this.settings.toggle,
-                obj = this;
 
-            if (this.isIE() <= 9) {
-                $this.find("li.active").has("ul").children("ul").collapse("show");
-                $this.find("li").not(".active").has("ul").children("ul").collapse("hide");
-            } else {
-                $this.find("li.active").has("ul").children("ul").addClass("collapse in");
-                $this.find("li").not(".active").has("ul").children("ul").addClass("collapse");
-            }
+    $parent.addClass('active');
 
-            //add the "doubleTapToGo" class to active items if needed
-            if (obj.settings.doubleTapToGo) {
-                $this.find("li.active").has("ul").children("a").addClass("doubleTapToGo");
-            }
+    if (this.options.toggle) {
+      this.hide($parent.siblings().children('ul.in'));
+    }
 
-            $this.find("li").has("ul").children("a").on("click" + "." + pluginName, function(e) {
-                e.preventDefault();
+    $this
+      .removeClass('collapse')
+      .addClass('collapsing')
+      .height(0);
 
-                //Do we need to enable the double tap
-                if (obj.settings.doubleTapToGo) {
+    this.transitioning = 1;
+    var complete = function() {
+      $this
+        .removeClass('collapsing')
+        .addClass('collapse in')
+        .height('');
+      this.transitioning = 0;
+    };
+    if (!$transition) {
+      return complete.call(this);
+    }
+    $this
+      .one('mmTransitionEnd', $.proxy(complete, this))
+      .emulateTransitionEnd(metisMenu.TRANSITION_DURATION)
+      .height($this[0].scrollHeight);
+  };
 
-                    //if we hit a second time on the link and the href is valid, navigate to that url
-                    if (obj.doubleTapToGo($(this)) && $(this).attr("href") !== "#" && $(this).attr("href") !== "") {
-                        e.stopPropagation();
-                        document.location = $(this).attr("href");
-                        return;
-                    }
-                }
+  MetisMenu.prototype.hide = function(el) {
+    var $this = $(el);
 
-                $(this).parent("li").toggleClass("active").children("ul").collapse("toggle");
+    if (this.transitioning || !$this.hasClass('in')) {
+      return;
+    }
 
-                if ($toggle) {
-                    $(this).parent("li").siblings().removeClass("active").children("ul.in").collapse("hide");
-                }
 
-            });
-        },
+    $this.parent('li').removeClass('active');
+    $this.height($this.height())[0].offsetHeight;
 
-        isIE: function() { //https://gist.github.com/padolsey/527683
-            var undef,
-                v = 3,
-                div = document.createElement("div"),
-                all = div.getElementsByTagName("i");
+    $this
+      .addClass('collapsing')
+      .removeClass('collapse')
+      .removeClass('in');
 
-            while (
-                div.innerHTML = "<!--[if gt IE " + (++v) + "]><i></i><![endif]-->",
-                all[0]
-            ) {
-                return v > 4 ? v : undef;
-            }
-        },
+    this.transitioning = 1;
 
-        //Enable the link on the second click.
-        doubleTapToGo: function(elem) {
-            var $this = this.element;
-
-            //if the class "doubleTapToGo" exists, remove it and return
-            if (elem.hasClass("doubleTapToGo")) {
-                elem.removeClass("doubleTapToGo");
-                return true;
-            }
-
-            //does not exists, add a new class and return false
-            if (elem.parent().children("ul").length) {
-                 //first remove all other class
-                $this.find(".doubleTapToGo").removeClass("doubleTapToGo");
-                //add the class on the current element
-                elem.addClass("doubleTapToGo");
-                return false;
-            }
-        },
-
-        remove: function() {
-            this.element.off("." + pluginName);
-            this.element.removeData(pluginName);
-        }
-
+    var complete = function() {
+      this.transitioning = 0;
+      $this
+        .removeClass('collapsing')
+        .addClass('collapse');
     };
 
-    $.fn[pluginName] = function(options) {
-        this.each(function () {
-            var el = $(this);
-            if (el.data(pluginName)) {
-                el.data(pluginName).remove();
-            }
-            el.data(pluginName, new Plugin(this, options));
-        });
-        return this;
-    };
+    if (!$transition) {
+      return complete.call(this);
+    }
+    $this
+      .height(0)
+      .one('mmTransitionEnd', $.proxy(complete, this))
+      .emulateTransitionEnd(metisMenu.TRANSITION_DURATION);
+  };
 
-})(jQuery, window, document);
+
+
+  function Plugin(option) {
+    return this.each(function() {
+      var $this = $(this);
+      var data = $this.data('mm');
+      var options = $.extend({}, metisMenu.DEFAULTS, $this.data(), typeof option === 'object' && option);
+
+      if (!data) {
+        $this.data('mm', (data = new MetisMenu(this, options)));
+      }
+      if (typeof option === 'string') {
+        data[option]();
+      }
+    });
+  }
+
+  var old = $.fn.metisMenu;
+
+  $.fn.metisMenu = Plugin;
+  $.fn.metisMenu.Constructor = MetisMenu;
+
+  $.fn.metisMenu.noConflict = function() {
+    $.fn.metisMenu = old;
+    return this;
+  };
+
+
+})(jQuery);
