@@ -1,6 +1,6 @@
 # metisMenu [![Build Status](https://secure.travis-ci.org/onokumus/metisMenu.png?branch=master)](https://travis-ci.org/onokumus/metisMenu)
 
-> Easy menu jQuery plugin<del> for Twitter Bootstrap 3</del>
+> Easy menu jQuery plugin <del>for Twitter Bootstrap 3</del>
 
 > Now support cdnjs & jsdelivr
 
