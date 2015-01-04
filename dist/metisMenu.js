@@ -1,6 +1,6 @@
 /*
  * metismenu - v2.0.0
- * Easy menu jQuery plugin for Twitter Bootstrap 3
+ * Easy menu jQuery plugin
  * https://github.com/onokumus/metisMenu
  *
  * Made by Osman Nuri Okumus
@@ -132,7 +132,7 @@
     }
     $this
       .one('mmTransitionEnd', $.proxy(complete, this))
-      .emulateTransitionEnd(metisMenu.TRANSITION_DURATION)
+      .emulateTransitionEnd(MetisMenu.TRANSITION_DURATION)
       .height($this[0].scrollHeight);
   };
 
@@ -167,7 +167,7 @@
     $this
       .height(0)
       .one('mmTransitionEnd', $.proxy(complete, this))
-      .emulateTransitionEnd(metisMenu.TRANSITION_DURATION);
+      .emulateTransitionEnd(MetisMenu.TRANSITION_DURATION);
   };
 
 
@@ -176,7 +176,7 @@
     return this.each(function() {
       var $this = $(this);
       var data = $this.data('mm');
-      var options = $.extend({}, metisMenu.DEFAULTS, $this.data(), typeof option === 'object' && option);
+      var options = $.extend({}, MetisMenu.DEFAULTS, $this.data(), typeof option === 'object' && option);
 
       if (!data) {
         $this.data('mm', (data = new MetisMenu(this, options)));

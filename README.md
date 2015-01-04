@@ -1,6 +1,6 @@
 # metisMenu [![Build Status](https://secure.travis-ci.org/onokumus/metisMenu.png?branch=master)](https://travis-ci.org/onokumus/metisMenu)
 
-> Easy menu jQuery plugin for Twitter Bootstrap 3
+> Easy menu jQuery plugin<del> for Twitter Bootstrap 3</del>
 
 > Now support cdnjs & jsdelivr
 
@@ -23,37 +23,25 @@ bower install metisMenu
 
 ## Usage
 
-1. Include Twitter Bootstrap StyleSheet
+1. Include metisMenu StyleSheet
 
     ```html
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.0.0/metisMenu.min.css">
     ```
 
-2. Include metisMenu StyleSheet
+2. Include jQuery
 
     ```html
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/1.1.3/metisMenu.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     ```
 
-3. Include jQuery
+3. Include metisMenu plugin's code
 
     ```html
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.0.0/metisMenu.min.js"></script>
     ```
 
-4. Include Twitter Bootstrap Script
-
-    ```html
-    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    ```
-
-5. Include metisMenu plugin's code
-
-    ```html
-    <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/1.1.3/metisMenu.min.js"></script>
-    ```
-
-6. Call the plugin:
+4. Call the plugin:
 
     ```javascript
     $("#menu").metisMenu();
@@ -92,6 +80,7 @@ Contains a simple HTML file to demonstrate metisMenu plugin.
 
 ### Release History
 **DATE**       **VERSION**   **CHANGES**
+* 2015-01-     v2.0.0        Remove Bootstrap dependency
 * 2014-11-01   v1.1.3        Bootstrap 3.3.0
 * 2014-07-07   v1.1.0	       Add double tap functionality
 * 2014-06-24   v1.0.3	       cdnjs support & rename plugin
