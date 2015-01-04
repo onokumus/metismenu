@@ -70,7 +70,8 @@
   MetisMenu.TRANSITION_DURATION = 350;
 
   MetisMenu.DEFAULTS = {
-    toggle: true
+    toggle: true,
+    doubleTapToGo: false
   };
 
   MetisMenu.prototype.init = function() {
@@ -79,6 +80,10 @@
     this.$element.find('li.active').has('ul').children('ul').addClass('collapse in');
     this.$element.find('li').not('.active').has('ul').children('ul').addClass('collapse');
 
+    //add the 'doubleTapToGo' class to active items if needed
+    if (this.options.doubleTapToGo) {
+      this.$element.find('li.active').has('ul').children('a').addClass('doubleTapToGo');
+    }
 
     this.$element.find('li').has('ul').children('a').on('click.metisMenu', function(e) {
       var self = $(this);
@@ -91,13 +96,35 @@
       } else {
         $this.show($list);
       }
+
+      //Do we need to enable the double tap
+      if ($this.options.doubleTapToGo) {
+        //if we hit a second time on the link and the href is valid, navigate to that url
+        if ($this.doubleTapToGo(self) && self.attr('href') !== '#' && self.attr('href') !== '') {
+          e.stopPropagation();
+          document.location = self.attr('href');
+          return;
+        }
+      }
     });
   };
 
-  MetisMenu.prototype.toggle = function(el) {
-    this[$(el).hasClass('in') ? 'hide' : 'show'](el);
+  MetisMenu.prototype.doubleTapToGo = function(elem) {
+    var $this = this.$element;
+    //if the class 'doubleTapToGo' exists, remove it and return
+    if (elem.hasClass('doubleTapToGo')) {
+      elem.removeClass('doubleTapToGo');
+      return true;
+    }
+    //does not exists, add a new class and return false
+    if (elem.parent().children('ul').length) {
+      //first remove all other class
+      $this.find('.doubleTapToGo').removeClass('doubleTapToGo');
+      //add the class on the current element
+      elem.addClass('doubleTapToGo');
+      return false;
+    }
   };
-
 
   MetisMenu.prototype.show = function(el) {
     var $this = $(el);
