@@ -1,4 +1,4 @@
-# metisMenu [![Build Status](https://secure.travis-ci.org/onokumus/metisMenu.png?branch=master)](https://travis-ci.org/onokumus/metisMenu)
+# metisMenu [![Build Status](https://secure.travis-ci.org/onokumus/metisMenu.svg?branch=master)](https://travis-ci.org/onokumus/metisMenu)
 
 > Easy menu jQuery plugin for Twitter Bootstrap 3
 
