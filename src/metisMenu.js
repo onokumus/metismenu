@@ -22,11 +22,11 @@
                 obj = this;
 
             if (this.isIE() <= 9) {
-                $this.find("li.active").has("ul").children("ul").collapse("show");
-                $this.find("li").not(".active").has("ul").children("ul").collapse("hide");
+                $this.find("li.active").has("ul").children("ul").collapse("show").attr('aria-expanded', "true");
+                $this.find("li").not(".active").has("ul").children("ul").collapse("hide").attr('aria-expanded', "false");
             } else {
-                $this.find("li.active").has("ul").children("ul").addClass("collapse in");
-                $this.find("li").not(".active").has("ul").children("ul").addClass("collapse");
+                $this.find("li.active").has("ul").children("ul").addClass("collapse in").attr('aria-expanded', "true");
+                $this.find("li").not(".active").has("ul").children("ul").addClass("collapse").attr('aria-expanded', "false");
             }
 
             //add the "doubleTapToGo" class to active items if needed
