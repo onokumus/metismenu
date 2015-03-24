@@ -17,11 +17,6 @@ npm install metismenu
 bower install metisMenu
 ```
 
-* [composer](https://getcomposer.org/)
-
-```bash
-composer require onokumus/metismenu
-```
 
 * [Download](https://github.com/onokumus/metisMenu/archive/master.zip)
 
@@ -96,7 +91,6 @@ Contains a simple HTML file to demonstrate metisMenu plugin.
 
 ### Release History
 **DATE**       **VERSION**   **CHANGES**
-* 2015-03-24   v1.1.3        composer support
 * 2014-11-01   v1.1.3        Bootstrap 3.3.0
 * 2014-07-07   v1.1.0	     Add double tap functionality
 * 2014-06-24   v1.0.3	     cdnjs support & rename plugin
