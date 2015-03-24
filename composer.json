@@ -1,0 +1,25 @@
+{
+  "name": "onokumus/metismenu",
+  "description": "A jQuery menu plugin for Bootstrap 3",
+  "keywords": [
+    "menu",
+    "plugin",
+    "jquery",
+    "web",
+    "css",
+    "js",
+    "bootstrap"
+  ],
+  "homepage": "https://github.com/onokumus/metisMenu",
+  "authors": [
+    {
+      "name": "Osman Nuri Okumus",
+      "email": "onokumus@gmail.com",
+      "homepage": "http://onokumus.com"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/onokumus/metisMenu/issues"
+  },
+  "license": "MIT"
+}
