@@ -21,5 +21,11 @@
   "support": {
     "issues": "https://github.com/onokumus/metisMenu/issues"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.1.3"
+    }
+  },
+  "minimum-stability": "stable"
 }
