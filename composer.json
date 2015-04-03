@@ -1,6 +1,6 @@
 {
   "name": "onokumus/metismenu",
-  "description": "A jQuery menu plugin for Bootstrap 3",
+  "description": "A jQuery menu plugin",
   "keywords": [
     "menu",
     "plugin",
@@ -23,7 +23,6 @@
   },
   "license": "MIT",
   "suggest": {
-    "components/jquery": ">=1.8",
-    "twbs/bootstrap": "~3.0.0"
+    "components/jquery": ">=1.8"
   }
 }
