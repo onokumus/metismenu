@@ -1,228 +1,256 @@
 /*
- * metismenu - v2.0.0
+ * metismenu - v2.0.1
  * A jQuery menu plugin
  * https://github.com/onokumus/metisMenu
  *
  * Made by Osman Nuri Okumus
  * Under MIT License
  */
- (function($) {
-   'use strict';
 
-   function transitionEnd() {
-     var el = document.createElement('mm');
+(function($) {
+  'use strict';
 
-     var transEndEventNames = {
-       WebkitTransition: 'webkitTransitionEnd',
-       MozTransition: 'transitionend',
-       OTransition: 'oTransitionEnd otransitionend',
-       transition: 'transitionend'
-     };
+  function transitionEnd() {
+    var el = document.createElement('mm');
 
-     for (var name in transEndEventNames) {
-       if (el.style[name] !== undefined) {
-         return {
-           end: transEndEventNames[name]
-         };
-       }
-     }
-     return false;
-   }
+    var transEndEventNames = {
+      WebkitTransition: 'webkitTransitionEnd',
+      MozTransition: 'transitionend',
+      OTransition: 'oTransitionEnd otransitionend',
+      transition: 'transitionend'
+    };
 
-   $.fn.emulateTransitionEnd = function(duration) {
-     var called = false;
-     var $el = this;
-     $(this).one('mmTransitionEnd', function() {
-       called = true;
-     });
-     var callback = function() {
-       if (!called) {
-         $($el).trigger($transition.end);
-       }
-     };
-     setTimeout(callback, duration);
-     return this;
-   };
+    for (var name in transEndEventNames) {
+      if (el.style[name] !== undefined) {
+        return {
+          end: transEndEventNames[name]
+        };
+      }
+    }
+    return false;
+  }
 
-   var $transition = transitionEnd();
-   if (!!$transition) {
-     $.event.special.mmTransitionEnd = {
-       bindType: $transition.end,
-       delegateType: $transition.end,
-       handle: function(e) {
-         if ($(e.target).is(this)) {
-           return e.handleObj.handler.apply(this, arguments);
-         }
-       }
-     };
-   }
+  $.fn.emulateTransitionEnd = function(duration) {
+    var called = false;
+    var $el = this;
+    $(this).one('mmTransitionEnd', function() {
+      called = true;
+    });
+    var callback = function() {
+      if (!called) {
+        $($el).trigger($transition.end);
+      }
+    };
+    setTimeout(callback, duration);
+    return this;
+  };
 
-   var MetisMenu = function(element, options) {
-     this.$element = $(element);
-     this.options = $.extend({}, MetisMenu.DEFAULTS, options);
-     this.transitioning = null;
+  var $transition = transitionEnd();
+  if (!!$transition) {
+    $.event.special.mmTransitionEnd = {
+      bindType: $transition.end,
+      delegateType: $transition.end,
+      handle: function(e) {
+        if ($(e.target).is(this)) {
+          return e.
+          handleObj.
+          handler.
+          apply(this, arguments);
+        }
+      }
+    };
+  }
 
-     if (this.options.toggle) {}
-     //this.show();
-     this.init();
-   };
+  var MetisMenu = function(element, options) {
+    this.$element = $(element);
+    this.options = $.extend({}, MetisMenu.DEFAULTS, options);
+    this.transitioning = null;
 
-   MetisMenu.TRANSITION_DURATION = 350;
+    this.init();
+  };
 
-   MetisMenu.DEFAULTS = {
-     toggle: true,
-     doubleTapToGo: false
-   };
+  MetisMenu.TRANSITION_DURATION = 350;
 
-   MetisMenu.prototype.init = function() {
-     var $this = this;
+  MetisMenu.DEFAULTS = {
+    toggle: true,
+    doubleTapToGo: false,
+    activeClass: 'active'
+  };
 
-     this.$element.find('li.active').has('ul').children('ul').addClass('collapse in');
-     this.$element.find('li').not('.active').has('ul').children('ul').addClass('collapse');
+  MetisMenu.prototype.init = function() {
+    var $this = this;
+    var activeClass = this.options.activeClass;
 
-     //add the 'doubleTapToGo' class to active items if needed
-     if (this.options.doubleTapToGo) {
-       this.$element.find('li.active').has('ul').children('a').addClass('doubleTapToGo');
-     }
+    this
+      .$element
+      .find('li.' + activeClass)
+      .has('ul')
+      .children('ul')
+      .addClass('collapse in');
 
-     this.$element.find('li').has('ul').children('a').on('click.metisMenu', function(e) {
-       var self = $(this);
-       var $parent = self.parent('li');
-       var $list = $parent.children('ul');
-       e.preventDefault();
+    this
+      .$element
+      .find('li')
+      .not('.' + activeClass)
+      .has('ul')
+      .children('ul')
+      .addClass('collapse');
 
-       if ($parent.hasClass('active')) {
-         $this.hide($list);
-       } else {
-         $this.show($list);
-       }
+    //add the 'doubleTapToGo' class to active items if needed
+    if (this.options.doubleTapToGo) {
+      this
+        .$element
+        .find('li.' + activeClass)
+        .has('ul')
+        .children('a')
+        .addClass('doubleTapToGo');
+    }
 
-       //Do we need to enable the double tap
-       if ($this.options.doubleTapToGo) {
-         //if we hit a second time on the link and the href is valid, navigate to that url
-         if ($this.doubleTapToGo(self) && self.attr('href') !== '#' && self.attr('href') !== '') {
-           e.stopPropagation();
-           document.location = self.attr('href');
-           return;
-         }
-       }
-     });
-   };
+    this
+      .$element
+      .find('li')
+      .has('ul')
+      .children('a')
+      .on('click.metisMenu', function(e) {
+        var self = $(this);
+        var $parent = self.parent('li');
+        var $list = $parent.children('ul');
+        e.preventDefault();
 
-   MetisMenu.prototype.doubleTapToGo = function(elem) {
-     var $this = this.$element;
-     //if the class 'doubleTapToGo' exists, remove it and return
-     if (elem.hasClass('doubleTapToGo')) {
-       elem.removeClass('doubleTapToGo');
-       return true;
-     }
-     //does not exists, add a new class and return false
-     if (elem.parent().children('ul').length) {
-       //first remove all other class
-       $this.find('.doubleTapToGo').removeClass('doubleTapToGo');
-       //add the class on the current element
-       elem.addClass('doubleTapToGo');
-       return false;
-     }
-   };
+        if ($parent.hasClass(activeClass)) {
+          $this.hide($list);
+        } else {
+          $this.show($list);
+        }
 
-   MetisMenu.prototype.show = function(el) {
-     var $this = $(el);
-     var $parent = $this.parent('li');
-     if (this.transitioning || $this.hasClass('in')) {
-       return;
-     }
+        //Do we need to enable the double tap
+        if ($this.options.doubleTapToGo) {
+          //if we hit a second time on the link and the href is valid, navigate to that url
+          if ($this.doubleTapToGo(self) && self.attr('href') !== '#' && self.attr('href') !== '') {
+            e.stopPropagation();
+            document.location = self.attr('href');
+            return;
+          }
+        }
+      });
+  };
 
+  MetisMenu.prototype.doubleTapToGo = function(elem) {
+    var $this = this.$element;
+    //if the class 'doubleTapToGo' exists, remove it and return
+    if (elem.hasClass('doubleTapToGo')) {
+      elem.removeClass('doubleTapToGo');
+      return true;
+    }
+    //does not exists, add a new class and return false
+    if (elem.parent().children('ul').length) {
+      //first remove all other class
+      $this
+        .find('.doubleTapToGo')
+        .removeClass('doubleTapToGo');
+      //add the class on the current element
+      elem.addClass('doubleTapToGo');
+      return false;
+    }
+  };
 
+  MetisMenu.prototype.show = function(el) {
+    var activeClass = this.options.activeClass;
+    var $this = $(el);
+    var $parent = $this.parent('li');
+    if (this.transitioning || $this.hasClass('in')) {
+      return;
+    }
 
-     $parent.addClass('active');
+    $parent.addClass(activeClass);
 
-     if (this.options.toggle) {
-       this.hide($parent.siblings().children('ul.in'));
-     }
+    if (this.options.toggle) {
+      this.hide($parent.siblings().children('ul.in'));
+    }
 
-     $this
-       .removeClass('collapse')
-       .addClass('collapsing')
-       .height(0);
+    $this
+      .removeClass('collapse')
+      .addClass('collapsing')
+      .height(0);
 
-     this.transitioning = 1;
-     var complete = function() {
-       $this
-         .removeClass('collapsing')
-         .addClass('collapse in')
-         .height('');
-       this.transitioning = 0;
-     };
-     if (!$transition) {
-       return complete.call(this);
-     }
-     $this
-       .one('mmTransitionEnd', $.proxy(complete, this))
-       .emulateTransitionEnd(MetisMenu.TRANSITION_DURATION)
-       .height($this[0].scrollHeight);
-   };
+    this.transitioning = 1;
+    var complete = function() {
+      $this
+        .removeClass('collapsing')
+        .addClass('collapse in')
+        .height('');
+      this.transitioning = 0;
+    };
+    if (!$transition) {
+      return complete.call(this);
+    }
+    $this
+      .one('mmTransitionEnd', $.proxy(complete, this))
+      .emulateTransitionEnd(MetisMenu.TRANSITION_DURATION)
+      .height($this[0].scrollHeight);
+  };
 
-   MetisMenu.prototype.hide = function(el) {
-     var $this = $(el);
+  MetisMenu.prototype.hide = function(el) {
+    var activeClass = this.options.activeClass;
+    var $this = $(el);
 
-     if (this.transitioning || !$this.hasClass('in')) {
-       return;
-     }
+    if (this.transitioning || !$this.hasClass('in')) {
+      return;
+    }
 
+    $this.parent('li').removeClass(activeClass);
+    $this.height($this.height())[0].offsetHeight;
 
-     $this.parent('li').removeClass('active');
-     $this.height($this.height())[0].offsetHeight;
+    $this
+      .addClass('collapsing')
+      .removeClass('collapse')
+      .removeClass('in');
 
-     $this
-       .addClass('collapsing')
-       .removeClass('collapse')
-       .removeClass('in');
+    this.transitioning = 1;
 
-     this.transitioning = 1;
+    var complete = function() {
+      this.transitioning = 0;
+      $this
+        .removeClass('collapsing')
+        .addClass('collapse');
+    };
 
-     var complete = function() {
-       this.transitioning = 0;
-       $this
-         .removeClass('collapsing')
-         .addClass('collapse');
-     };
+    if (!$transition) {
+      return complete.call(this);
+    }
+    $this
+      .height(0)
+      .one('mmTransitionEnd', $.proxy(complete, this))
+      .emulateTransitionEnd(MetisMenu.TRANSITION_DURATION);
+  };
 
-     if (!$transition) {
-       return complete.call(this);
-     }
-     $this
-       .height(0)
-       .one('mmTransitionEnd', $.proxy(complete, this))
-       .emulateTransitionEnd(MetisMenu.TRANSITION_DURATION);
-   };
+  function Plugin(option) {
+    return this.each(function() {
+      var $this = $(this);
+      var data = $this.data('mm');
+      var options = $.extend({},
+        MetisMenu.DEFAULTS,
+        $this.data(),
+        typeof option === 'object' && option
+      );
 
+      if (!data) {
+        $this.data('mm', (data = new MetisMenu(this, options)));
+      }
+      if (typeof option === 'string') {
+        data[option]();
+      }
+    });
+  }
 
+  var old = $.fn.metisMenu;
 
-   function Plugin(option) {
-     return this.each(function() {
-       var $this = $(this);
-       var data = $this.data('mm');
-       var options = $.extend({}, MetisMenu.DEFAULTS, $this.data(), typeof option === 'object' && option);
+  $.fn.metisMenu = Plugin;
+  $.fn.metisMenu.Constructor = MetisMenu;
 
-       if (!data) {
-         $this.data('mm', (data = new MetisMenu(this, options)));
-       }
-       if (typeof option === 'string') {
-         data[option]();
-       }
-     });
-   }
+  $.fn.metisMenu.noConflict = function() {
+    $.fn.metisMenu = old;
+    return this;
+  };
 
-   var old = $.fn.metisMenu;
-
-   $.fn.metisMenu = Plugin;
-   $.fn.metisMenu.Constructor = MetisMenu;
-
-   $.fn.metisMenu.noConflict = function() {
-     $.fn.metisMenu = old;
-     return this;
-   };
-
-
- })(jQuery);
+})(jQuery);

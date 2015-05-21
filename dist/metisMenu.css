@@ -1,5 +1,5 @@
 /*
- * metismenu - v2.0.0
+ * metismenu - v2.0.1
  * A jQuery menu plugin
  * https://github.com/onokumus/metisMenu
  *
@@ -62,4 +62,25 @@
 
 .active > a > .fa.plus-minus:before {
     content: "\f068";
+}
+
+.collapse {
+    display: none;
+}
+.collapse.in {
+    display: block;
+}
+.collapsing {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    -webkit-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: .35s;
+    -o-transition-duration: .35s;
+    transition-duration: .35s;
+    -webkit-transition-property: height, visibility;
+    -o-transition-property: height, visibility;
+    transition-property: height, visibility;
 }

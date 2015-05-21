@@ -24,30 +24,21 @@ module.exports = function(grunt) {
     },
     concat: {
       plugin: {
-        options: {
-          banner: '<%= banner %>'
-        },
         src: ['src/metisMenu.js'],
         dest: 'dist/metisMenu.js'
       },
       css: {
         src: ['src/metisMenu.css'],
         dest: 'dist/metisMenu.css'
-      }      
+      }
     },
     uglify: {
       plugin: {
         src: ['dist/metisMenu.js'],
         dest: 'dist/metisMenu.min.js'
-      },
-      options: {
-        banner: '<%= banner %>'
       }
     },
     cssmin: {
-      options: {
-        banner: '<%= banner %>'
-      },
       menucss: {
         src: ['src/metisMenu.css'],
         dest: 'dist/metisMenu.min.css'
@@ -59,17 +50,62 @@ module.exports = function(grunt) {
         banner: '<%= banner %>'
       },
       files: {
-        src: 'dist/*.css'
+        src: 'dist/*.{css,js}'
+      }
+    },
+    connect: {
+      options: {
+        port: 9000,
+        livereload: 35729,
+        hostname: 'localhost',
+        base: [
+          'dist',
+          'test'
+        ]
+      },
+      livereload: {
+        options: {
+          open: true
+        }
+      }
+    },
+    watch: {
+      script: {
+        files: ['src/**/*.js'],
+        tasks: ['concat:plugin', 'uglify', 'usebanner']
+      },
+      style: {
+        files: ['src/**/*.css'],
+        tasks: ['concat:css', 'cssmin', 'usebanner']
+      },
+      livereload: {
+        options: {
+          livereload: '<%= connect.options.livereload %>'
+        },
+        files: [
+          'test/{,*/}*.html',
+          'dist/{,*/}*.css',
+          'dist/{,*/}*.js'
+        ]
       }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-banner');
 
   grunt.registerTask('travis', ['jshint']);
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'cssmin', 'usebanner']);
+  grunt.registerTask('serve', ['connect:livereload', 'watch']);
+  grunt.registerTask('default', [
+    'jshint',
+    'concat',
+    'uglify',
+    'cssmin',
+    'usebanner'
+  ]);
 };

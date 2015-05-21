@@ -43,7 +43,10 @@
       delegateType: $transition.end,
       handle: function(e) {
         if ($(e.target).is(this)) {
-          return e.handleObj.handler.apply(this, arguments);
+          return e.
+          handleObj.
+          handler.
+          apply(this, arguments);
         }
       }
     };
@@ -54,8 +57,6 @@
     this.options = $.extend({}, MetisMenu.DEFAULTS, options);
     this.transitioning = null;
 
-    if (this.options.toggle) {}
-    //this.show();
     this.init();
   };
 
@@ -63,42 +64,66 @@
 
   MetisMenu.DEFAULTS = {
     toggle: true,
-    doubleTapToGo: false
+    doubleTapToGo: false,
+    activeClass: 'active'
   };
 
   MetisMenu.prototype.init = function() {
     var $this = this;
+    var activeClass = this.options.activeClass;
 
-    this.$element.find('li.active').has('ul').children('ul').addClass('collapse in');
-    this.$element.find('li').not('.active').has('ul').children('ul').addClass('collapse');
+    this
+      .$element
+      .find('li.' + activeClass)
+      .has('ul')
+      .children('ul')
+      .addClass('collapse in');
+
+    this
+      .$element
+      .find('li')
+      .not('.' + activeClass)
+      .has('ul')
+      .children('ul')
+      .addClass('collapse');
 
     //add the 'doubleTapToGo' class to active items if needed
     if (this.options.doubleTapToGo) {
-      this.$element.find('li.active').has('ul').children('a').addClass('doubleTapToGo');
+      this
+        .$element
+        .find('li.' + activeClass)
+        .has('ul')
+        .children('a')
+        .addClass('doubleTapToGo');
     }
 
-    this.$element.find('li').has('ul').children('a').on('click.metisMenu', function(e) {
-      var self = $(this);
-      var $parent = self.parent('li');
-      var $list = $parent.children('ul');
-      e.preventDefault();
+    this
+      .$element
+      .find('li')
+      .has('ul')
+      .children('a')
+      .on('click.metisMenu', function(e) {
+        var self = $(this);
+        var $parent = self.parent('li');
+        var $list = $parent.children('ul');
+        e.preventDefault();
 
-      if ($parent.hasClass('active')) {
-        $this.hide($list);
-      } else {
-        $this.show($list);
-      }
-
-      //Do we need to enable the double tap
-      if ($this.options.doubleTapToGo) {
-        //if we hit a second time on the link and the href is valid, navigate to that url
-        if ($this.doubleTapToGo(self) && self.attr('href') !== '#' && self.attr('href') !== '') {
-          e.stopPropagation();
-          document.location = self.attr('href');
-          return;
+        if ($parent.hasClass(activeClass)) {
+          $this.hide($list);
+        } else {
+          $this.show($list);
         }
-      }
-    });
+
+        //Do we need to enable the double tap
+        if ($this.options.doubleTapToGo) {
+          //if we hit a second time on the link and the href is valid, navigate to that url
+          if ($this.doubleTapToGo(self) && self.attr('href') !== '#' && self.attr('href') !== '') {
+            e.stopPropagation();
+            document.location = self.attr('href');
+            return;
+          }
+        }
+      });
   };
 
   MetisMenu.prototype.doubleTapToGo = function(elem) {
@@ -111,7 +136,9 @@
     //does not exists, add a new class and return false
     if (elem.parent().children('ul').length) {
       //first remove all other class
-      $this.find('.doubleTapToGo').removeClass('doubleTapToGo');
+      $this
+        .find('.doubleTapToGo')
+        .removeClass('doubleTapToGo');
       //add the class on the current element
       elem.addClass('doubleTapToGo');
       return false;
@@ -119,15 +146,14 @@
   };
 
   MetisMenu.prototype.show = function(el) {
+    var activeClass = this.options.activeClass;
     var $this = $(el);
     var $parent = $this.parent('li');
     if (this.transitioning || $this.hasClass('in')) {
       return;
     }
 
-
-
-    $parent.addClass('active');
+    $parent.addClass(activeClass);
 
     if (this.options.toggle) {
       this.hide($parent.siblings().children('ul.in'));
@@ -156,14 +182,14 @@
   };
 
   MetisMenu.prototype.hide = function(el) {
+    var activeClass = this.options.activeClass;
     var $this = $(el);
 
     if (this.transitioning || !$this.hasClass('in')) {
       return;
     }
 
-
-    $this.parent('li').removeClass('active');
+    $this.parent('li').removeClass(activeClass);
     $this.height($this.height())[0].offsetHeight;
 
     $this
@@ -189,13 +215,15 @@
       .emulateTransitionEnd(MetisMenu.TRANSITION_DURATION);
   };
 
-
-
   function Plugin(option) {
     return this.each(function() {
       var $this = $(this);
       var data = $this.data('mm');
-      var options = $.extend({}, MetisMenu.DEFAULTS, $this.data(), typeof option === 'object' && option);
+      var options = $.extend({},
+        MetisMenu.DEFAULTS,
+        $this.data(),
+        typeof option === 'object' && option
+      );
 
       if (!data) {
         $this.data('mm', (data = new MetisMenu(this, options)));
@@ -215,6 +243,5 @@
     $.fn.metisMenu = old;
     return this;
   };
-
 
 })(jQuery);

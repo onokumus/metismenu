@@ -30,19 +30,19 @@ composer require onokumus/metismenu:dev-master
 1. Include metisMenu StyleSheet
 
     ```html
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.0.0/metisMenu.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.0.1/metisMenu.min.css">
     ```
 
 2. Include jQuery
 
     ```html
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     ```
 
 3. Include metisMenu plugin's code
 
     ```html
-    <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.0.0/metisMenu.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.0.1/metisMenu.min.js"></script>
     ```
 
 4. Call the plugin:
@@ -65,6 +65,17 @@ For auto collapse support.
   });
 ```
 
+#### activeClass
+Type: `String`
+Default: `active`
+
+
+```javascript
+  $("#menu").metisMenu({
+    activeClass: 'active'
+  });
+```
+
 
 
 ### [DEMO](http://demo.onokumus.com/metisMenu/)
@@ -73,6 +84,7 @@ Contains a simple HTML file to demonstrate metisMenu plugin.
 
 ### Release History
 **DATE**       **VERSION**   **CHANGES**
+* 2015-05-22   v2.0.1        changeable classname
 * 2015-04-03   v2.0.0        Remove Bootstrap dependency
 * 2015-03-24   v1.1.3        composer support
 * 2014-11-01   v1.1.3        Bootstrap 3.3.0
