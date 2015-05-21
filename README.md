@@ -76,7 +76,11 @@ Default: `active`
   });
 ```
 
-
+### Testing
+```bash
+npm install
+grunt serve
+```
 
 ### [DEMO](http://demo.onokumus.com/metisMenu/)
 
@@ -84,7 +88,7 @@ Contains a simple HTML file to demonstrate metisMenu plugin.
 
 ### Release History
 **DATE**       **VERSION**   **CHANGES**
-* 2015-05-22   v2.0.1        changeable classname
+* 2015-05-22   v2.0.1        changeable classname support
 * 2015-04-03   v2.0.0        Remove Bootstrap dependency
 * 2015-03-24   v1.1.3        composer support
 * 2014-11-01   v1.1.3        Bootstrap 3.3.0
