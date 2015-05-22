@@ -1,5 +1,5 @@
 /*
- * metismenu - v2.0.1
+ * metismenu - v2.0.2
  * A jQuery menu plugin
  * https://github.com/onokumus/metisMenu
  *
@@ -7,80 +7,80 @@
  * Under MIT License
  */
 
-.arrow {
-    float: right;
-    line-height: 1.42857;
+.metismenu .arrow {
+  float: right;
+  line-height: 1.42857;
 }
 
-.glyphicon.arrow:before {
-    content: "\e079";
-}
+/*
+ * Require Bootstrap
+ * https://github.com/twbs/bootstrap
+*/
 
-.active > a > .glyphicon.arrow:before {
-    content: "\e114";
+.metismenu .glyphicon.arrow:before {
+  content: "\e079";
 }
-
+.metismenu .active > a > .glyphicon.arrow:before {
+  content: "\e114";
+}
 
 /*
  * Require Font-Awesome
  * http://fortawesome.github.io/Font-Awesome/
 */
 
-
-.fa.arrow:before {
-    content: "\f104";
+.metismenu .fa.arrow:before {
+  content: "\f104";
+}
+.metismenu .active > a > .fa.arrow:before {
+  content: "\f107";
 }
 
-.active > a > .fa.arrow:before {
-    content: "\f107";
-}
+/*
+ * Require Ionicons
+ * http://ionicons.com/
+*/
 
-.plus-times {
-    float: right;
+.metismenu .ion.arrow:before {
+  content:"\f3d2"
 }
-
-.fa.plus-times:before {
-    content: "\f067";
+.metismenu .active > a > .ion.arrow:before {
+    content:"\f3d0";
 }
-
-.active > a > .fa.plus-times {
-    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
+.metismenu .plus-times {
+  float: right;
 }
-
-.plus-minus {
-    float: right;
+.metismenu .fa.plus-times:before {
+  content: "\f067";
 }
-
-.fa.plus-minus:before {
-    content: "\f067";
+.metismenu .active > a > .fa.plus-times {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
-
-.active > a > .fa.plus-minus:before {
-    content: "\f068";
+.metismenu .plus-minus {
+  float: right;
 }
-
-.collapse {
-    display: none;
+.metismenu .fa.plus-minus:before {
+  content: "\f067";
 }
-.collapse.in {
-    display: block;
+.metismenu .active > a > .fa.plus-minus:before {
+  content: "\f068";
 }
-.collapsing {
-    position: relative;
-    height: 0;
-    overflow: hidden;
-    -webkit-transition-timing-function: ease;
-    -o-transition-timing-function: ease;
-    transition-timing-function: ease;
-    -webkit-transition-duration: .35s;
-    -o-transition-duration: .35s;
-    transition-duration: .35s;
-    -webkit-transition-property: height, visibility;
-    -o-transition-property: height, visibility;
-    transition-property: height, visibility;
+.metismenu .collapse {
+  display: none;
+}
+.metismenu .collapse.in {
+  display: block;
+}
+.metismenu .collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
+  -webkit-transition-duration: .35s;
+          transition-duration: .35s;
+  -webkit-transition-property: height, visibility;
+          transition-property: height, visibility;
 }

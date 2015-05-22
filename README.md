@@ -44,8 +44,15 @@ composer require onokumus/metismenu:dev-master
     ```html
     <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.0.1/metisMenu.min.js"></script>
     ```
+4. Add class `metismenu` to unordered list
 
-4. Call the plugin:
+    ```html
+    <ul class="metismenu" id="menu">
+
+    </ul>
+    ```
+
+5. Call the plugin:
 
     ```javascript
     $("#menu").metisMenu();
@@ -88,6 +95,7 @@ Contains a simple HTML file to demonstrate metisMenu plugin.
 
 ### Release History
 **DATE**       **VERSION**   **CHANGES**
+* 2015-05-23   v2.0.2        [fixed](https://github.com/onokumus/metisMenu/issues/34#issuecomment-104656754) 
 * 2015-05-22   v2.0.1        changeable classname support
 * 2015-04-03   v2.0.0        Remove Bootstrap dependency
 * 2015-03-24   v1.1.3        composer support
