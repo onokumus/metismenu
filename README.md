@@ -83,6 +83,40 @@ Default: `active`
   });
 ```
 
+#### collapseClass
+Type: `String`
+Default: `collapse`
+
+
+```javascript
+  $("#menu").metisMenu({
+    collapseClass: 'collapse'
+  });
+```
+
+#### collapseInClass
+Type: `String`
+Default: `in`
+
+
+```javascript
+  $("#menu").metisMenu({
+    collapseInClass: 'in'
+  });
+```
+
+
+#### collapsingClass
+Type: `String`
+Default: `collapsing`
+
+
+```javascript
+  $("#menu").metisMenu({
+    collapsingClass: 'collapsing'
+  });
+```
+
 ### Testing
 ```bash
 npm install

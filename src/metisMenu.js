@@ -65,19 +65,24 @@
   MetisMenu.DEFAULTS = {
     toggle: true,
     doubleTapToGo: false,
-    activeClass: 'active'
+    activeClass: 'active',
+    collapseClass: 'collapse',
+    collapseInClass: 'in',
+    collapsingClass: 'collapsing'
   };
 
   MetisMenu.prototype.init = function() {
     var $this = this;
     var activeClass = this.options.activeClass;
+    var collapseClass = this.options.collapseClass;
+    var collapseInClass = this.options.collapseInClass;
 
     this
       .$element
       .find('li.' + activeClass)
       .has('ul')
       .children('ul')
-      .addClass('collapse in');
+      .addClass(collapseClass + ' ' + collapseInClass);
 
     this
       .$element
@@ -85,7 +90,7 @@
       .not('.' + activeClass)
       .has('ul')
       .children('ul')
-      .addClass('collapse');
+      .addClass(collapseClass);
 
     //add the 'doubleTapToGo' class to active items if needed
     if (this.options.doubleTapToGo) {
@@ -147,28 +152,31 @@
 
   MetisMenu.prototype.show = function(el) {
     var activeClass = this.options.activeClass;
+    var collapseClass = this.options.collapseClass;
+    var collapseInClass = this.options.collapseInClass;
+    var collapsingClass = this.options.collapsingClass;
     var $this = $(el);
     var $parent = $this.parent('li');
-    if (this.transitioning || $this.hasClass('in')) {
+    if (this.transitioning || $this.hasClass(collapseInClass)) {
       return;
     }
 
     $parent.addClass(activeClass);
 
     if (this.options.toggle) {
-      this.hide($parent.siblings().children('ul.in'));
+      this.hide($parent.siblings().children('ul.' + collapseInClass));
     }
 
     $this
-      .removeClass('collapse')
-      .addClass('collapsing')
+      .removeClass(collapseClass)
+      .addClass(collapsingClass)
       .height(0);
 
     this.transitioning = 1;
     var complete = function() {
       $this
-        .removeClass('collapsing')
-        .addClass('collapse in')
+        .removeClass(collapsingClass)
+        .addClass(collapseClass + ' ' + collapseInClass)
         .height('');
       this.transitioning = 0;
     };
@@ -183,9 +191,12 @@
 
   MetisMenu.prototype.hide = function(el) {
     var activeClass = this.options.activeClass;
+    var collapseClass = this.options.collapseClass;
+    var collapseInClass = this.options.collapseInClass;
+    var collapsingClass = this.options.collapsingClass;
     var $this = $(el);
 
-    if (this.transitioning || !$this.hasClass('in')) {
+    if (this.transitioning || !$this.hasClass(collapseInClass)) {
       return;
     }
 
@@ -193,17 +204,17 @@
     $this.height($this.height())[0].offsetHeight;
 
     $this
-      .addClass('collapsing')
-      .removeClass('collapse')
-      .removeClass('in');
+      .addClass(collapsingClass)
+      .removeClass(collapseClass)
+      .removeClass(collapseInClass);
 
     this.transitioning = 1;
 
     var complete = function() {
       this.transitioning = 0;
       $this
-        .removeClass('collapsing')
-        .addClass('collapse');
+        .removeClass(collapsingClass)
+        .addClass(collapseClass);
     };
 
     if (!$transition) {
