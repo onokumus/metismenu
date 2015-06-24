@@ -30,7 +30,7 @@ composer require onokumus/metismenu:dev-master
 1. Include metisMenu StyleSheet
 
     ```html
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.0.1/metisMenu.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.0.2/metisMenu.min.css">
     ```
 
 2. Include jQuery
@@ -42,7 +42,7 @@ composer require onokumus/metismenu:dev-master
 3. Include metisMenu plugin's code
 
     ```html
-    <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.0.1/metisMenu.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.0.2/metisMenu.min.js"></script>
     ```
 4. Add class `metismenu` to unordered list
 
@@ -129,7 +129,7 @@ Contains a simple HTML file to demonstrate metisMenu plugin.
 
 ### Release History
 **DATE**       **VERSION**   **CHANGES**
-* 2015-05-23   v2.0.2        [fixed](https://github.com/onokumus/metisMenu/issues/34#issuecomment-104656754) 
+* 2015-05-23   v2.0.2        [fixed](https://github.com/onokumus/metisMenu/issues/34#issuecomment-104656754)
 * 2015-05-22   v2.0.1        changeable classname support
 * 2015-04-03   v2.0.0        Remove Bootstrap dependency
 * 2015-03-24   v1.1.3        composer support
