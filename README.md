@@ -1,4 +1,4 @@
-# metisMenu [![Build Status](https://secure.travis-ci.org/onokumus/metisMenu.svg?branch=master)](https://travis-ci.org/onokumus/metisMenu)
+# metisMenu [![NPM version](https://badge.fury.io/js/metismenu.svg)](http://badge.fury.io/js/metismenu) [![Bower version](https://badge.fury.io/bo/metisMenu.svg)](http://badge.fury.io/bo/metisMenu) [![PHP version](https://badge.fury.io/ph/onokumus%2Fmetismenu.svg)](http://badge.fury.io/ph/onokumus%2Fmetismenu) [![Build Status](https://secure.travis-ci.org/onokumus/metisMenu.svg?branch=master)](https://travis-ci.org/onokumus/metisMenu)
 
 > A jQuery menu plugin
 
