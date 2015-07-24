@@ -113,7 +113,7 @@
         var $list = $parent.children('ul');
         e.preventDefault();
 
-        if ($parent.hasClass(activeClass)) {
+        if ($parent.hasClass(activeClass) && !$this.options.doubleTapToGo) {
           $this.hide($list);
         } else {
           $this.show($list);
