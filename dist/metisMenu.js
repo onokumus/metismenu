@@ -1,5 +1,5 @@
 /*
- * metismenu - v2.0.2
+ * metismenu - v2.0.3
  * A jQuery menu plugin
  * https://github.com/onokumus/metisMenu
  *
@@ -122,7 +122,7 @@
         var $list = $parent.children('ul');
         e.preventDefault();
 
-        if ($parent.hasClass(activeClass)) {
+        if ($parent.hasClass(activeClass) && !$this.options.doubleTapToGo) {
           $this.hide($list);
         } else {
           $this.show($list);

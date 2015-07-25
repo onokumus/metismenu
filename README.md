@@ -117,6 +117,18 @@ Default: `collapsing`
   });
 ```
 
+#### doubleTapToGo
+Type: `Boolean`
+Default: `false`
+
+For double tap support.
+
+```javascript
+  $("#menu").metisMenu({
+    doubleTapToGo: true
+  });
+```
+
 ### Testing
 ```bash
 npm install
@@ -129,6 +141,7 @@ Contains a simple HTML file to demonstrate metisMenu plugin.
 
 ### Release History
 **DATE**       **VERSION**   **CHANGES**
+* 2015-07-25   v2.0.3        When the active item has doubleTapToGo should not collapse
 * 2015-05-23   v2.0.2        [fixed](https://github.com/onokumus/metisMenu/issues/34#issuecomment-104656754)
 * 2015-05-22   v2.0.1        changeable classname support
 * 2015-04-03   v2.0.0        Remove Bootstrap dependency
