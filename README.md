@@ -30,7 +30,7 @@ composer require onokumus/metismenu:dev-master
 1. Include metisMenu StyleSheet
 
     ```html
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.0.2/metisMenu.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.1.0/metisMenu.min.css">
     ```
 
 2. Include jQuery
@@ -42,7 +42,7 @@ composer require onokumus/metismenu:dev-master
 3. Include metisMenu plugin's code
 
     ```html
-    <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.0.2/metisMenu.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.1.0/metisMenu.min.js"></script>
     ```
 4. Add class `metismenu` to unordered list
 
@@ -51,8 +51,29 @@ composer require onokumus/metismenu:dev-master
 
     </ul>
     ```
+5. Make expand/collapse controls accessible
 
-5. Call the plugin:
+  > Be sure to add `aria-expanded` to the element `a` and the following `ul`. This attribute explicitly defines the current state of the collapsible element to screen readers and similar assistive technologies. If the collapsible element is closed by default, it should have a value of `aria-expanded="false"`. If you've set the collapsible element's parent `li` element to be open by default using the `active` class, set `aria-expanded="true"` on the control instead. The plugin will automatically toggle this attribute based on whether or not the collapsible element has been opened or closed.
+
+  ```html
+  <ul class="metismenu" id="menu">
+    <li class="active">
+      <a href="#" aria-expanded="true">Menu 1</a>
+      <ul aria-expanded="true">
+      ...
+      </ul>
+    </li>
+    <li>
+      <a href="#" aria-expanded="false">Menu 2</a>
+      <ul aria-expanded="false">
+      ...
+      </ul>
+    </li>
+    ...
+    </ul>
+  ```
+
+6. Call the plugin:
 
     ```javascript
     $("#menu").metisMenu();
@@ -132,15 +153,21 @@ For double tap support.
 ### Testing
 ```bash
 npm install
+bower install
 grunt serve
 ```
 
-### [DEMO](http://demo.onokumus.com/metisMenu/)
+### TypeScript type definitions
+Include a line like this:
+`/// <reference path="metismenu/metismenu.d.ts" />`
+
+### [DEMO](http://mm.onokumus.com)
 
 Contains a simple HTML file to demonstrate metisMenu plugin.
 
 ### Release History
 **DATE**       **VERSION**   **CHANGES**
+* 2015-08-06   v2.1.0        RTL & `aria-expanded` attribute & TypeScript type definitions support
 * 2015-07-25   v2.0.3        When the active item has doubleTapToGo should not collapse
 * 2015-05-23   v2.0.2        [fixed](https://github.com/onokumus/metisMenu/issues/34#issuecomment-104656754)
 * 2015-05-22   v2.0.1        changeable classname support

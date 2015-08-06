@@ -51,3 +51,7 @@
 .sidebar-nav-item-icon {
   padding-right: 5px;
 }
+#rtlh3 small {
+    transform: rotateY(180deg);
+    display: inline-block;
+}

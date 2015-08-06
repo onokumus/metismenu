@@ -26,7 +26,9 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "src",
+    "composer.json"
   ],
   "dependencies": {
     "jquery": "~2.1.4"

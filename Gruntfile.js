@@ -9,7 +9,7 @@ module.exports = function(grunt) {
       ' * <%= pkg.description %>\n' +
       ' * <%= pkg.homepage %>\n' +
       ' *\n' +
-      ' * Made by <%= pkg.author.name %>\n' +
+      ' * Made by <%= pkg.author %>\n' +
       ' * Under <%= pkg.license %> License\n' +
       ' */\n',
 
@@ -60,7 +60,8 @@ module.exports = function(grunt) {
         hostname: 'localhost',
         base: [
           'dist',
-          'test'
+          'test',
+          'bower_components'
         ]
       },
       livereload: {

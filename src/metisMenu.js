@@ -82,6 +82,7 @@
       .find('li.' + activeClass)
       .has('ul')
       .children('ul')
+      .attr('aria-expanded', true)
       .addClass(collapseClass + ' ' + collapseInClass);
 
     this
@@ -90,6 +91,7 @@
       .not('.' + activeClass)
       .has('ul')
       .children('ul')
+      .attr('aria-expanded', false)
       .addClass(collapseClass);
 
     //add the 'doubleTapToGo' class to active items if needed
@@ -115,8 +117,10 @@
 
         if ($parent.hasClass(activeClass) && !$this.options.doubleTapToGo) {
           $this.hide($list);
+          self.attr('aria-expanded',false);
         } else {
           $this.show($list);
+          self.attr('aria-expanded',true);
         }
 
         //Do we need to enable the double tap
@@ -164,7 +168,7 @@
     $parent.addClass(activeClass);
 
     if (this.options.toggle) {
-      this.hide($parent.siblings().children('ul.' + collapseInClass));
+      this.hide($parent.siblings().children('ul.' + collapseInClass).attr('aria-expanded', false));
     }
 
     $this
@@ -177,7 +181,8 @@
       $this
         .removeClass(collapsingClass)
         .addClass(collapseClass + ' ' + collapseInClass)
-        .height('');
+        .height('')
+        .attr('aria-expanded', true);
       this.transitioning = 0;
     };
     if (!$transition) {
@@ -214,7 +219,8 @@
       this.transitioning = 0;
       $this
         .removeClass(collapsingClass)
-        .addClass(collapseClass);
+        .addClass(collapseClass)
+        .attr('aria-expanded', false);
     };
 
     if (!$transition) {

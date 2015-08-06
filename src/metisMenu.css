@@ -2,6 +2,9 @@
   float: right;
   line-height: 1.42857;
 }
+*[dir="rtl"] .metismenu .arrow {
+  float: left;
+}
 
 /*
  * Require Bootstrap
@@ -41,6 +44,11 @@
 .metismenu .plus-times {
   float: right;
 }
+
+*[dir="rtl"] .metismenu .plus-times {
+  float: left;
+}
+
 .metismenu .fa.plus-times:before {
   content: "\f067";
 }
@@ -52,6 +60,11 @@
 .metismenu .plus-minus {
   float: right;
 }
+
+*[dir="rtl"] .metismenu .plus-minus {
+  float: left;
+}
+
 .metismenu .fa.plus-minus:before {
   content: "\f067";
 }

@@ -1,6 +1,6 @@
 {
   "name": "metismenu",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "description": "A jQuery menu plugin",
   "main": "./dist/metisMenu.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/onokumus/metisMenu.git"
+    "url": "git+https://github.com/onokumus/metisMenu.git"
   },
   "keywords": [
     "twitter",
@@ -21,21 +21,17 @@
     "metis",
     "metisMenu"
   ],
-  "author": {
-    "name": "Osman Nuri Okumus",
-    "email": "onokumus@gmail.com",
-    "url": " http://onokumus.com/"
-  },
+  "author": "Osman Nuri Okumuş <onokumus@gmail.com> (https://github.com/onokumus)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/onokumus/metisMenu/issues"
   },
-  "homepage": "https://github.com/onokumus/metisMenu",
+  "homepage": "https://github.com/onokumus/metisMenu#readme",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-banner": "^0.4.0",
     "grunt-contrib-concat": "^0.5.1",
-    "grunt-contrib-connect": "^0.10.1",
+    "grunt-contrib-connect": "^0.11.2",
     "grunt-contrib-cssmin": "^0.12.3",
     "grunt-contrib-jshint": "^0.11.2",
     "grunt-contrib-uglify": "^0.9.1",
