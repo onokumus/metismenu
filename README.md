@@ -158,8 +158,17 @@ grunt serve
 ```
 
 ### TypeScript type definitions
-Include a line like this:
-`/// <reference path="metismenu/metismenu.d.ts" />`
+
+Install TSD globally using npm:
+```bash
+$ npm install tsd -g
+```
+
+Install metismenu TypeScript definition file
+```bash
+$ tsd install metismenu
+```
+
 
 ### [DEMO](http://mm.onokumus.com)
 
