@@ -32,11 +32,19 @@ composer require onokumus/metismenu:dev-master
     ```html
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.1.0/metisMenu.min.css">
     ```
+    OR
+    ```html
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.metismenu/2.1.0/metisMenu.min.css">
+    ```
 
 2. Include jQuery
 
     ```html
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    ```
+    OR
+    ```html
+    <script src="//cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"></script>
     ```
 
 3. Include metisMenu plugin's code
@@ -44,6 +52,11 @@ composer require onokumus/metismenu:dev-master
     ```html
     <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.1.0/metisMenu.min.js"></script>
     ```
+    OR
+    ```html
+    <script src="//cdn.jsdelivr.net/jquery.metismenu/2.1.0/metisMenu.min.js"></script>
+    ```
+
 4. Add class `metismenu` to unordered list
 
     ```html
