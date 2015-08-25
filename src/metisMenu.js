@@ -68,7 +68,9 @@
     activeClass: 'active',
     collapseClass: 'collapse',
     collapseInClass: 'in',
-    collapsingClass: 'collapsing'
+    collapsingClass: 'collapsing',
+    onTransitionStart: false,
+    onTransitionEnd: false
   };
 
   MetisMenu.prototype.init = function() {
@@ -121,6 +123,10 @@
         } else {
           $this.show($list);
           self.attr('aria-expanded',true);
+        }
+
+        if($this.options.onTransitionStart) {
+          $this.options.onTransitionStart();
         }
 
         //Do we need to enable the double tap
@@ -178,6 +184,9 @@
 
     this.transitioning = 1;
     var complete = function() {
+      if(this.transitioning && this.options.onTransitionEnd) {
+        this.options.onTransitionEnd();
+      }
       $this
         .removeClass(collapsingClass)
         .addClass(collapseClass + ' ' + collapseInClass)
@@ -216,6 +225,9 @@
     this.transitioning = 1;
 
     var complete = function() {
+      if(this.transitioning && this.options.onTransitionEnd) {
+        this.options.onTransitionEnd();
+      }
       this.transitioning = 0;
       $this
         .removeClass(collapsingClass)
