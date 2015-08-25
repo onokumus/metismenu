@@ -163,6 +163,22 @@ For double tap support.
   });
 ```
 
+### Events
+
+#### onTransitionStart
+#### onTransitionEnd
+
+```javascript
+  $('#menu').metisMenu({
+    onTransitionStart: function(){
+      console.log('onTransitionStart');
+    },
+    onTransitionEnd: function(){
+      console.log('onTransitionEnd');
+    }
+  });
+```
+
 ### Testing
 ```bash
 npm install
