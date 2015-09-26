@@ -163,6 +163,18 @@ For double tap support.
   });
 ```
 
+#### preventDefault
+Type: `Boolean`
+Default: `true`
+
+Prevents or allows dropdowns' onclick events after expanding/collapsing.
+
+```javascript
+  $("#menu").metisMenu({
+    preventDefault: false
+  });
+```
+
 ### Events
 
 #### onTransitionStart

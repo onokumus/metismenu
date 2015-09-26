@@ -65,6 +65,7 @@
   MetisMenu.DEFAULTS = {
     toggle: true,
     doubleTapToGo: false,
+    preventDefault: true,
     activeClass: 'active',
     collapseClass: 'collapse',
     collapseInClass: 'in',
@@ -115,8 +116,9 @@
         var self = $(this);
         var $parent = self.parent('li');
         var $list = $parent.children('ul');
-        e.preventDefault();
-
+        if($this.options.preventDefault){
+          e.preventDefault();
+        }
         if ($parent.hasClass(activeClass) && !$this.options.doubleTapToGo) {
           $this.hide($list);
           self.attr('aria-expanded',false);

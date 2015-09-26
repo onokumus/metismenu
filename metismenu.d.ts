@@ -8,6 +8,7 @@
 interface MetisMenuOptions {
     toggle?: boolean;
     doubleTapToGo?: boolean;
+    preventDefault?: boolean;
     activeClass?: string;
     collapseClass?: string;
     collapseInClass?: string;
