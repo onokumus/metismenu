@@ -1,5 +1,5 @@
 /*
- * metismenu - v2.1.0
+ * metismenu - v2.2.0
  * A jQuery menu plugin
  * https://github.com/onokumus/metisMenu#readme
  *
@@ -74,10 +74,13 @@
   MetisMenu.DEFAULTS = {
     toggle: true,
     doubleTapToGo: false,
+    preventDefault: true,
     activeClass: 'active',
     collapseClass: 'collapse',
     collapseInClass: 'in',
-    collapsingClass: 'collapsing'
+    collapsingClass: 'collapsing',
+    onTransitionStart: false,
+    onTransitionEnd: false
   };
 
   MetisMenu.prototype.init = function() {
@@ -122,14 +125,19 @@
         var self = $(this);
         var $parent = self.parent('li');
         var $list = $parent.children('ul');
-        e.preventDefault();
-
+        if($this.options.preventDefault){
+          e.preventDefault();
+        }
         if ($parent.hasClass(activeClass) && !$this.options.doubleTapToGo) {
           $this.hide($list);
           self.attr('aria-expanded',false);
         } else {
           $this.show($list);
           self.attr('aria-expanded',true);
+        }
+
+        if($this.options.onTransitionStart) {
+          $this.options.onTransitionStart();
         }
 
         //Do we need to enable the double tap
@@ -187,6 +195,9 @@
 
     this.transitioning = 1;
     var complete = function() {
+      if(this.transitioning && this.options.onTransitionEnd) {
+        this.options.onTransitionEnd();
+      }
       $this
         .removeClass(collapsingClass)
         .addClass(collapseClass + ' ' + collapseInClass)
@@ -225,6 +236,9 @@
     this.transitioning = 1;
 
     var complete = function() {
+      if(this.transitioning && this.options.onTransitionEnd) {
+        this.options.onTransitionEnd();
+      }
       this.transitioning = 0;
       $this
         .removeClass(collapsingClass)

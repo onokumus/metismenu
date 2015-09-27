@@ -36,35 +36,29 @@
 */
 
 .metismenu .ion.arrow:before {
-  content:"\f3d2"
+  content: "\f3d2"
 }
 .metismenu .active > a > .ion.arrow:before {
-    content:"\f3d0";
+  content: "\f3d0";
 }
 .metismenu .plus-times {
   float: right;
 }
-
 *[dir="rtl"] .metismenu .plus-times {
   float: left;
 }
-
 .metismenu .fa.plus-times:before {
   content: "\f067";
 }
 .metismenu .active > a > .fa.plus-times {
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 .metismenu .plus-minus {
   float: right;
 }
-
 *[dir="rtl"] .metismenu .plus-minus {
   float: left;
 }
-
 .metismenu .fa.plus-minus:before {
   content: "\f067";
 }
@@ -81,10 +75,7 @@
   position: relative;
   height: 0;
   overflow: hidden;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-duration: .35s;
-          transition-duration: .35s;
-  -webkit-transition-property: height, visibility;
-          transition-property: height, visibility;
+  transition-timing-function: ease;
+  transition-duration: .35s;
+  transition-property: height, visibility;
 }

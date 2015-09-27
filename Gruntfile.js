@@ -1,6 +1,6 @@
-'use strict';
-
 module.exports = function(grunt) {
+  'use strict';
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
@@ -23,13 +23,9 @@ module.exports = function(grunt) {
       ]
     },
     concat: {
-      plugin: {
+      dist: {
         src: ['src/metisMenu.js'],
         dest: 'dist/metisMenu.js'
-      },
-      css: {
-        src: ['src/metisMenu.css'],
-        dest: 'dist/metisMenu.css'
       }
     },
     uglify: {
@@ -38,10 +34,51 @@ module.exports = function(grunt) {
         dest: 'dist/metisMenu.min.js'
       }
     },
-    cssmin: {
-      menucss: {
-        src: ['src/metisMenu.css'],
-        dest: 'dist/metisMenu.min.css'
+    postcss: {
+      dev: {
+        options: {
+          processors: [
+            require('pixrem')(), // add fallbacks for rem units
+            require('autoprefixer')({
+              browsers: [
+                'Android 2.3',
+                'Android >= 4',
+                'Chrome >= 20',
+                'Firefox >= 24',
+                'Explorer >= 8',
+                'iOS >= 6',
+                'Opera >= 12',
+                'Safari >= 6'
+              ]
+            }) // add vendor prefixes
+          ]
+        },
+        files: {
+          'dist/metisMenu.css': ['src/metisMenu.css']
+        }
+      },
+      min: {
+        options: {
+          processors: [
+            require('pixrem')(), // add fallbacks for rem units
+            require('autoprefixer')({
+              browsers: [
+                'Android 2.3',
+                'Android >= 4',
+                'Chrome >= 20',
+                'Firefox >= 24',
+                'Explorer >= 8',
+                'iOS >= 6',
+                'Opera >= 12',
+                'Safari >= 6'
+              ]
+            }), // add vendor prefixes
+            require('cssnano')
+          ]
+        },
+        files: {
+          'dist/metisMenu.min.css': ['src/metisMenu.css']
+        }
       }
     },
     usebanner: {
@@ -73,11 +110,11 @@ module.exports = function(grunt) {
     watch: {
       script: {
         files: ['src/**/*.js'],
-        tasks: ['concat:plugin', 'uglify', 'usebanner']
+        tasks: ['concat', 'uglify', 'usebanner']
       },
       style: {
         files: ['src/**/*.css'],
-        tasks: ['concat:css', 'cssmin', 'usebanner']
+        tasks: ['postcss', 'usebanner']
       },
       livereload: {
         options: {
@@ -96,9 +133,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-banner');
+  grunt.loadNpmTasks('grunt-postcss');
 
   grunt.registerTask('travis', ['jshint']);
   grunt.registerTask('serve', ['connect:livereload', 'watch']);
@@ -106,7 +143,7 @@ module.exports = function(grunt) {
     'jshint',
     'concat',
     'uglify',
-    'cssmin',
+    'postcss',
     'usebanner'
   ]);
 };
