@@ -136,7 +136,7 @@
     elm
       .on('click.metisMenu', function(e) {
         var self = $(this);
-        var $parent = self.parent('li');
+        var $parent = self.closest('li');
         var $list = $parent.children('ul');
         if($this.options.preventDefault){
           e.preventDefault();
