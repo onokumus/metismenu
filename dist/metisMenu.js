@@ -80,7 +80,8 @@
     collapseInClass: 'in',
     collapsingClass: 'collapsing',
     onTransitionStart: false,
-    onTransitionEnd: false
+    onTransitionEnd: false,
+    iconSelect: false
   };
 
   MetisMenu.prototype.init = function() {
@@ -116,14 +117,26 @@
         .addClass('doubleTapToGo');
     }
 
-    this
-      .$element
-      .find('li')
-      .has('ul')
-      .children('a')
+    if (this.options.iconSelect) {
+        var elm = this
+            .$element
+            .find('li')
+            .has('ul')
+            .children('a')
+            .find('span');
+    } else {
+        var elm = this
+            .$element
+            .find('li')
+            .has('ul')
+            .children('a');
+    }
+
+
+    elm
       .on('click.metisMenu', function(e) {
         var self = $(this);
-        var $parent = self.parent('li');
+        var $parent = self.closest('li');
         var $list = $parent.children('ul');
         if($this.options.preventDefault){
           e.preventDefault();
