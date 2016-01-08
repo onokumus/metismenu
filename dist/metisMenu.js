@@ -1,5 +1,5 @@
 /*
- * metismenu - v2.2.0
+ * metismenu - v2.3.0
  * A jQuery menu plugin
  * https://github.com/onokumus/metisMenu#readme
  *
@@ -127,6 +127,9 @@
         var $list = $parent.children('ul');
         if($this.options.preventDefault){
           e.preventDefault();
+        }
+        if(self.attr('aria-disabled') === 'true'){
+            return;
         }
         if ($parent.hasClass(activeClass) && !$this.options.doubleTapToGo) {
           $this.hide($list);
