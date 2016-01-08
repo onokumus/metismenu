@@ -90,7 +90,8 @@ composer require onokumus/metismenu:dev-master
 
     ```javascript
     $("#menu").metisMenu();
-    ```
+   ```
+ 
 
 ### Options
 
@@ -191,6 +192,14 @@ Prevents or allows dropdowns' onclick events after expanding/collapsing.
   });
 ```
 
+### Stopping list opening on certain elements
+Setting aria-disabled="true" in the `<a>` element as shown will stop metisMenu opening the menu for that particular list. This can be changed dynamically and will be obeyed correctly:
+
+```html
+<a href="#" aria-expanded="false" aria-disabled="true">List 1</a>
+```
+
+
 ### Testing
 ```bash
 npm install
@@ -217,6 +226,7 @@ Contains a simple HTML file to demonstrate metisMenu plugin.
 
 ### Release History
 **DATE**       **VERSION**   **CHANGES**
+* 2016-01-08   v2.3.0        Adding aria-disabled=true to the link element prevents the dropdown from opening
 * 2015-09-27   v2.2.0        Events supported & added preventDefault options
 * 2015-08-06   v2.1.0        RTL & `aria-expanded` attribute & TypeScript type definitions support
 * 2015-07-25   v2.0.3        When the active item has doubleTapToGo should not collapse

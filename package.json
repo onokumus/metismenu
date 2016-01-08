@@ -1,6 +1,6 @@
 {
   "name": "metismenu",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "A jQuery menu plugin",
   "main": "./dist/metisMenu.js",
   "scripts": {
@@ -29,7 +29,8 @@
     "Andrew Eastwood (https://github.com/AndrewEastwood)",
     "Marcelo Tosco <capy.net@gmail.com> (http://ecapy.com)",
     "Radoslav Štofko (http://www.stoweb.cz)",
-    "Umut Karcı <umutkarci@std.sehir.edu.tr>"
+    "Umut Karcı <umutkarci@std.sehir.edu.tr>",
+    "Chris Wiggins <chris@wiggins.nz> (https://github.com/chriswiggins)"
   ],
   "license": "MIT",
   "bugs": {

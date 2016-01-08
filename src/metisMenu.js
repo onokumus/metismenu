@@ -119,6 +119,9 @@
         if($this.options.preventDefault){
           e.preventDefault();
         }
+        if(self.attr('aria-disabled') === 'true'){
+            return;
+        }
         if ($parent.hasClass(activeClass) && !$this.options.doubleTapToGo) {
           $this.hide($list);
           self.attr('aria-expanded',false);
