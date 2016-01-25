@@ -225,8 +225,8 @@ $ tsd install metismenu
 Contains a simple HTML file to demonstrate metisMenu plugin.
 
 ### Release History
-|**DATE**      |**VERSION**  |**CHANGES**|
-|-||
+|**DATE**      |**VERSION**   |**CHANGES**|
+|--------------|--------------|-----------|
 |2016-01-25    |v2.4.0        |Support AMD / Node / CommonJS|
 |2016-01-08    |v2.3.0        |Adding aria-disabled=true to the link element prevents the dropdown from opening|
 |2015-09-27    |v2.2.0        |Events supported & added preventDefault options|
