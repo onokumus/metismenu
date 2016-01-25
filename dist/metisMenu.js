@@ -7,7 +7,15 @@
  * Under MIT License
  */
 
-(function($) {
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(['jquery'], factory);
+  } else if (typeof exports === 'object') {
+    module.exports = factory(require('jquery'));
+  } else {
+    root.sortable = factory(root.jQuery);
+  }
+}(this, function($) {
   'use strict';
 
   function transitionEnd() {
@@ -286,5 +294,4 @@
     $.fn.metisMenu = old;
     return this;
   };
-
-})(jQuery);
+}));
