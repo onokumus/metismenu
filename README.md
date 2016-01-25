@@ -255,3 +255,7 @@ metisMenu was made with love by these guys and a bunch of awesome [contributors]
 ## License
 
 [MIT License](https://github.com/onokumus/metisMenu/blob/master/LICENSE)
+
+--------------------------------------------------
+
+[:coffee: Buy Me A Coffee](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XDRMNLWZFXTUJ)
