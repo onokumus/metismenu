@@ -127,7 +127,7 @@
         if($this.options.preventDefault){
           e.preventDefault();
         }
-        if(self.attr('aria-disabled') === 'true'){
+        if(self.attr('aria-disabled') === 'true' || self.parents('.mini-navbar').length > 0){
             return;
         }
         if ($parent.hasClass(activeClass) && !$this.options.doubleTapToGo) {
