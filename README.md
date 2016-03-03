@@ -184,11 +184,11 @@ Prevents or allows dropdowns' onclick events after expanding/collapsing.
 ```javascript
   $("#nav").metisMenu({
     onTransitionStart: function(submenu) {
-      // the animation for hiding or showing submenu begins
+      // the animation on an element begins
       console.log($(submenu).attr("aria-expanded") === "false" ? "show" : "hide");
     },
     onTransitionEnd: function(submenu) {
-      // the animation for hiding or showing submenu is completed
+      // the animation on an element is complete
       console.log($(submenu).attr("aria-expanded") === "false" ? "shown" : "hidden");
     }
   });
