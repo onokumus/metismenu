@@ -132,23 +132,23 @@
       .on('click.metisMenu', function(e) {
         var self = $(this);
         var $parent = self.parent('li');
-        var $list = $parent.children('ul');
-        if($this.options.preventDefault){
+        var $submenu = $parent.children('ul');
+        if ($this.options.preventDefault) {
           e.preventDefault();
         }
-        if(self.attr('aria-disabled') === 'true'){
-            return;
+        if (self.attr('aria-disabled') === 'true') {
+          return;
         }
         if ($parent.hasClass(activeClass) && !$this.options.doubleTapToGo) {
-          $this.hide($list);
-          self.attr('aria-expanded',false);
+          $this.hide($submenu);
+          self.attr('aria-expanded', false);
         } else {
-          $this.show($list);
-          self.attr('aria-expanded',true);
+          $this.show($submenu);
+          self.attr('aria-expanded', true);
         }
 
-        if($this.options.onTransitionStart) {
-          $this.options.onTransitionStart();
+        if ($this.options.onTransitionStart) {
+          $this.options.onTransitionStart($submenu);
         }
 
         //Do we need to enable the double tap
@@ -206,8 +206,8 @@
 
     this.transitioning = 1;
     var complete = function() {
-      if(this.transitioning && this.options.onTransitionEnd) {
-        this.options.onTransitionEnd();
+      if (this.transitioning && this.options.onTransitionEnd) {
+        this.options.onTransitionEnd($this);
       }
       $this
         .removeClass(collapsingClass)
@@ -247,8 +247,8 @@
     this.transitioning = 1;
 
     var complete = function() {
-      if(this.transitioning && this.options.onTransitionEnd) {
-        this.options.onTransitionEnd();
+      if (this.transitioning && this.options.onTransitionEnd) {
+        this.options.onTransitionEnd($this);
       }
       this.transitioning = 0;
       $this
