@@ -30,11 +30,11 @@ composer require onokumus/metismenu:dev-master
 1. Include metisMenu StyleSheet
 
     ```html
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.4.1/metisMenu.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.4.2/metisMenu.min.css">
     ```
     OR
     ```html
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.metismenu/2.4.1/metisMenu.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.metismenu/2.4.2/metisMenu.min.css">
     ```
 
 2. Include jQuery
@@ -50,11 +50,11 @@ composer require onokumus/metismenu:dev-master
 3. Include metisMenu plugin's code
 
     ```html
-    <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.4.1/metisMenu.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.4.2/metisMenu.min.js"></script>
     ```
     OR
     ```html
-    <script src="//cdn.jsdelivr.net/jquery.metismenu/2.4.1/metisMenu.min.js"></script>
+    <script src="//cdn.jsdelivr.net/jquery.metismenu/2.4.2/metisMenu.min.js"></script>
     ```
 
 4. Add class `metismenu` to unordered list
@@ -182,16 +182,14 @@ Prevents or allows dropdowns' onclick events after expanding/collapsing.
 #### onTransitionEnd
 
 ```javascript
-  $("#nav").metisMenu({
-    onTransitionStart: function(submenu) {
-      // the animation on an element begins
-      console.log($(submenu).attr("aria-expanded") === "false" ? "show" : "hide");
-    },
-    onTransitionEnd: function(submenu) {
-      // the animation on an element is complete
-      console.log($(submenu).attr("aria-expanded") === "false" ? "shown" : "hidden");
-    }
-  });
+$('#menu').metisMenu({
+  onTransitionStart: function(){
+    console.log('onTransitionStart');
+  },
+  onTransitionEnd: function(){
+    console.log('onTransitionEnd');
+  }
+});
 ```
 
 ### Stopping list opening on certain elements
@@ -229,7 +227,8 @@ Contains a simple HTML file to demonstrate metisMenu plugin.
 ### Release History
 |**DATE**      |**VERSION**   |**CHANGES**|
 |--------------|--------------|-----------|
-|2016-03-03    |v2.4.1        |Transition element passed to methods|
+|2016-03-04    |v2.4.2        |back to version 2.4.0|
+|2016-03-03    |v2.4.1        |<del>Transition element passed to methods</del> (removed)|
 |2016-01-25    |v2.4.0        |Support AMD / Node / CommonJS|
 |2016-01-08    |v2.3.0        |Adding aria-disabled=true to the link element prevents the dropdown from opening|
 |2015-09-27    |v2.2.0        |Events supported & added preventDefault options|
