@@ -148,7 +148,7 @@
         }
 
         if($this.options.onTransitionStart) {
-          $this.options.onTransitionStart();
+          $this.options.onTransitionStart(e);
         }
 
         //Do we need to enable the double tap
