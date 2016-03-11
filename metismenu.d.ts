@@ -1,4 +1,4 @@
-// Type definitions for metisMenu 2.0.3
+// Type definitions for metisMenu 2.4.3
 // Project: http://github.com/onokumus/metisMenu
 // Definitions by: onokums <https://github.com/onokumus/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -13,6 +13,8 @@ interface MetisMenuOptions {
     collapseClass?: string;
     collapseInClass?: string;
     collapsingClass?: string;
+    onTransitionStart?: boolean
+    onTransitionEnd?: boolean
 }
 
 interface JQuery {

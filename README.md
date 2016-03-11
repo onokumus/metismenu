@@ -30,11 +30,11 @@ composer require onokumus/metismenu:dev-master
 1. Include metisMenu StyleSheet
 
     ```html
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.4.2/metisMenu.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.4.3/metisMenu.min.css">
     ```
     OR
     ```html
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.metismenu/2.4.2/metisMenu.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.metismenu/2.4.3/metisMenu.min.css">
     ```
 
 2. Include jQuery
@@ -50,11 +50,11 @@ composer require onokumus/metismenu:dev-master
 3. Include metisMenu plugin's code
 
     ```html
-    <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.4.2/metisMenu.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.4.3/metisMenu.min.js"></script>
     ```
     OR
     ```html
-    <script src="//cdn.jsdelivr.net/jquery.metismenu/2.4.2/metisMenu.min.js"></script>
+    <script src="//cdn.jsdelivr.net/jquery.metismenu/2.4.3/metisMenu.min.js"></script>
     ```
 
 4. Add class `metismenu` to unordered list
@@ -227,6 +227,7 @@ Contains a simple HTML file to demonstrate metisMenu plugin.
 ### Release History
 |**DATE**      |**VERSION**   |**CHANGES**|
 |--------------|--------------|-----------|
+|2016-03-11    |v2.4.3        |create meteor package|
 |2016-03-04    |v2.4.2        |back to version 2.4.0|
 |2016-03-03    |v2.4.1        |<del>Transition element passed to methods</del> (removed)|
 |2016-01-25    |v2.4.0        |Support AMD / Node / CommonJS|
