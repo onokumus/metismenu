@@ -14,13 +14,12 @@ module.exports = function(grunt) {
       ' */\n',
 
     eslint: {
-      target: ['src/metisMenu.js']
+      target: ['src/*.js']
     },
     babel: {
       options: {
-        sourceMap: true,
-        presets: ['es2015']
-        // plugins: ['transform-es2015-modules-umd']
+        presets: ['es2015'],
+        plugins: ['transform-es2015-modules-umd']
       },
       dist: {
         files: {
@@ -30,8 +29,13 @@ module.exports = function(grunt) {
     },
     uglify: {
       plugin: {
-        src: ['dist/metisMenu.js'],
-        dest: 'dist/metisMenu.min.js'
+        options: {
+            sourceMap: true,
+            sourceMapName: 'dist/metisMenu.js.map'
+        },
+        files: {
+          'dist/metisMenu.min.js': ['dist/metisMenu.js']
+        }
       }
     },
     postcss: {

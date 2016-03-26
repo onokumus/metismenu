@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 const MetisMenu = (($) => {
 
   const NAME = 'metisMenu';
@@ -14,10 +16,8 @@ const MetisMenu = (($) => {
     activeClass: 'active',
     collapseClass: 'collapse',
     collapseInClass: 'in',
-    collapsingClass: 'collapsing',
-    onTransitionStart: false,
-    onTransitionEnd: false
-  }
+    collapsingClass: 'collapsing'
+  };
 
   const Event = {
     SHOW: `show${EVENT_KEY}`,
@@ -25,7 +25,87 @@ const MetisMenu = (($) => {
     HIDE: `hide${EVENT_KEY}`,
     HIDDEN: `hidden${EVENT_KEY}`,
     CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`
+  };
+
+  let transition = false;
+
+  const TransitionEndEvent = {
+    WebkitTransition: 'webkitTransitionEnd',
+    MozTransition: 'transitionend',
+    OTransition: 'oTransitionEnd otransitionend',
+    transition: 'transitionend'
+  };
+
+  function getSpecialTransitionEndEvent() {
+    return {
+      bindType: transition.end,
+      delegateType: transition.end,
+      handle: function(event) {
+        if ($(event.target).is(this)) {
+          return event.
+          handleObj.
+          handler.
+          apply(this, arguments);
+        }
+      }
+    };
   }
+
+  function transitionEndTest() {
+    if (window.QUnit) {
+      return false;
+    }
+
+    let el = document.createElement('mm');
+
+    for (let name in TransitionEndEvent) {
+      if (el.style[name] !== undefined) {
+        return {
+          end: TransitionEndEvent[name]
+        };
+      }
+    }
+
+    return false;
+  }
+
+  function transitionEndEmulator(duration) {
+    let called = false;
+
+    $(this).one(Util.TRANSITION_END, () => {
+      called = true;
+    });
+
+    setTimeout(() => {
+      if (!called) {
+        Util.triggerTransitionEnd(this);
+      }
+    }, duration);
+  }
+
+  function setTransitionEndSupport() {
+    transition = transitionEndTest();
+
+    $.fn.emulateTransitionEnd = transitionEndEmulator;
+
+    if (Util.supportsTransitionEnd()) {
+      $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
+    }
+  }
+
+  let Util = {
+    TRANSITION_END: 'mmTransitionEnd',
+
+    triggerTransitionEnd(element) {
+      $(element).trigger(transition.end);
+    },
+
+    supportsTransitionEnd() {
+      return Boolean(transition);
+    }
+  };
+
+  setTransitionEndSupport();
 
   class MetisMenu {
     constructor(element, config) {
@@ -64,13 +144,13 @@ const MetisMenu = (($) => {
         .find('li')
         .has('ul')
         .children('a')
-        .on('click.metisMenu', function(e) {
+        .on(Event.CLICK_DATA_API, function(e) {
           var _this = $(this);
           var _parent = _this.parent('li');
           var _list = _parent.children('ul');
-          if (self._config.preventDefault) {
-            e.preventDefault();
-          }
+          // if (self._config.preventDefault) {
+          //   e.preventDefault();
+          // }
           if (_this.attr('aria-disabled') === 'true') {
             return;
           }
@@ -101,50 +181,63 @@ const MetisMenu = (($) => {
     }
 
     _show(element) {
-      let _this = $(element);
-      if (this._transitioning || $(element).hasClass(this._config.collapsingClass)) {
+      if (this._transitioning ||
+        $(element).hasClass(this._config.collapsingClass)) {
+        return;
+      }
+      let _this = this;
+      let _el = $(element);
+
+      let startEvent = $.Event(Event.SHOW);
+      _el.trigger(startEvent);
+
+      if (startEvent.isDefaultPrevented()) {
         return;
       }
 
-      $(element)
+      _el
         .parent('li')
         .addClass(this._config.activeClass);
 
 
       if (this._config.toggle) {
         this.
-        _hide($(element)
+        _hide(_el
           .parent('li')
           .siblings()
           .children('ul.' + this._config.collapseInClass).attr('aria-expanded', false));
       }
 
-      $(element)
+      _el
         .removeClass(this._config.collapseClass)
         .addClass(this._config.collapsingClass)
         .height(0);
 
-      this._transitioning = 1;
+      this.setTransitioning(true);
 
       let complete = function() {
-        if (this._transitioning && this._config.onTransitionEnd) {
-          this._config.onTransitionEnd();
-        }
-        _this
-          .removeClass(this._config.collapsingClass)
-          .addClass(this._config.collapseClass + ' ' + this._config.collapseInClass)
+
+        _el
+          .removeClass(_this._config.collapsingClass)
+          .addClass(_this._config.collapseClass + ' ' + _this._config.collapseInClass)
           .height('')
           .attr('aria-expanded', true);
 
-        this._transitioning = 0;
+        _this.setTransitioning(false);
+
+        _el.trigger(Event.SHOWN);
       };
-      if (!$transition) {
-        return complete.call(this);
+
+      if (!Util.supportsTransitionEnd()) {
+        complete();
+        return;
       }
-      _this
-      .height(_this[0].scrollHeight)
-        .one('mmTransitionEnd', $.proxy(complete, this))
-        .emulateTransitionEnd(TRANSITION_DURATION);
+
+      _el
+        .height(_el[0].scrollHeight)
+        .one(Util.TRANSITION_END, complete);
+
+      transitionEndEmulator(TRANSITION_DURATION);
 
     }
 
@@ -153,39 +246,51 @@ const MetisMenu = (($) => {
       if (this._transitioning || !$(element).hasClass(this._config.collapseInClass)) {
         return;
       }
+      let _this = this;
+      let _el = $(element);
 
-      let _this = $(element);
-      $(element).parent('li').removeClass(this._config.activeClass);
-      _this.height(_this.height())[0].offsetHeight;
+      let startEvent = $.Event(Event.HIDE);
+      _el.trigger(startEvent);
 
-      $(element)
+      if (startEvent.isDefaultPrevented()) {
+        return;
+      }
+
+      _el.parent('li').removeClass(this._config.activeClass);
+      _el.height(_el.height())[0].offsetHeight;
+
+      _el
         .addClass(this._config.collapsingClass)
         .removeClass(this._config.collapseClass)
         .removeClass(this._config.collapseInClass);
 
-      this._transitioning = 1;
+      this.setTransitioning(true);
 
       let complete = function() {
-        if (this._transitioning && this._config.onTransitionEnd) {
-          this._config.onTransitionEnd();
+        if (_this._transitioning && _this._config.onTransitionEnd) {
+          _this._config.onTransitionEnd();
         }
 
-        this._transitioning = 0;
-        _this
-          .removeClass(this._config.collapsingClass)
-          .addClass(this._config.collapseClass)
+        _this.setTransitioning(false);
+        _el.trigger(Event.HIDDEN);
+
+        _el
+          .removeClass(_this._config.collapsingClass)
+          .addClass(_this._config.collapseClass)
           .attr('aria-expanded', false);
 
       };
 
-      if (!$transition) {
-        return complete.call(this);
+      if (!Util.supportsTransitionEnd()) {
+        complete();
+        return;
       }
 
-      $(element)
+      _el
         .height(0)
-        .one('mmTransitionEnd', $.proxy(complete, this))
-        .emulateTransitionEnd(TRANSITION_DURATION);
+        .one(Util.TRANSITION_END, complete);
+
+      transitionEndEmulator(TRANSITION_DURATION);
     }
 
     _doubleTapToGo(element) {
@@ -203,34 +308,44 @@ const MetisMenu = (($) => {
       }
     }
 
+    setTransitioning(isTransitioning) {
+      this._transitioning = isTransitioning;
+    }
+
+    dispose() {
+      $.removeData(this._element, DATA_KEY);
+
+      this._config = null;
+      this._element = null;
+    }
     _getConfig(config) {
       config = $.extend({}, Default, config);
-      return config
+      return config;
     }
 
     static _jQueryInterface(config) {
       return this.each(function() {
-        let $this = $(this)
-        let data = $this.data(DATA_KEY)
+        let $this = $(this);
+        let data = $this.data(DATA_KEY);
         let _config = $.extend({},
           Default,
           $this.data(),
           typeof config === 'object' && config
-        )
+        );
 
 
         if (!data) {
-          data = new MetisMenu(this, _config)
-          $this.data(DATA_KEY, data)
+          data = new MetisMenu(this, _config);
+          $this.data(DATA_KEY, data);
         }
 
         if (typeof config === 'string') {
           if (data[config] === undefined) {
-            throw new Error(`No method named "${config}"`)
+            throw new Error(`No method named "${config}"`);
           }
-          data[config]()
+          data[config]();
         }
-      })
+      });
     }
   }
   /**
@@ -239,63 +354,12 @@ const MetisMenu = (($) => {
    * ------------------------------------------------------------------------
    */
 
-  function transitionEnd() {
-    var el = document.createElement('mm');
-
-    var transEndEventNames = {
-      WebkitTransition: 'webkitTransitionEnd',
-      MozTransition: 'transitionend',
-      OTransition: 'oTransitionEnd otransitionend',
-      transition: 'transitionend'
-    };
-
-    for (var name in transEndEventNames) {
-      if (el.style[name] !== undefined) {
-        return {
-          end: transEndEventNames[name]
-        };
-      }
-    }
-    return false;
-  }
-
-  $.fn.emulateTransitionEnd = function(duration) {
-    var called = false;
-    var $el = this;
-    $(this).one('mmTransitionEnd', function() {
-      called = true;
-    });
-    var callback = function() {
-      if (!called) {
-        $($el).trigger($transition.end);
-      }
-    };
-    setTimeout(callback, duration);
-    return this;
-  };
-
-  var $transition = transitionEnd();
-  if (!!$transition) {
-    $.event.special.mmTransitionEnd = {
-      bindType: $transition.end,
-      delegateType: $transition.end,
-      handle: function(e) {
-        if ($(e.target).is(this)) {
-          return e.
-          handleObj.
-          handler.
-          apply(this, arguments);
-        }
-      }
-    };
-  }
-
   $.fn[NAME] = MetisMenu._jQueryInterface;
   $.fn[NAME].Constructor = MetisMenu;
   $.fn[NAME].noConflict = function() {
     $.fn[NAME] = JQUERY_NO_CONFLICT;
     return MetisMenu._jQueryInterface;
-  }
+  };
   return MetisMenu;
 
 })(jQuery);
