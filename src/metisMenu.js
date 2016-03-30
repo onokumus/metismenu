@@ -148,9 +148,9 @@ const MetisMenu = (($) => {
           var _this = $(this);
           var _parent = _this.parent('li');
           var _list = _parent.children('ul');
-          // if (self._config.preventDefault) {
-          //   e.preventDefault();
-          // }
+          if (self._config.preventDefault) {
+            e.preventDefault();
+          }
           if (_this.attr('aria-disabled') === 'true') {
             return;
           }
@@ -312,12 +312,13 @@ const MetisMenu = (($) => {
       this._transitioning = isTransitioning;
     }
 
-    dispose() {
-      $.removeData(this._element, DATA_KEY);
+    // dispose() {
+    //   $.removeData(this._element, DATA_KEY);
+    //
+    //   this._config = null;
+    //   this._element = null;
+    // }
 
-      this._config = null;
-      this._element = null;
-    }
     _getConfig(config) {
       config = $.extend({}, Default, config);
       return config;

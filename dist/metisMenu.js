@@ -1,5 +1,5 @@
 /*
- * metismenu - v2.5.0-dev
+ * metismenu - v2.5.0
  * A jQuery menu plugin
  * https://github.com/onokumus/metisMenu#readme
  *
@@ -192,9 +192,9 @@
             var _this = $(this);
             var _parent = _this.parent('li');
             var _list = _parent.children('ul');
-            // if (self._config.preventDefault) {
-            //   e.preventDefault();
-            // }
+            if (self._config.preventDefault) {
+              e.preventDefault();
+            }
             if (_this.attr('aria-disabled') === 'true') {
               return;
             }
@@ -327,14 +327,6 @@
         key: 'setTransitioning',
         value: function setTransitioning(isTransitioning) {
           this._transitioning = isTransitioning;
-        }
-      }, {
-        key: 'dispose',
-        value: function dispose() {
-          $.removeData(this._element, DATA_KEY);
-
-          this._config = null;
-          this._element = null;
         }
       }, {
         key: '_getConfig',
