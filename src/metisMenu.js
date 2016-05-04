@@ -286,7 +286,7 @@ const MetisMenu = (($) => {
         return;
       }
 
-      _el
+      (_el.height() == 0 || _el.css('display') == 'none') ? complete() : _el
         .height(0)
         .one(Util.TRANSITION_END, complete);
 
