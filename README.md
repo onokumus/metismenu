@@ -39,7 +39,7 @@ $ npm install metismenu
 Install with [bower](http://bower.io/)
 
 ```sh
-$ bower install metismenu
+$ bower install metisMenu
 ```
 Install with [composer](https://getcomposer.org/)
 
