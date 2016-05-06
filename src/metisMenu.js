@@ -86,8 +86,6 @@ const MetisMenu = (($) => {
   function setTransitionEndSupport() {
     transition = transitionEndTest();
 
-    $.fn.emulateTransitionEnd = transitionEndEmulator;
-
     if (Util.supportsTransitionEnd()) {
       $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
     }

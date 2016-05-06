@@ -1,5 +1,5 @@
 /*
- * metismenu - v2.5.0
+ * metismenu - v2.5.1
  * A jQuery menu plugin
  * https://github.com/onokumus/metisMenu#readme
  *
@@ -144,8 +144,6 @@
 
     function setTransitionEndSupport() {
       transition = transitionEndTest();
-
-      $.fn.emulateTransitionEnd = transitionEndEmulator;
 
       if (Util.supportsTransitionEnd()) {
         $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
