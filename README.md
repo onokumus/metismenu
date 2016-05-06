@@ -70,12 +70,12 @@ $ tsd install metismenu
 1. Include metisMenu StyleSheet
 
   ```html
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.5.1/metisMenu.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.5.2/metisMenu.min.css">
   ```
       OR
 
   ```html
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.metisMenu/2.5.1/metisMenu.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.metisMenu/2.5.2/metisMenu.min.css">
   ```
 
 2. Include jQuery
@@ -91,11 +91,11 @@ $ tsd install metismenu
 3. Include metisMenu plugin's code
 
   ```html
-  <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.5.1/metisMenu.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.5.2/metisMenu.min.js"></script>
   ```
       OR
   ```html
-  <script src="//cdn.jsdelivr.net/jquery.metisMenu/2.5.1/metisMenu.min.js"></script>
+  <script src="//cdn.jsdelivr.net/jquery.metisMenu/2.5.2/metisMenu.min.js"></script>
   ```
 
 4. Add class `metisMenu` to unordered list
@@ -242,6 +242,7 @@ Contains a simple HTML file to demonstrate metisMenu plugin.
 ## Release History
 |**DATE**      |**VERSION**   |**CHANGES**|
 |--------------|--------------|-----------|
+|2016-05-06    |v2.5.2        |fix Menu failed to remove collapsing class|
 |2016-05-06    |v2.5.1        |fixed bootstrap conflict|
 |2016-03-31    |v2.5.0        |Event support|
 |2016-03-11    |v2.4.3        |create meteor package|

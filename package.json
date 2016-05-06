@@ -1,6 +1,6 @@
 {
   "name": "metismenu",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "description": "A jQuery menu plugin",
   "main": "./dist/metisMenu.js",
   "scripts": {
@@ -33,7 +33,8 @@
     "Chris Wiggins <chris@wiggins.nz> (https://github.com/chriswiggins)",
     "Jacob Magnusson <m@jacobian.se> (https://github.com/jmagnusson)",
     "QQ <sinabs@gmail.com> (https://github.com/sinabs)",
-    "roman <rgnevashev@gmail.com> (https://github.com/rgnevashev)"
+    "roman <rgnevashev@gmail.com> (https://github.com/rgnevashev)",
+    "diegozhu <zhuhaiyang55@gmail.com> (http://sae.zhuhaiyang.me)"
   ],
   "license": "MIT",
   "bugs": {

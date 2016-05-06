@@ -1,5 +1,5 @@
 /*
- * metismenu - v2.5.1
+ * metismenu - v2.5.2
  * A jQuery menu plugin
  * https://github.com/onokumus/metisMenu#readme
  *
@@ -303,7 +303,7 @@
             return;
           }
 
-          _el.height(0).one(Util.TRANSITION_END, complete);
+          _el.height() == 0 || _el.css('display') == 'none' ? complete() : _el.height(0).one(Util.TRANSITION_END, complete);
 
           transitionEndEmulator(TRANSITION_DURATION);
         }
