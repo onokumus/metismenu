@@ -1,5 +1,5 @@
 {
-  "root": true,
+    "root": true,
     "env": {
         "browser": true,
         "commonjs": true,
@@ -29,6 +29,6 @@
             "always"
         ],
         "no-extra-boolean-cast": 1,
-        "no-unused-vars": 1
+        "no-unused-vars": 0
     }
 }
