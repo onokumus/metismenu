@@ -1,0 +1,4 @@
+{
+  "presets": ["latest"],
+  "plugins": ["transform-es2015-modules-umd"]
+}

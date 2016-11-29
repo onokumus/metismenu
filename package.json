@@ -1,10 +1,11 @@
 {
   "name": "metismenu",
-  "version": "2.5.2",
+  "version": "2.6.0",
   "description": "A jQuery menu plugin",
   "main": "./dist/metisMenu.js",
   "scripts": {
-    "test": "grunt travis --verbose"
+    "test": "grunt travis --verbose",
+    "js": "babel src -d dist"
   },
   "repository": {
     "type": "git",
@@ -43,9 +44,11 @@
   "homepage": "https://github.com/onokumus/metisMenu#readme",
   "devDependencies": {
     "autoprefixer": "^6.3.6",
+    "babel-cli": "^6.18.0",
     "babel-eslint": "^6.0.4",
     "babel-plugin-transform-es2015-modules-umd": "^6.8.0",
-    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-latest": "^6.16.0",
     "cssnano": "^3.6.2",
     "grunt": "^1.0.1",
     "grunt-babel": "^6.0.0",
@@ -55,12 +58,7 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-eslint": "^18.1.0",
     "grunt-postcss": "^0.8.0",
-    "normalize.css": "^4.1.1",
-    "pixrem": "^3.0.1",
-    "postcss-custom-media": "^5.0.1",
-    "postcss-import": "^8.1.2",
-    "suitcss-utils-flex": "^1.1.1",
-    "verb-readme-generator": "^0.1.12"
+    "pixrem": "^3.0.1"
   },
   "verb": {
     "run": true,

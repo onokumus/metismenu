@@ -32,5 +32,8 @@
   ],
   "dependencies": {
     "jquery": "~2.2.3"
+  },
+  "devDependencies": {
+    "normalize-css": "normalize.css#^5.0.0"
   }
 }
