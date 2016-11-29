@@ -80,7 +80,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <li id="removable">
                         <a class="has-arrow" href="#" aria-expanded="false">Menu 0</a>
                         <ul aria-expanded="false">
                             <li><a href="#">item 0.1</a></li>
@@ -148,6 +148,10 @@
 &lt;/script&gt;</code></pre>
 <button type="button" class="btn btn-default" id="ajaxButton">
   get ajax content
+</button>
+
+<button type="button" class="btn btn-danger" id="removableButton">
+  remove li element
 </button>
                     </div>
                 </div>
@@ -438,6 +442,12 @@
                           $this.attr('disabled','disabled');
                     }
                 });
+            });
+
+            $('#removableButton').on('click', function(event){
+              $('#menu').metisMenu('dispose');
+              $('#removable').remove();
+              $('#menu').metisMenu();
             });
 
         });
