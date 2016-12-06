@@ -18,8 +18,8 @@ module.exports = function(grunt) {
     },
     babel: {
       options: {
-        presets: ['es2015'],
-        plugins: ['transform-es2015-modules-umd']
+        // presets: ['es2015'],
+        // plugins: ['transform-es2015-modules-umd']
       },
       dist: {
         files: {

@@ -1,6 +1,6 @@
 {
   "name": "metismenu",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "description": "A jQuery menu plugin",
   "main": "./dist/metisMenu.js",
   "scripts": {
@@ -47,7 +47,6 @@
     "babel-cli": "^6.18.0",
     "babel-eslint": "^6.0.4",
     "babel-plugin-transform-es2015-modules-umd": "^6.8.0",
-    "babel-preset-es2015": "^6.18.0",
     "babel-preset-latest": "^6.16.0",
     "cssnano": "^3.6.2",
     "grunt": "^1.0.1",
@@ -58,7 +57,7 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-eslint": "^18.1.0",
     "grunt-postcss": "^0.8.0",
-    "pixrem": "^3.0.1"
+    "pixrem": "^3.0.2"
   },
   "verb": {
     "run": true,
