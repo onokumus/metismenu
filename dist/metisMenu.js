@@ -76,7 +76,10 @@
       activeClass: 'active',
       collapseClass: 'collapse',
       collapseInClass: 'in',
-      collapsingClass: 'collapsing'
+      collapsingClass: 'collapsing',
+      redirectToPath: function redirectToPath(path) {
+        document.location = path;
+      }
     };
 
     var Event = {
@@ -217,7 +220,7 @@
               //if we hit a second time on the link and the href is valid, navigate to that url
               if (self._doubleTapToGo(_this) && _this.attr('href') !== '#' && _this.attr('href') !== '') {
                 e.stopPropagation();
-                document.location = _this.attr('href');
+                self._config.redirectToPath(_this.attr('href'));
                 return;
               }
             }
