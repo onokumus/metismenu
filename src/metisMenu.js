@@ -86,8 +86,6 @@ const MetisMenu = (($) => {
   function setTransitionEndSupport() {
     transition = transitionEndTest();
 
-    $.fn.emulateTransitionEnd = transitionEndEmulator;
-
     if (Util.supportsTransitionEnd()) {
       $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
     }
@@ -147,6 +145,7 @@ const MetisMenu = (($) => {
         .on(Event.CLICK_DATA_API, function(e) {
           var _this = $(this);
           var _parent = _this.parent('li');
+          var _siblings = _parent.siblings('li').children('a');
           var _list = _parent.children('ul');
           if (self._config.preventDefault) {
             e.preventDefault();
@@ -161,6 +160,9 @@ const MetisMenu = (($) => {
           } else {
             self._show(_list);
             _this.attr('aria-expanded', true);
+            if (self._config.toggle) {
+              _siblings.attr('aria-expanded', false);
+            }
           }
 
           if (self._config.onTransitionStart) {
@@ -312,12 +314,19 @@ const MetisMenu = (($) => {
       this._transitioning = isTransitioning;
     }
 
-    // dispose() {
-    //   $.removeData(this._element, DATA_KEY);
-    //
-    //   this._config = null;
-    //   this._element = null;
-    // }
+    dispose() {
+      $.removeData(this._element, DATA_KEY);
+
+      $(this._element)
+        .find('li')
+        .has('ul')
+        .children('a')
+        .off('click');
+
+      this._transitioning = null;
+      this._config = null;
+      this._element = null;
+    }
 
     _getConfig(config) {
       config = $.extend({}, Default, config);
@@ -334,6 +343,9 @@ const MetisMenu = (($) => {
           typeof config === 'object' && config
         );
 
+        if (!data && /dispose/.test(config)) {
+          this.dispose();
+        }
 
         if (!data) {
           data = new MetisMenu(this, _config);

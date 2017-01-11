@@ -31,6 +31,9 @@
     "composer.json"
   ],
   "dependencies": {
-    "jquery": "~2.2.1"
+    "jquery": "~2.2.3"
+  },
+  "devDependencies": {
+    "normalize-css": "normalize.css#^5.0.0"
   }
 }

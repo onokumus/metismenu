@@ -18,8 +18,8 @@ module.exports = function(grunt) {
     },
     babel: {
       options: {
-        presets: ['es2015'],
-        plugins: ['transform-es2015-modules-umd']
+        // presets: ['es2015'],
+        // plugins: ['transform-es2015-modules-umd']
       },
       dist: {
         files: {
@@ -64,7 +64,6 @@ module.exports = function(grunt) {
       min: {
         options: {
           processors: [
-            require('pixrem')(), // add fallbacks for rem units
             require('autoprefixer')({
               browsers: [
                 'Android 2.3',

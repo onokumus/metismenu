@@ -1,5 +1,5 @@
 /*
- * metismenu - v2.5.0
+ * metismenu - v2.6.1
  * A jQuery menu plugin
  * https://github.com/onokumus/metisMenu#readme
  *
@@ -33,7 +33,7 @@
   var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
     return typeof obj;
   } : function (obj) {
-    return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
+    return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
   };
 
   function _classCallCheck(instance, Constructor) {
@@ -145,8 +145,6 @@
     function setTransitionEndSupport() {
       transition = transitionEndTest();
 
-      $.fn.emulateTransitionEnd = transitionEndEmulator;
-
       if (Util.supportsTransitionEnd()) {
         $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
       }
@@ -191,6 +189,7 @@
           $(this._element).find('li').has('ul').children('a').on(Event.CLICK_DATA_API, function (e) {
             var _this = $(this);
             var _parent = _this.parent('li');
+            var _siblings = _parent.siblings('li').children('a');
             var _list = _parent.children('ul');
             if (self._config.preventDefault) {
               e.preventDefault();
@@ -204,6 +203,9 @@
             } else {
               self._show(_list);
               _this.attr('aria-expanded', true);
+              if (self._config.toggle) {
+                _siblings.attr('aria-expanded', false);
+              }
             }
 
             if (self._config.onTransitionStart) {
@@ -305,7 +307,7 @@
             return;
           }
 
-          _el.height(0).one(Util.TRANSITION_END, complete);
+          _el.height() == 0 || _el.css('display') == 'none' ? complete() : _el.height(0).one(Util.TRANSITION_END, complete);
 
           transitionEndEmulator(TRANSITION_DURATION);
         }
@@ -329,6 +331,17 @@
           this._transitioning = isTransitioning;
         }
       }, {
+        key: 'dispose',
+        value: function dispose() {
+          $.removeData(this._element, DATA_KEY);
+
+          $(this._element).find('li').has('ul').children('a').off('click');
+
+          this._transitioning = null;
+          this._config = null;
+          this._element = null;
+        }
+      }, {
         key: '_getConfig',
         value: function _getConfig(config) {
           config = $.extend({}, Default, config);
@@ -341,6 +354,10 @@
             var $this = $(this);
             var data = $this.data(DATA_KEY);
             var _config = $.extend({}, Default, $this.data(), (typeof config === 'undefined' ? 'undefined' : _typeof(config)) === 'object' && config);
+
+            if (!data && /dispose/.test(config)) {
+              this.dispose();
+            }
 
             if (!data) {
               data = new MetisMenu(this, _config);
