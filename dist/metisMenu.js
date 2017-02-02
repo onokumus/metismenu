@@ -1,5 +1,5 @@
 /*
- * metismenu - v2.6.1
+ * metismenu - v2.6.2
  * A jQuery menu plugin
  * https://github.com/onokumus/metisMenu#readme
  *
@@ -71,7 +71,6 @@
 
     var Default = {
       toggle: true,
-      doubleTapToGo: false,
       preventDefault: true,
       activeClass: 'active',
       collapseClass: 'collapse',
@@ -182,10 +181,6 @@
 
           $(this._element).find('li').not('.' + this._config.activeClass).has('ul').children('ul').attr('aria-expanded', false).addClass(this._config.collapseClass);
 
-          //add the 'doubleTapToGo' class to active items if needed
-          if (this._config.doubleTapToGo) {
-            $(this._element).find('li.' + this._config.activeClass).has('ul').children('a').addClass('doubleTapToGo');
-          }
           $(this._element).find('li').has('ul').children('a').on(Event.CLICK_DATA_API, function (e) {
             var _this = $(this);
             var _parent = _this.parent('li');
@@ -197,7 +192,7 @@
             if (_this.attr('aria-disabled') === 'true') {
               return;
             }
-            if (_parent.hasClass(self._config.activeClass) && !self._config.doubleTapToGo) {
+            if (_parent.hasClass(self._config.activeClass)) {
               _this.attr('aria-expanded', false);
               self._hide(_list);
             } else {
@@ -210,16 +205,6 @@
 
             if (self._config.onTransitionStart) {
               self._config.onTransitionStart(e);
-            }
-
-            //Do we need to enable the double tap
-            if (self._config.doubleTapToGo) {
-              //if we hit a second time on the link and the href is valid, navigate to that url
-              if (self._doubleTapToGo(_this) && _this.attr('href') !== '#' && _this.attr('href') !== '') {
-                e.stopPropagation();
-                document.location = _this.attr('href');
-                return;
-              }
             }
           });
         }
@@ -310,20 +295,6 @@
           _el.height() == 0 || _el.css('display') == 'none' ? complete() : _el.height(0).one(Util.TRANSITION_END, complete);
 
           transitionEndEmulator(TRANSITION_DURATION);
-        }
-      }, {
-        key: '_doubleTapToGo',
-        value: function _doubleTapToGo(element) {
-          if (element.hasClass('doubleTapToGo')) {
-            element.removeClass('doubleTapToGo');
-            return true;
-          }
-          if (element.parent().children('ul').length) {
-            $(this._element).find('.doubleTapToGo').removeClass('doubleTapToGo');
-
-            element.addClass('doubleTapToGo');
-            return false;
-          }
         }
       }, {
         key: 'setTransitioning',

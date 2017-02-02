@@ -1,6 +1,6 @@
 {
   "name": "metismenu",
-  "version": "2.6.1",
+  "version": "2.6.2",
   "description": "A jQuery menu plugin",
   "main": "./dist/metisMenu.js",
   "scripts": {
@@ -9,18 +9,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/onokumus/metisMenu.git"
+    "url": "git+https://github.com/onokumus/metismenu.git"
   },
   "keywords": [
-    "twitter",
+    "accordion",
     "bootstrap",
-    "twbs",
     "jquery",
     "menu",
-    "accordion",
-    "toggle",
     "metis",
-    "metisMenu"
+    "metisMenu",
+    "toggle",
+    "twbs",
+    "twitter"
   ],
   "author": "Osman Nuri Okumuş <onokumus@gmail.com> (https://github.com/onokumus)",
   "contributors": [
@@ -39,34 +39,45 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/onokumus/metisMenu/issues"
+    "url": "https://github.com/onokumus/metismenu/issues"
   },
-  "homepage": "https://github.com/onokumus/metisMenu#readme",
+  "homepage": "https://github.com/onokumus/metismenu#readme",
   "devDependencies": {
-    "autoprefixer": "^6.3.6",
-    "babel-cli": "^6.18.0",
-    "babel-eslint": "^6.0.4",
-    "babel-plugin-transform-es2015-modules-umd": "^6.8.0",
-    "babel-preset-latest": "^6.16.0",
-    "cssnano": "^3.6.2",
+    "autoprefixer": "^6.7.2",
+    "babel-cli": "^6.22.2",
+    "babel-eslint": "^7.1.1",
+    "babel-preset-env": "^1.1.8",
+    "cssnano": "^3.10.0",
     "grunt": "^1.0.1",
     "grunt-babel": "^6.0.0",
     "grunt-banner": "^0.6.0",
     "grunt-contrib-connect": "^1.0.2",
-    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-eslint": "^18.1.0",
+    "grunt-eslint": "^19.0.0",
     "grunt-postcss": "^0.8.0",
     "pixrem": "^3.0.2"
   },
   "verb": {
-    "run": true,
-    "toc": true,
+    "toc": {
+      "collapsible": true,
+      "method": "preWrite"
+    },
     "tasks": [
       "readme"
     ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "related": {
+      "list": [
+        "twbuttons",
+        "label2srt"
+      ]
+    },
     "reflinks": [
-      "twbuttons"
+      "twbuttons",
+      "label2srt"
     ]
   }
 }

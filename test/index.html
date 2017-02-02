@@ -297,12 +297,10 @@
                         </span>
                     </div>
                     <div class="panel-body">
-                        <pre><code class="language-markup">&lt;script src="metisMenu.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-  $(function () {
-    $('#menu3').metisMenu({ doubleTapToGo: true });
-  });
-&lt;/script&gt;</code></pre>
+                        <div class="alert alert-danger" role="alert">
+                          <strong>doubleTapToGo</strong>
+option is deprecated
+                          </div>
 
                     </div>
                 </div>
@@ -423,9 +421,7 @@
                 toggle: false
             });
 
-            $('#menu3').metisMenu({
-                doubleTapToGo: true
-            });
+            $('#menu3').metisMenu();
 
             $('#menu4').metisMenu();
 
