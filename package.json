@@ -1,6 +1,6 @@
 {
   "name": "metismenu",
-  "version": "2.6.2",
+  "version": "2.6.3",
   "description": "A jQuery menu plugin",
   "main": "./dist/metisMenu.js",
   "scripts": {
@@ -22,9 +22,9 @@
     "twbs",
     "twitter"
   ],
-  "author": "Osman Nuri Okumuş <onokumus@gmail.com> (https://github.com/onokumus)",
+  "author": "Osman Nuri Okumus <onokumus@gmail.com> (https://github.com/onokumus)",
   "contributors": [
-    "Osman Nuri Okumuş <onokumus@gmail.com> (https://github.com/onokumus)",
+    "Osman Nuri Okumus <onokumus@gmail.com> (https://github.com/onokumus)",
     "Rein de Vries <info@reinos.nl> (https://github.com/reinos/)",
     "Arthur CHAN <arthur@talkgoal.com> (http://catchtop.com)",
     "Andrew Eastwood (https://github.com/AndrewEastwood)",
@@ -43,8 +43,8 @@
   },
   "homepage": "https://github.com/onokumus/metismenu#readme",
   "devDependencies": {
-    "autoprefixer": "^6.7.2",
-    "babel-cli": "^6.22.2",
+    "autoprefixer": "^6.7.5",
+    "babel-cli": "^6.23.0",
     "babel-eslint": "^7.1.1",
     "babel-preset-env": "^1.1.8",
     "cssnano": "^3.10.0",
@@ -52,7 +52,7 @@
     "grunt-babel": "^6.0.0",
     "grunt-banner": "^0.6.0",
     "grunt-contrib-connect": "^1.0.2",
-    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-uglify": "^2.1.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-eslint": "^19.0.0",
     "grunt-postcss": "^0.8.0",
@@ -71,11 +71,13 @@
     ],
     "related": {
       "list": [
+        "elektron",
         "twbuttons",
         "label2srt"
       ]
     },
     "reflinks": [
+      "elektron",
       "twbuttons",
       "label2srt"
     ]
