@@ -58,28 +58,33 @@
     "grunt-postcss": "^0.8.0",
     "pixrem": "^3.0.2"
   },
-  "verb": {
-    "toc": {
-      "collapsible": true,
-      "method": "preWrite"
-    },
-    "tasks": [
-      "readme"
-    ],
-    "plugins": [
-      "gulp-format-md"
-    ],
-    "related": {
-      "list": [
+    "verb": {
+      "toc": {
+        "collapsible": true,
+        "method": "preWrite"
+      },
+      "tasks": [
+        "readme"
+      ],
+      "plugins": [
+        "gulp-format-md"
+      ],
+      "helpers": [
+        "helper-changelog"
+      ],
+      "related": {
+        "list": [
+          "elektron",
+          "twbuttons",
+          "label2srt"
+        ]
+      },
+      "reflinks": [
         "elektron",
+        "label2srt",
         "twbuttons",
-        "label2srt"
+        "helper-changelog",
+        "keep-a-changelog"
       ]
-    },
-    "reflinks": [
-      "elektron",
-      "twbuttons",
-      "label2srt"
-    ]
-  }
+    }
 }
