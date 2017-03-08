@@ -1,452 +1,312 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>metisMenu</title>
+    <title>metisMenu - index</title>
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="metisMenu.min.css">
+    <link rel="stylesheet" href="metisMenu.css" />
     <link rel="stylesheet" href="demo.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-</head>
-
-<body>
-
-    <nav class="navbar navbar-default navbar-static-top" role="navigation">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="index.html">metisMenu</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.html">Vertical Menu</a></li>
-                    <li><a href="metisFolder.html">Folder View</a></li>
-                    <li><a href="hover.html">Hover Option For Desktop</a></li>
-                    <li><a href="zurb.html">Foundation | Zurb</a></li>
-                    <li><a href="animate.html">Animate</a></li>
-                    <li><a href="event.html">Event</a></li>
-                    <li><a href="event2.html">Event 2</a></li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
 
 
-
-    <div class="clearfix">
-        <aside class="sidebar">
-            <nav class="sidebar-nav">
-                <ul class="metismenu" id="menu">
-                    <li class="active">
-                        <a class="has-arrow" href="#" aria-expanded="true">
-                            <span class="sidebar-nav-item-icon fa fa-github fa-lg fa-fw"></span>
-                            <span class="sidebar-nav-item">metisMenu</span>
-                        </a>
-                        <ul aria-expanded="true">
-                            <li>
-                                <a href="https://github.com/onokumus/metisMenu">
-                                    <span class="sidebar-nav-item-icon fa fa-code-fork fa-fw"></span> Fork
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/onokumus/metisMenu">
-                                    <span class="sidebar-nav-item-icon fa fa-star fa-fw"></span> Star
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/onokumus/metisMenu/issues">
-                                    <span class="sidebar-nav-item-icon fa fa-exclamation-triangle fa-fw"></span> Issues
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li id="removable">
-                        <a class="has-arrow" href="#" aria-expanded="false">Menu 0</a>
-                        <ul aria-expanded="false">
-                            <li><a href="#">item 0.1</a></li>
-                            <li><a href="#">item 0.2</a></li>
-                            <li><a href="http://onokumus.com">onokumus</a></li>
-                            <li><a href="#">item 0.4</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="#" aria-expanded="false">Menu 1</a>
-                        <ul aria-expanded="false">
-                            <li><a href="#">item 1.1</a></li>
-                            <li><a href="#">item 1.2</a></li>
-                            <li>
-                                <a class="has-arrow" href="#" aria-expanded="false">Menu 1.3</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="#">item 1.3.1</a></li>
-                                    <li><a href="#">item 1.3.2</a></li>
-                                    <li><a href="#">item 1.3.3</a></li>
-                                    <li><a href="#">item 1.3.4</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">item 1.4</a></li>
-                            <li>
-                                <a class="has-arrow" href="#" aria-expanded="false">Menu 1.5</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="#">item 1.5.1</a></li>
-                                    <li><a href="#">item 1.5.2</a></li>
-                                    <li><a href="#">item 1.5.3</a></li>
-                                    <li><a href="#">item 1.5.4</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="#" aria-expanded="false">Menu 2</a>
-                        <ul aria-expanded="false">
-                            <li><a href="#">item 2.1</a></li>
-                            <li><a href="#">item 2.2</a></li>
-                            <li><a href="#">item 2.3</a></li>
-                            <li><a href="#">item 2.4</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
-        <section class="content">
-            <div class="col-xs-12">
-                <h3>Auto Collapse
-          <small>default</small>
-        </h3>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Code
-                        <span class="pull-right">
-              <span class="fa fa-code"></span>
-                        </span>
-                    </div>
-                    <div class="panel-body">
-                        <pre><code class="language-markup">&lt;script src="metisMenu.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-  $(function () {
-    $('#menu').metisMenu();
-  });
-&lt;/script&gt;</code></pre>
-<button type="button" class="btn btn-default" id="ajaxButton">
-  get ajax content
-</button>
-
-<button type="button" class="btn btn-danger" id="removableButton">
-  remove li element
-</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-    <hr>
-    <div class="clearfix">
-        <aside class="sidebar">
-            <nav class="sidebar-nav">
-                <ul class=metismenu id="menu2">
-                    <li class="active">
-                        <a class="has-arrow" href="#" aria-expanded="true">Menu 0</a>
-                        <ul aria-expanded="true">
-                            <li><a href="#">item 0.1</a></li>
-                            <li><a href="#">item 0.2</a></li>
-                            <li><a href="http://onokumus.com">onokumus</a></li>
-                            <li><a href="#">item 0.4</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="#" aria-expanded="false">Menu 1</a>
-                        <ul aria-expanded="false">
-                            <li><a href="#">item 1.1</a></li>
-                            <li><a href="#">item 1.2</a></li>
-                            <li>
-                                <a class="has-arrow" href="#" aria-expanded="false">Menu 1.3</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="#">item 1.3.1</a></li>
-                                    <li><a href="#">item 1.3.2</a></li>
-                                    <li><a href="#">item 1.3.3</a></li>
-                                    <li><a href="#">item 1.3.4</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">item 1.4</a></li>
-                            <li>
-                                <a class="has-arrow" href="#" aria-expanded="false">Menu 1.5</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="#">item 1.5.1</a></li>
-                                    <li><a href="#">item 1.5.2</a></li>
-                                    <li><a href="#">item 1.5.3</a></li>
-                                    <li><a href="#">item 1.5.4</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="#" aria-expanded="false">Menu 2</a>
-                        <ul aria-expanded="false">
-                            <li><a href="#">item 2.1</a></li>
-                            <li><a href="#">item 2.2</a></li>
-                            <li><a href="#">item 2.3</a></li>
-                            <li><a href="#">item 2.4</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
-        <section class="content">
-            <div class="col-xs-12">
-                <h3>No Collapse</h3>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Code
-                        <span class="pull-right">
-              <span class="fa fa-code"></span>
-                        </span>
-                    </div>
-                    <div class="panel-body">
-
-                        <pre><code class="language-markup">&lt;script src="metisMenu.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-  $(function () {
-    $('#menu2').metisMenu({ toggle: false });
-  });
-&lt;/script&gt;</code></pre>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-    <hr>
-    <div class="clearfix">
-        <aside class="sidebar">
-            <nav class="sidebar-nav">
-                <ul class=metismenu id="menu3">
-                    <li class="active">
-                        <a class="has-arrow" href="http://google.com" aria-expanded="true">Menu 0</a>
-                        <ul aria-expanded="true">
-                            <li><a href="#">item 0.1</a></li>
-                            <li><a href="#">item 0.2</a></li>
-                            <li><a href="http://onokumus.com">onokumus</a></li>
-                            <li><a href="#">item 0.4</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="http://github.com" aria-expanded="false">Menu 1</a>
-                        <ul aria-expanded="false">
-                            <li><a href="#">item 1.1</a></li>
-                            <li><a href="#">item 1.2</a></li>
-                            <li>
-                                <a href="#" aria-expanded="false">Menu 1.3 </a>
-                                <ul aria-expanded="false">
-                                    <li><a href="#">item 1.3.1</a></li>
-                                    <li><a href="#">item 1.3.2</a></li>
-                                    <li><a href="#">item 1.3.3</a></li>
-                                    <li><a href="#">item 1.3.4</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">item 1.4</a></li>
-                            <li>
-                                <a class="has-arrow" href="#" aria-expanded="false">Menu 1.5</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="#">item 1.5.1</a></li>
-                                    <li><a href="#">item 1.5.2</a></li>
-                                    <li><a href="#">item 1.5.3</a></li>
-                                    <li><a href="#">item 1.5.4</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="https://github.com/onokumus/metisMenu" aria-expanded="false">Menu 2 </a>
-                        <ul>
-                            <li><a href="#">item 2.1</a></li>
-                            <li><a href="#">item 2.2</a></li>
-                            <li><a href="#">item 2.3</a></li>
-                            <li><a href="#">item 2.4</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
-        <section class="content">
-            <div class="col-xs-12">
-                <h3>Double Tap To Go</h3>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Code
-                        <span class="pull-right">
-              <span class="fa fa-code fa-fw"></span>
-                        </span>
-                    </div>
-                    <div class="panel-body">
-                        <div class="alert alert-danger" role="alert">
-                          <strong>doubleTapToGo</strong>
-option is deprecated
-                          </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <div class="clearfix" dir="rtl">
-        <aside class="sidebar" style="float: right">
-            <nav class="sidebar-nav">
-                <ul class="metismenu" id="menu4">
-                    <li class="active">
-                        <a class="has-arrow" href="#" aria-expanded="true">
-                            <span class="sidebar-nav-item-icon fa fa-github fa-lg fa-fw"></span>
-                            <span class="sidebar-nav-item">metisMenu</span>
-                        </a>
-                        <ul aria-expanded="true">
-                            <li>
-                                <a href="https://github.com/onokumus/metisMenu">
-                                    <span class="sidebar-nav-item-icon fa fa-code-fork fa-fw"></span> Fork
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/onokumus/metisMenu">
-                                    <span class="sidebar-nav-item-icon fa fa-star fa-fw"></span> Star
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/onokumus/metisMenu/issues">
-                                    <span class="sidebar-nav-item-icon fa fa-exclamation-triangle fa-fw"></span> Issues
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="#" aria-expanded="false">Menu 0</a>
-                        <ul aria-expanded="false">
-                            <li><a href="#">item 0.1</a></li>
-                            <li><a href="#">item 0.2</a></li>
-                            <li><a href="http://onokumus.com">onokumus</a></li>
-                            <li><a href="#">item 0.4</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="#" aria-expanded="false">Menu 1 </a>
-                        <ul aria-expanded="false">
-                            <li><a href="#">item 1.1</a></li>
-                            <li><a href="#">item 1.2</a></li>
-                            <li>
-                                <a href="#" aria-expanded="false">Menu 1.3 </a>
-                                <ul aria-expanded="false">
-                                    <li><a href="#">item 1.3.1</a></li>
-                                    <li><a href="#">item 1.3.2</a></li>
-                                    <li><a href="#">item 1.3.3</a></li>
-                                    <li><a href="#">item 1.3.4</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">item 1.4</a></li>
-                            <li>
-                                <a class="has-arrow" href="#" aria-expanded="false">Menu 1.5</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="#">item 1.5.1</a></li>
-                                    <li><a href="#">item 1.5.2</a></li>
-                                    <li><a href="#">item 1.5.3</a></li>
-                                    <li><a href="#">item 1.5.4</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="#" aria-expanded="false">Menu 2</a>
-                        <ul aria-expanded="false">
-                            <li><a href="#">item 2.1</a></li>
-                            <li><a href="#">item 2.2</a></li>
-                            <li><a href="#">item 2.3</a></li>
-                            <li><a href="#">item 2.4</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
-        <section class="content">
-            <div class="col-xs-12">
-                <h3 id="rtlh3">RTL SUPPORT <small>RTL</small></h3>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Code
-                        <span class="pull-right">
-              <span class="fa fa-code fa-fw"></span>
-                        </span>
-                    </div>
-                    <div class="panel-body">
-                        <pre><code class="language-markup">&lt;body dir="rtl"&gt;
-...
-&lt;script src="metisMenu.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-  $(function () {
-    $('#menu4').metisMenu();
-  });
-&lt;/script&gt;</code></pre>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <script src="jquery/dist/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="metisMenu.js"></script>
 
-    <script>
-        $(function() {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
 
-            $('#menu').metisMenu();
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-noty/2.4.1/packaged/jquery.noty.packaged.min.js"></script>
+  </head>
 
-            $('#menu2').metisMenu({
-                toggle: false
-            });
+  <body>
 
-            $('#menu3').metisMenu();
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">metisMenu</a>
+        </div>
 
-            $('#menu4').metisMenu();
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Examples <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="mm-vertical.html">Vertical Menu</a></li>
+                <li><a href="mm-horizontal.html">Horizontal Menu</a></li>
+                <li><a href="mm-folder.html">Folder View</a></li>
+                <li><a href="mm-vertical-hover.html">Hover Option For Desktop</a></li>
+                <li><a href="mm-zurb.html">Foundation | Zurb</a></li>
+                <li><a href="mm-animate.html">Animate</a></li>
+                <li><a href="mm-event.html">Event</a></li>
+                <li><a href="mm-event2.html">Event 2</a></li>
+                <li><a href="mm-dispose.html">Stop & Start metisMenu</a></li>
+                <li><a href="mm-ajax.html">Ajax</a></li>
+                <li><a href="mm-faq.html">FAQ</a></li>
+              </ul>
+            </li>
 
-            $("#ajaxButton").click(function() {
-              var $this = $(this);
-              $('#menu').metisMenu('dispose');
-                $.ajax({
-                    url: "demo_ajax.html",
-                    success: function(result) {
-                        $("#menu").append(result);
-                          $('#menu').metisMenu();
-                          $this.attr('disabled','disabled');
-                    }
-                });
-            });
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Admin Templates <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="http://chl.onokumus.com" target="_blank">Chaldene Admin</a></li>
+                <li><a href="http://elk.onokumus.com" target="_blank">Elektron Admin</a></li>
+                <li><a href="http://onokumus.github.io/twbuttons/" target="_blank">twbuttons</a></li>
+              </ul>
+            </li>
 
-            $('#removableButton').on('click', function(event){
-              $('#menu').metisMenu('dispose');
-              $('#removable').remove();
-              $('#menu').metisMenu();
-            });
-        });
-    </script>
+            <li><a href="http://onokumus.com" target="_blank">onokumus</a></li>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/prism.min.js"></script>
-</body>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+
+  <div class="page-header text-center">
+    <h1>metisMenu <small>A jQuery menu plugin</small></h1>
+    <p>
+      <!-- Place this tag where you want the button to render. -->
+      <a class="github-button" href="https://github.com/onokumus/metismenu" data-icon="octicon-star" data-style="mega" data-count-href="/onokumus/metismenu/stargazers" data-count-api="/repos/onokumus/metismenu#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star onokumus/metismenu on GitHub">Star</a>
+      <!-- Place this tag where you want the button to render. -->
+      <a class="github-button" href="https://github.com/onokumus/metismenu/fork" data-icon="octicon-repo-forked" data-style="mega" data-count-href="/onokumus/metismenu/network" data-count-api="/repos/onokumus/metismenu#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork onokumus/metismenu on GitHub">Fork</a>
+      <!-- Place this tag where you want the button to render. -->
+      <a class="github-button" href="https://github.com/onokumus/metismenu/archive/master.zip" data-icon="octicon-cloud-download" data-style="mega" aria-label="Download onokumus/metismenu on GitHub">Download</a>
+    </p>
+  </div>
+
+<div class="container">
+<h2>Getting started</h2>
+<h3>Install</h3>
+<p>Install with <a href="https://www.npmjs.com/">npm</a>:</p>
+<pre><code class="language-sh">$ npm install --save metismenu
+</code></pre>
+<p>Install with <a href="https://bower.io/">bower</a></p>
+<pre><code class="language-sh">$ bower install metismenu --save
+</code></pre>
+<p>Install with <a href="https://getcomposer.org/">composer</a></p>
+<pre><code class="language-sh">$ composer require onokumus/metismenu:dev-master
+</code></pre>
+<h3>Download</h3>
+<p><a href="https://github.com/onokumus/metisMenu/archive/master.zip">download</a></p>
+<h3>TypeScript type definitions</h3>
+<p>Install metismenu TypeScript definition file</p>
+<pre><code class="language-bash">$ npm install --save-dev @types/metismenu
+</code></pre>
+<h2>Usage</h2>
+<ol>
+<li>Include metismenu StyleSheet</li>
+</ol>
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.0/metisMenu.min.css&quot;&gt;
+</code></pre>
+<p>OR</p>
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;//cdn.jsdelivr.net/jquery.metismenu/2.7.0/metisMenu.min.css&quot;&gt;
+</code></pre>
+<ol start="2">
+<li>Include jQuery</li>
+</ol>
+<pre><code class="language-html">&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>OR</p>
+<pre><code class="language-html">&lt;script src=&quot;//cdn.jsdelivr.net/jquery/2.2.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<ol start="3">
+<li>Include metisMenu plugin's code</li>
+</ol>
+<pre><code class="language-html">&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.0/metisMenu.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>OR</p>
+<pre><code class="language-html">&lt;script src=&quot;//cdn.jsdelivr.net/jquery.metismenu/2.7.0/metisMenu.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<ol start="4">
+<li>Add class <code>metismenu</code> to unordered list</li>
+</ol>
+<pre><code class="language-html">&lt;ul class=&quot;metismenu&quot; id=&quot;menu&quot;&gt;
+
+&lt;/ul&gt;
+</code></pre>
+<ol start="5">
+<li>Make expand/collapse controls accessible</li>
+</ol>
+<blockquote>
+<p>Be sure to add <code>aria-expanded</code> to the element <code>a</code> and the following <code>ul</code>. This attribute explicitly defines the current state of the collapsible element to screen readers and similar assistive technologies. If the collapsible element is closed by default, it should have a value of <code>aria-expanded=&quot;false&quot;</code>. If you've set the collapsible element's parent <code>li</code> element to be open by default using the <code>active</code> class, set <code>aria-expanded=&quot;true&quot;</code> on the control instead. The plugin will automatically toggle this attribute based on whether or not the collapsible element has been opened or closed.</p>
+</blockquote>
+<pre><code class="language-html">&lt;ul class=&quot;metismenu&quot; id=&quot;menu&quot;&gt;
+  &lt;li class=&quot;active&quot;&gt;
+    &lt;a href=&quot;#&quot; aria-expanded=&quot;true&quot;&gt;Menu 1&lt;/a&gt;
+    &lt;ul aria-expanded=&quot;true&quot;&gt;
+    ...
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;#&quot; aria-expanded=&quot;false&quot;&gt;Menu 2&lt;/a&gt;
+    &lt;ul aria-expanded=&quot;false&quot;&gt;
+    ...
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  ...
+  &lt;/ul&gt;
+</code></pre>
+<ol start="6">
+<li>Arrow Options</li>
+</ol>
+<blockquote>
+<p>add <code>has-arrow</code> class to <code>a</code> element</p>
+</blockquote>
+<pre><code class="language-html">&lt;ul class=&quot;metismenu&quot; id=&quot;menu&quot;&gt;
+&lt;li class=&quot;active&quot;&gt;
+  &lt;a class=&quot;has-arrow&quot; href=&quot;#&quot; aria-expanded=&quot;true&quot;&gt;Menu 1&lt;/a&gt;
+  &lt;ul aria-expanded=&quot;true&quot;&gt;
+  ...
+  &lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+  &lt;a class=&quot;has-arrow&quot; href=&quot;#&quot; aria-expanded=&quot;false&quot;&gt;Menu 2&lt;/a&gt;
+  &lt;ul aria-expanded=&quot;false&quot;&gt;
+  ...
+  &lt;/ul&gt;
+&lt;/li&gt;
+...
+&lt;/ul&gt;
+</code></pre>
+<ol start="7">
+<li>Call the plugin:</li>
+</ol>
+<pre><code class="language-javascript">  $(&quot;#menu&quot;).metisMenu();
+</code></pre>
+<h3>Stopping list opening on certain elements</h3>
+<p>Setting aria-disabled=&quot;true&quot; in the <code>&lt;a&gt;</code> element as shown will stop metisMenu opening the menu for that particular list. This can be changed dynamically and will be obeyed correctly:</p>
+<pre><code class="language-html">&lt;a href=&quot;#&quot; aria-expanded=&quot;false&quot; aria-disabled=&quot;true&quot;&gt;List 1&lt;/a&gt;
+</code></pre>
+<h2>Options</h2>
+<h4>toggle</h4>
+<p>Type: <code>Boolean</code><br>
+Default: <code>true</code></p>
+<p>For auto collapse support.</p>
+<pre><code class="language-javascript"> $(&quot;#menu&quot;).metisMenu({
+   toggle: false
+ });
+</code></pre>
+<h4>dispose</h4>
+<p>Type: <code>String</code><br>
+Default: <code>null</code></p>
+<p>For stop and destroy metisMenu.</p>
+<pre><code class="language-javascript"> $(&quot;#menu&quot;).metisMenu('dispose');
+</code></pre>
+<h4>activeClass</h4>
+<p>Type: <code>String</code><br>
+Default: <code>active</code></p>
+<pre><code class="language-javascript"> $(&quot;#menu&quot;).metisMenu({
+   activeClass: 'active'
+ });
+</code></pre>
+<h4>collapseClass</h4>
+<p>Type: <code>String</code><br>
+Default: <code>collapse</code></p>
+<pre><code class="language-javascript"> $(&quot;#menu&quot;).metisMenu({
+   collapseClass: 'collapse'
+ });
+</code></pre>
+<h4>collapseInClass</h4>
+<p>Type: <code>String</code><br>
+Default: <code>in</code></p>
+<pre><code class="language-javascript"> $(&quot;#menu&quot;).metisMenu({
+   collapseInClass: 'in'
+ });
+</code></pre>
+<h4>collapsingClass</h4>
+<p>Type: <code>String</code><br>
+Default: <code>collapsing</code></p>
+<pre><code class="language-javascript"> $(&quot;#menu&quot;).metisMenu({
+   collapsingClass: 'collapsing'
+ });
+</code></pre>
+<h4>preventDefault</h4>
+<p>Type: <code>Boolean</code><br>
+Default: <code>true</code></p>
+<blockquote>
+<p>Prevents or allows dropdowns' onclick events after expanding/collapsing.</p>
+</blockquote>
+<pre><code class="language-javascript"> $(&quot;#menu&quot;).metisMenu({
+   preventDefault: false
+ });
+</code></pre>
+<p><em>since from version 2.7.0</em></p>
+<h4>triggerElement</h4>
+<p>Type: <code>jQuery selector</code><br>
+Default: <code>a</code></p>
+<pre><code class="language-javascript"> $(&quot;#menu&quot;).metisMenu({
+   triggerElement: '.nav-link' // bootstrap 4
+ });
+</code></pre>
+<h4>parentTrigger</h4>
+<p>Type: <code>jQuery selector</code><br>
+Default: <code>li</code></p>
+<pre><code class="language-javascript"> $(&quot;#menu&quot;).metisMenu({
+   parentTrigger: '.nav-item' // bootstrap 4
+ });
+</code></pre>
+<h4>subMenu</h4>
+<p>Type: <code>jQuery selector</code><br>
+Default: <code>ul</code></p>
+<pre><code class="language-javascript"> $(&quot;#menu&quot;).metisMenu({
+   subMenu: '.nav.flex-column' // bootstrap 4
+ });
+</code></pre>
+<h2>Events</h2>
+<table>
+<thead>
+<tr><th><strong>Event Type</strong></th><th><strong>Description</strong></th></tr>
+</thead>
+<tbody>
+<tr><td>show.metisMenu</td><td>This event fires immediately when the <code>_show</code> instance method is called.</td></tr>
+<tr><td>shown.metisMenu</td><td>This event is fired when a collapse <code>ul</code> element has been made visible to the user (will wait for CSS transitions to complete).</td></tr>
+<tr><td>hide.metisMenu</td><td>This event is fired immediately when the <code>_hide</code> method has been called.</td></tr>
+<tr><td>hidden.metisMenu</td><td>This event is fired when a collapse <code>ul</code> element has been hidden from the user (will wait for CSS transitions to complete).</td></tr>
+</tbody>
+</table>
+<h2>Testing</h2>
+<pre><code class="language-sh">$ npm install
+$ grunt serve
+</code></pre>
+
+
+</div>
+<script>
+  $(function () {
+    $('table').addClass('table table-bordered table-striped');
+  });
+</script>
+
+
+
+
+
+
+  </body>
 
 </html>

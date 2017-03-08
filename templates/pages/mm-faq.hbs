@@ -1,0 +1,79 @@
+---
+title: FAQ
+---
+<style media="screen">
+  .faq-link {
+    cursor: pointer;
+    padding: 15px;
+    background: #212529;
+    color: #adb5bd
+  }
+  .faq-item.active > .faq-link {
+    background-color: #d9480f;
+    color: #f8f9fa;
+  }
+</style>
+<div class="container">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">FAQ <small>metisMenu version 2.7.x</small></h2>
+    </div>
+    <div class="panel-body">
+      <div class="metismenu faq-menu">
+
+        <div class="faq-item">
+          <h4 class="faq-link has-arrow">Question 1</h4>
+          <div class="faq-answer text-muted">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h4 class="faq-link has-arrow">Question 2</h4>
+          <div class="faq-answer text-muted">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h4 class="faq-link has-arrow">Question 3</h4>
+          <div class="faq-answer text-muted">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </div>
+        </div>
+
+      </div>
+
+{{#markdown}}
+  ```javascript
+  $(function() {
+
+    $('.faq-menu').metisMenu({
+      toggle: false,
+      triggerElement: '.faq-link',
+      parentTrigger: '.faq-item',
+      subMenu: '.faq-answer'
+    });
+
+  });
+  ```
+{{/markdown}}
+
+    </div>
+  </div>
+</div>
+
+
+<script>
+  $(function() {
+
+    $('.faq-menu').metisMenu({
+      toggle: false,
+      triggerElement: '.faq-link',
+      parentTrigger: '.faq-item',
+      subMenu: '.faq-answer'
+    });
+
+  });
+</script>

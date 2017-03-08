@@ -1,5 +1,5 @@
 /*
- * metismenu - v2.6.3
+ * metismenu - v2.7.0
  * A jQuery menu plugin
  * https://github.com/onokumus/metismenu#readme
  *
@@ -141,7 +141,10 @@
       activeClass: 'active',
       collapseClass: 'collapse',
       collapseInClass: 'in',
-      collapsingClass: 'collapsing'
+      collapsingClass: 'collapsing',
+      triggerElement: 'a',
+      parentTrigger: 'li',
+      subMenu: 'ul'
     };
 
     var Event = {
@@ -165,15 +168,15 @@
 
       MetisMenu.prototype.init = function init() {
         var self = this;
-        $(this._element).find('li.' + this._config.activeClass).has('ul').children('ul').attr('aria-expanded', true).addClass(this._config.collapseClass + ' ' + this._config.collapseInClass);
+        $(this._element).find(this._config.parentTrigger + '.' + this._config.activeClass).has(this._config.subMenu).children(this._config.subMenu).attr('aria-expanded', true).addClass(this._config.collapseClass + ' ' + this._config.collapseInClass);
 
-        $(this._element).find('li').not('.' + this._config.activeClass).has('ul').children('ul').attr('aria-expanded', false).addClass(this._config.collapseClass);
+        $(this._element).find(this._config.parentTrigger).not('.' + this._config.activeClass).has(this._config.subMenu).children(this._config.subMenu).attr('aria-expanded', false).addClass(this._config.collapseClass);
 
-        $(this._element).find('li').has('ul').children('a').on(Event.CLICK_DATA_API, function (e) {
+        $(this._element).find(this._config.parentTrigger).has(this._config.subMenu).children(this._config.triggerElement).on(Event.CLICK_DATA_API, function (e) {
           var _this = $(this);
-          var _parent = _this.parent('li');
-          var _siblings = _parent.siblings('li').children('a');
-          var _list = _parent.children('ul');
+          var _parent = _this.parent(self._config.parentTrigger);
+          var _siblings = _parent.siblings(self._config.parentTrigger).children(self._config.triggerElement);
+          var _list = _parent.children(self._config.subMenu);
           if (self._config.preventDefault) {
             e.preventDefault();
           }
@@ -211,10 +214,10 @@
           return;
         }
 
-        _el.parent('li').addClass(this._config.activeClass);
+        _el.parent(this._config.parentTrigger).addClass(this._config.activeClass);
 
         if (this._config.toggle) {
-          this._hide(_el.parent('li').siblings().children('ul.' + this._config.collapseInClass).attr('aria-expanded', false));
+          this._hide(_el.parent(this._config.parentTrigger).siblings().children(this._config.subMenu + '.' + this._config.collapseInClass).attr('aria-expanded', false));
         }
 
         _el.removeClass(this._config.collapseClass).addClass(this._config.collapsingClass).height(0);
@@ -253,7 +256,7 @@
           return;
         }
 
-        _el.parent('li').removeClass(this._config.activeClass);
+        _el.parent(this._config.parentTrigger).removeClass(this._config.activeClass);
         _el.height(_el.height())[0].offsetHeight;
 
         _el.addClass(this._config.collapsingClass).removeClass(this._config.collapseClass).removeClass(this._config.collapseInClass);
@@ -286,7 +289,7 @@
       MetisMenu.prototype.dispose = function dispose() {
         $.removeData(this._element, DATA_KEY);
 
-        $(this._element).find('li').has('ul').children('a').off('click');
+        $(this._element).find(this._config.parentTrigger).has(this._config.subMenu).children(this._config.triggerElement).off('click');
 
         this._transitioning = null;
         this._config = null;

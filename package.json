@@ -1,11 +1,15 @@
 {
   "name": "metismenu",
-  "version": "2.6.3",
+  "version": "2.7.0",
   "description": "A jQuery menu plugin",
   "main": "./dist/metisMenu.js",
+  "style":"./dist/metisMenu.css",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
-    "test": "grunt travis --verbose",
-    "js": "babel src -d dist"
+    "test": "grunt travis --verbose"
   },
   "repository": {
     "type": "git",
@@ -43,48 +47,53 @@
   },
   "homepage": "https://github.com/onokumus/metismenu#readme",
   "devDependencies": {
-    "autoprefixer": "^6.7.5",
-    "babel-cli": "^6.23.0",
+    "assemble": "^0.23.0",
+    "autoprefixer": "^6.7.6",
     "babel-eslint": "^7.1.1",
-    "babel-preset-env": "^1.1.8",
+    "babel-preset-env": "^1.2.1",
     "cssnano": "^3.10.0",
     "grunt": "^1.0.1",
     "grunt-babel": "^6.0.0",
     "grunt-banner": "^0.6.0",
+    "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-connect": "^1.0.2",
-    "grunt-contrib-uglify": "^2.1.0",
+    "grunt-contrib-uglify": "^2.2.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-eslint": "^19.0.0",
     "grunt-postcss": "^0.8.0",
+    "gulp-extname": "^0.2.2",
+    "helper-markdown": "^0.2.1",
     "pixrem": "^3.0.2"
   },
-    "verb": {
-      "toc": {
-        "collapsible": true,
-        "method": "preWrite"
-      },
-      "tasks": [
-        "readme"
-      ],
-      "plugins": [
-        "gulp-format-md"
-      ],
-      "helpers": [
-        "helper-changelog"
-      ],
-      "related": {
-        "list": [
-          "elektron",
-          "twbuttons",
-          "label2srt"
-        ]
-      },
-      "reflinks": [
+  "verb": {
+    "toc": {
+      "collapsible": false,
+      "method": "preWrite"
+    },
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "helpers": [
+      "helper-changelog"
+    ],
+    "related": {
+      "list": [
+        "chl",
         "elektron",
-        "label2srt",
-        "twbuttons",
-        "helper-changelog",
-        "keep-a-changelog"
+        "onoffcanvas",
+        "twbuttons"
       ]
-    }
+    },
+    "reflinks": [
+      "chl",
+      "elektron",
+      "onoffcanvas",
+      "twbuttons",
+      "helper-changelog",
+      "keep-a-changelog"
+    ]
+  }
 }

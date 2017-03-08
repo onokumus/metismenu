@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>metisMenu - {{title}}</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="metisMenu.css" />
+    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    {{#if github}}
+    {{> ga}}
+    {{/if}}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="metisMenu.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-noty/2.4.1/packaged/jquery.noty.packaged.min.js"></script>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">metisMenu</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Examples <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="mm-vertical.html">Vertical Menu</a></li>
+                <li><a href="mm-horizontal.html">Horizontal Menu</a></li>
+                <li><a href="mm-folder.html">Folder View</a></li>
+                <li><a href="mm-vertical-hover.html">Hover Option For Desktop</a></li>
+                <li><a href="mm-zurb.html">Foundation | Zurb</a></li>
+                <li><a href="mm-animate.html">Animate</a></li>
+                <li><a href="mm-event.html">Event</a></li>
+                <li><a href="mm-event2.html">Event 2</a></li>
+                <li><a href="mm-dispose.html">Stop & Start metisMenu</a></li>
+                <li><a href="mm-ajax.html">Ajax</a></li>
+                <li><a href="mm-faq.html">FAQ</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Admin Templates <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="http://chl.onokumus.com" target="_blank">Chaldene Admin</a></li>
+                <li><a href="http://elk.onokumus.com" target="_blank">Elektron Admin</a></li>
+                <li><a href="http://onokumus.github.io/twbuttons/" target="_blank">twbuttons</a></li>
+              </ul>
+            </li>
+
+            <li><a href="http://onokumus.com" target="_blank">onokumus</a></li>
+
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+
+{% body %}
+
+
+
+{{#if github}}
+  {{> ads}}
+{{/if}}
+
+  </body>
+
+</html>

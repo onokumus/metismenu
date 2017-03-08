@@ -1,0 +1,179 @@
+---
+title: folder view
+---
+<link href="css/mm-folder.css" rel="stylesheet" type="text/css"/>
+<div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <nav class="nav">
+            <ul class="metisFolder">
+              <li>
+                <a href="#">
+                  <span class="fa fa-fw fa-folder-o"></span>
+                  Root
+                </a>
+                <ul>
+                  <li>
+                    <a href="#">
+                      <span class="fa fa-fw fa-file"></span>
+                      File 1
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="fa fa-fw fa-folder-o"></span>
+                      Folder
+                    </a>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <span class="fa fa-fw fa-file"></span>
+                          File 1
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <span class="fa fa-fw fa-folder-o"></span>
+                          Folder
+                        </a>
+                        <ul>
+                          <li>
+                            <a href="#">
+                              <span class="fa fa-fw fa-file"></span>
+                              File 1
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#">
+                              <span class="fa fa-fw fa-file-excel-o text-danger"></span>
+                              Excel
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#">
+                              <span class="fa fa-fw fa-file-pdf-o"></span>
+                              PDF
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <span class="fa fa-fw fa-file-pdf-o"></span>
+                          PDF
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <span class="fa fa-fw fa-folder-o"></span>
+                          Folder
+                        </a>
+                        <ul>
+                          <li>
+                            <a href="#">
+                              <span class="fa fa-fw fa-file"></span>
+                              File 1
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#">
+                              <span class="fa fa-fw fa-folder-o"></span>
+                              Folder
+                            </a>
+                            <ul>
+                              <li>
+                                <a href="#">
+                                  <span class="fa fa-fw fa-file"></span>
+                                  File 1
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#">
+                                  <span class="fa fa-fw fa-file-excel-o text-danger"></span>
+                                  Excel
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#">
+                                  <span class="fa fa-fw fa-file-pdf-o"></span>
+                                  PDF
+                                </a>
+                              </li>
+                            </ul>
+                          </li>
+                          <li>
+                            <a href="#">
+                              <span class="fa fa-fw fa-file-pdf-o"></span>
+                              PDF
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <span class="fa fa-fw fa-file-pdf-o"></span>
+                          PDF
+                        </a>
+                      </li>
+
+                      <li>
+                        <a href="#">
+                          <span class="fa fa-fw fa-file-pdf-o"></span>
+                          PDF2
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="fa fa-fw fa-file-pdf-o"></span>
+                      PDF
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="col-md-8">
+        <h3>Folder View
+            <small>default</small>
+          </h3>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              Code
+              <span class="pull-right">
+                <span class="fa fa-fw fa-code"></span>
+              </span>
+            </div>
+            <div class="panel-body">
+{{#markdown}}
+ ```html
+ <script>
+   $(function () {
+
+     $('.metisFolder').metisMenu({
+       toggle: false
+     });
+
+   });
+ </script>
+ ```
+{{/markdown}}
+              <p>
+                <br>
+                <a class="btn btn-info btn-lg" href="css/mm-folder.css" target="_top">Download CSS File</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $(function () {
+          $('.metisFolder').metisMenu({
+              toggle: false
+          });
+      });
+    </script>

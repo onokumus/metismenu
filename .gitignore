@@ -34,6 +34,7 @@ lib-cov
 nbproject
 backup
 Thumbs.db
+.tmp
 
 # Komodo
 *.komodoproject
@@ -47,6 +48,9 @@ validation-report.json
 node_modules
 bower_components
 vendor
+templates/partials/ads.hbs
+templates/partials/ga.hbs
+
 
 # General folders and files to ignore
 _gh_pages

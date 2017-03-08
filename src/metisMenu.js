@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 const Util = (($) => {
   let transition = false;
 
@@ -102,7 +100,10 @@ const MetisMenu = (($) => {
     activeClass: 'active',
     collapseClass: 'collapse',
     collapseInClass: 'in',
-    collapsingClass: 'collapsing'
+    collapsingClass: 'collapsing',
+    triggerElement: 'a',
+    parentTrigger: 'li',
+    subMenu: 'ul'
   };
 
   const Event = {
@@ -124,29 +125,29 @@ const MetisMenu = (($) => {
     init() {
       let self = this;
       $(this._element)
-        .find('li.' + this._config.activeClass)
-        .has('ul')
-        .children('ul')
+        .find(this._config.parentTrigger + '.' + this._config.activeClass)
+        .has(this._config.subMenu)
+        .children(this._config.subMenu)
         .attr('aria-expanded', true)
         .addClass(this._config.collapseClass + ' ' + this._config.collapseInClass);
 
       $(this._element)
-        .find('li')
+        .find(this._config.parentTrigger)
         .not('.' + this._config.activeClass)
-        .has('ul')
-        .children('ul')
+        .has(this._config.subMenu)
+        .children(this._config.subMenu)
         .attr('aria-expanded', false)
         .addClass(this._config.collapseClass);
 
       $(this._element)
-        .find('li')
-        .has('ul')
-        .children('a')
+        .find(this._config.parentTrigger)
+        .has(this._config.subMenu)
+        .children(this._config.triggerElement)
         .on(Event.CLICK_DATA_API, function (e) {
           var _this = $(this);
-          var _parent = _this.parent('li');
-          var _siblings = _parent.siblings('li').children('a');
-          var _list = _parent.children('ul');
+          var _parent = _this.parent(self._config.parentTrigger);
+          var _siblings = _parent.siblings(self._config.parentTrigger).children(self._config.triggerElement);
+          var _list = _parent.children(self._config.subMenu);
           if (self._config.preventDefault) {
             e.preventDefault();
           }
@@ -188,16 +189,18 @@ const MetisMenu = (($) => {
       }
 
       _el
-        .parent('li')
+        .parent(this._config.parentTrigger)
         .addClass(this._config.activeClass);
 
 
       if (this._config.toggle) {
         this.
           _hide(_el
-            .parent('li')
+            .parent(this._config.parentTrigger)
             .siblings()
-            .children('ul.' + this._config.collapseInClass).attr('aria-expanded', false));
+            .children(this._config.subMenu + '.' + this._config.collapseInClass)
+            .attr('aria-expanded', false)
+          );
       }
 
       _el
@@ -247,7 +250,7 @@ const MetisMenu = (($) => {
         return;
       }
 
-      _el.parent('li').removeClass(this._config.activeClass);
+      _el.parent(this._config.parentTrigger).removeClass(this._config.activeClass);
       _el.height(_el.height())[0].offsetHeight;
 
       _el
@@ -291,9 +294,9 @@ const MetisMenu = (($) => {
       $.removeData(this._element, DATA_KEY);
 
       $(this._element)
-        .find('li')
-        .has('ul')
-        .children('a')
+        .find(this._config.parentTrigger)
+        .has(this._config.subMenu)
+        .children(this._config.triggerElement)
         .off('click');
 
       this._transitioning = null;
