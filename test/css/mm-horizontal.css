@@ -67,7 +67,7 @@
         min-width: 100%;
         z-index: 1001;
     }
-    .topbar-nav.is-hoverable .metismenu > li > ul {      
+    .topbar-nav.is-hoverable .metismenu > li > ul {
       height: auto !important;
     }
     .topbar-nav.is-hoverable .metismenu > li:hover > ul {
