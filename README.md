@@ -82,7 +82,7 @@ $ npm install --save-dev @types/metismenu
       OR
 
   ```html
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.metismenu/2.7.0/metisMenu.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/metismenu@2.7.0/dist/metisMenu.min.css">
   ```
 
 2. Include jQuery
@@ -92,7 +92,7 @@ $ npm install --save-dev @types/metismenu
   ```
       OR
   ```html
-  <script src="//cdn.jsdelivr.net/jquery/2.2.4/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
   ```
 
 3. Include metisMenu plugin's code
@@ -102,7 +102,7 @@ $ npm install --save-dev @types/metismenu
   ```
       OR
   ```html
-  <script src="//cdn.jsdelivr.net/jquery.metismenu/2.7.0/metisMenu.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/metismenu@2.7.0/dist/metisMenu.min.js"></script>
   ```
 
 4. Add class `metismenu` to unordered list
