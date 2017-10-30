@@ -48,23 +48,23 @@
   },
   "homepage": "https://github.com/onokumus/metismenu#readme",
   "devDependencies": {
-    "assemble": "^0.23.0",
-    "autoprefixer": "^6.7.6",
-    "babel-eslint": "^7.1.1",
-    "babel-preset-env": "^1.2.1",
+    "assemble": "^0.24.3",
+    "autoprefixer": "^7.1.6",
+    "babel-eslint": "^8.0.1",
+    "babel-preset-env": "^1.6.1",
     "cssnano": "^3.10.0",
     "grunt": "^1.0.1",
-    "grunt-babel": "^6.0.0",
+    "grunt-babel": "^7.0.0",
     "grunt-banner": "^0.6.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-connect": "^1.0.2",
-    "grunt-contrib-uglify": "^2.2.0",
+    "grunt-contrib-uglify": "^3.1.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-eslint": "^19.0.0",
-    "grunt-postcss": "^0.8.0",
+    "grunt-eslint": "^20.1.0",
+    "grunt-postcss": "^0.9.0",
     "gulp-extname": "^0.2.2",
-    "helper-markdown": "^0.2.1",
-    "pixrem": "^3.0.2"
+    "helper-markdown": "^1.0.0",
+    "pixrem": "^4.0.1"
   },
   "verb": {
     "toc": {
