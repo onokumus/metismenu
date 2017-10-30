@@ -225,7 +225,10 @@
         this.setTransitioning(true);
 
         var complete = function complete() {
-
+          // check if disposed
+          if (!_this._config || !_this._element) {
+            return;
+          }
           _el.removeClass(_this._config.collapsingClass).addClass(_this._config.collapseClass + ' ' + _this._config.collapseInClass).height('').attr('aria-expanded', true);
 
           _this.setTransitioning(false);
@@ -264,6 +267,10 @@
         this.setTransitioning(true);
 
         var complete = function complete() {
+          // check if disposed
+          if (!_this._config || !_this._element) {
+            return;
+          }
           if (_this._transitioning && _this._config.onTransitionEnd) {
             _this._config.onTransitionEnd();
           }
