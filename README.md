@@ -1,18 +1,12 @@
-# metismenu
-[![NPM version](https://img.shields.io/npm/v/metismenu.svg?style=flat)](https://www.npmjs.com/package/metismenu)
-[![NPM monthly downloads](https://img.shields.io/npm/dm/metismenu.svg?style=flat)](https://npmjs.org/package/metismenu)
-[![NPM total downloads](https://img.shields.io/npm/dt/metismenu.svg?style=flat)](https://npmjs.org/package/metismenu)
-[![Linux Build Status](https://img.shields.io/travis/onokumus/metismenu.svg?style=flat&label=Travis)](https://travis-ci.org/onokumus/metismenu)
-[![Packagist](https://img.shields.io/packagist/v/onokumus/metismenu.svg)](https://packagist.org/packages/onokumus/metismenu)
+# metismenu [![NPM version](https://img.shields.io/npm/v/metismenu.svg?style=flat)](https://www.npmjs.com/package/metismenu) [![NPM monthly downloads](https://img.shields.io/npm/dm/metismenu.svg?style=flat)](https://npmjs.org/package/metismenu)  [![NPM total downloads](https://img.shields.io/npm/dt/metismenu.svg?style=flat)](https://npmjs.org/package/metismenu) [![Linux Build Status](https://img.shields.io/travis/onokumus/metismenu.svg?style=flat&label=Travis)](https://travis-ci.org/onokumus/metismenu) [![](https://data.jsdelivr.com/v1/package/npm/metismenu/badge)](https://www.jsdelivr.com/package/npm/metismenu) [![Packagist](https://img.shields.io/packagist/v/onokumus/metismenu.svg)](https://packagist.org/packages/onokumus/metismenu)
 
 > A jQuery menu plugin
 
 ## Table of Contents
+
 - [Getting started](#getting-started)
   * [Install](#install)
   * [Download](#download)
-  * [React](#react)
-  * [TypeScript type definitions](#typescript-type-definitions)
 - [Usage](#usage)
   * [Stopping list opening on certain elements](#stopping-list-opening-on-certain-elements)
 - [Options](#options)
@@ -47,6 +41,12 @@ Install with [npm](https://www.npmjs.com/):
 $ npm install --save metismenu
 ```
 
+Install with [yarn](https://yarnpkg.com):
+
+```sh
+$ yarn add metismenu
+```
+
 Install with [bower](https://bower.io/)
 
 ```sh
@@ -62,47 +62,30 @@ $ composer require onokumus/metismenu:dev-master
 ### Download
 [download](https://github.com/onokumus/metisMenu/archive/master.zip)
 
-### React
-See [react-metismenu](https://github.com/alpertuna/react-metismenu)
-
-### TypeScript type definitions
-
-Install metismenu TypeScript definition file
-```bash
-$ npm install --save-dev @types/metismenu
-```
-
 ## Usage
 
 1. Include metismenu StyleSheet
 
   ```html
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.0/metisMenu.min.css">
-  ```
-      OR
-
-  ```html
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/metismenu@2.7.0/dist/metisMenu.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.1/metisMenu.min.css">
+  <!-- OR -->  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/metismenu/dist/metisMenu.min.css">
   ```
 
 2. Include jQuery
 
   ```html
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  ```
-      OR
-  ```html
-  <script src="//cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+  <!-- OR -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
   ```
 
 3. Include metisMenu plugin's code
 
   ```html
-  <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.0/metisMenu.min.js"></script>
-  ```
-      OR
-  ```html
-  <script src="//cdn.jsdelivr.net/npm/metismenu@2.7.0/dist/metisMenu.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.1/metisMenu.min.js"></script>
+  <!-- OR -->
+  <script src="https://cdn.jsdelivr.net/npm/metismenu"></script>
   ```
 
 4. Add class `metismenu` to unordered list
@@ -301,13 +284,13 @@ Contains a simple HTML file to demonstrate metisMenu plugin.
 ### Related projects
 - [chl](https://www.npmjs.com/package/chl): flexbox admin layout | [homepage](https://github.com/chaldene/chl#readme "flexbox admin layout")
 - [elektron](https://www.npmjs.com/package/elektron): An Admin Toolkit | [homepage](https://github.com/onokumus/elektron#readme "An Admin Toolkit")
-- [onoffcanvas](https://www.npmjs.com/package/onoffcanvas): A jQuery offcanvas plugin | [homepage](https://github.com/onokumus/onoffcanvas#readme "A jQuery offcanvas plugin")
+- [onoffcanvas](https://www.npmjs.com/package/onoffcanvas): An offcanvas plugin | [homepage](https://github.com/onokumus/onoffcanvas#readme "An offcanvas plugin")
 - [twbuttons](https://www.npmjs.com/package/twbuttons): alexwolfe/Buttons for Twitter Bootstrap 3 | [homepage](https://github.com/onokumus/twbuttons "alexwolfe/Buttons for Twitter Bootstrap 3")
 
 ### Contributors
 | **Commits** | **Contributor** |  
 | --- | --- |  
-| 113 | [onokumus](https://github.com/onokumus) |  
+| 117 | [onokumus](https://github.com/onokumus) |  
 | 8   | [diegozhu](https://github.com/diegozhu) |  
 | 4   | [sinabs](https://github.com/sinabs) |  
 | 2   | [arthurtalkgoal](https://github.com/arthurtalkgoal) |  
@@ -317,6 +300,7 @@ Contains a simple HTML file to demonstrate metisMenu plugin.
 | 2   | [rgnevashev](https://github.com/rgnevashev) |  
 | 1   | [chriswiggins](https://github.com/chriswiggins) |  
 | 1   | [jmagnusson](https://github.com/jmagnusson) |  
+| 1   | [LukasDrgon](https://github.com/LukasDrgon) |  
 | 1   | [Cediddi](https://github.com/Cediddi) |  
 | 1   | [capynet](https://github.com/capynet) |  
 
@@ -328,6 +312,7 @@ Please read the [contributing guide](.github/contributing.md) for advice on open
 ### Release History
 |**DATE**      |**VERSION**   |**CHANGES**|
 |--------------|--------------|-----------|
+|2017-10-30    |v2.7.1        |added check in complete()-callback to break when menu was disposed #150|
 |2017-03-08    |v2.7.0        |fixed `has-arrow` class border color & added new 3 options|
 |2017-02-23    |v2.6.3        |fixed #129|
 |2017-02-02    |v2.6.2        |doubleTapToGo option is deprecated|
@@ -366,11 +351,10 @@ Released under the [MIT License](LICENSE).
 
 ***
 
-_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.4.2, on March 08, 2017._
+_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.6.0, on October 30, 2017._
 
 [chl]: https://github.com/chaldene/chl
 [elektron]: https://github.com/onokumus/elektron
-[helper-changelog]: https://github.com/helpers/helper-changelog
 [onoffcanvas]: https://github.com/onokumus/onoffcanvas
 [twbuttons]: https://github.com/onokumus/twbuttons
 

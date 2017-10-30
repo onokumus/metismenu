@@ -2,19 +2,20 @@
   "name": "metismenu",
   "version": "2.7.1",
   "description": "A jQuery menu plugin",
-  "main": "./dist/metisMenu.js",
-  "style":"./dist/metisMenu.css",
+  "main": "dist/metisMenu.js",
+  "unpkg": "dist/metisMenu.min.js",
+  "jsdelivr": "dist/metisMenu.min.js",
+  "typings": "types/metismenu.d.ts",
+  "style": "dist/metisMenu.css",
   "files": [
     "dist",
-    "src"
+    "src",
+    "types"
   ],
   "scripts": {
     "test": "grunt travis --verbose"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/onokumus/metismenu.git"
-  },
+  "repository": "onokumus/metismenu",
   "keywords": [
     "accordion",
     "bootstrap",
@@ -50,6 +51,7 @@
   "devDependencies": {
     "assemble": "^0.24.3",
     "autoprefixer": "^7.1.6",
+    "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
     "babel-preset-env": "^1.6.1",
     "cssnano": "^3.10.0",

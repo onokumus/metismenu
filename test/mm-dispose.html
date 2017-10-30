@@ -7,25 +7,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>metisMenu - dispose menu</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="metisMenu.css" />
-    <link rel="stylesheet" href="demo.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+    <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.8.3/themes/prism.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css" />
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script>
+      (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    
+      ga('create', 'UA-1669764-16', 'auto');
+      ga('send', 'pageview');
+    </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="metisMenu.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.8.3/prism.min.js"></script>
 
+    <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-noty/2.4.1/packaged/jquery.noty.packaged.min.js"></script>
   </head>
@@ -183,16 +200,16 @@
 
           <p>
 
-<pre><code class="language-javascript">$(function() {
+<pre><code class="language-javascript">$(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
 
-  $('#menu').metisMenu();
+  $(<span class="hljs-string">'#menu'</span>).metisMenu();
 
-  $('#stopMm').on('click', function (event) {
-    $('#menu').metisMenu('dispose');
+  $(<span class="hljs-string">'#stopMm'</span>).on(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>{
+    $(<span class="hljs-string">'#menu'</span>).metisMenu(<span class="hljs-string">'dispose'</span>);
   });
 
-  $('#startMm').on('click', function (event) {
-    $('#menu').metisMenu();
+  $(<span class="hljs-string">'#startMm'</span>).on(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>{
+    $(<span class="hljs-string">'#menu'</span>).metisMenu();
   });
 
 });
@@ -299,20 +316,20 @@
 
           <p>
 
-<pre><code class="language-javascript">$('#menu1').metisMenu();
+<pre><code class="language-javascript">$(<span class="hljs-string">'#menu1'</span>).metisMenu();
 
-$('#deleteElem').one('click', function (event) {
+$(<span class="hljs-string">'#deleteElem'</span>).one(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>{
 
-  $(this).removeClass('btn-danger')
-    .addClass('btn-success')
-    .html('Menu 1 removed')
-    .attr('disabled', 'disabled');
+  $(<span class="hljs-keyword">this</span>).removeClass(<span class="hljs-string">'btn-danger'</span>)
+    .addClass(<span class="hljs-string">'btn-success'</span>)
+    .html(<span class="hljs-string">'Menu 1 removed'</span>)
+    .attr(<span class="hljs-string">'disabled'</span>, <span class="hljs-string">'disabled'</span>);
 
-  $('#menu1').metisMenu('dispose');
+  $(<span class="hljs-string">'#menu1'</span>).metisMenu(<span class="hljs-string">'dispose'</span>);
 
-  $('#menu1 #removable').remove();
+  $(<span class="hljs-string">'#menu1 #removable'</span>).remove();
 
-  $('#menu1').metisMenu();
+  $(<span class="hljs-string">'#menu1'</span>).metisMenu();
 });
 </code></pre>
 
@@ -376,6 +393,15 @@ $('#deleteElem').one('click', function (event) {
 
 
 
+  <hr>
+  <div class="container">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- responsive reklam -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5671633872085649" data-ad-slot="6251877391" data-ad-format="auto"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 
   </body>
 
