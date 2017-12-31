@@ -1,5 +1,5 @@
 /*
- * metismenu - v2.7.1
+ * metismenu - v2.7.2
  * A jQuery menu plugin
  * https://github.com/onokumus/metismenu#readme
  *
@@ -45,13 +45,6 @@
   var Util = function ($) {
     var transition = false;
 
-    var TransitionEndEvent = {
-      WebkitTransition: 'webkitTransitionEnd',
-      MozTransition: 'transitionend',
-      OTransition: 'oTransitionEnd otransitionend',
-      transition: 'transitionend'
-    };
-
     function getSpecialTransitionEndEvent() {
       return {
         bindType: transition.end,
@@ -70,17 +63,9 @@
         return false;
       }
 
-      var el = document.createElement('mm');
-
-      for (var name in TransitionEndEvent) {
-        if (el.style[name] !== undefined) {
-          return {
-            end: TransitionEndEvent[name]
-          };
-        }
-      }
-
-      return false;
+      return {
+        end: 'transitionend'
+      };
     }
 
     function transitionEndEmulator(duration) {
@@ -103,7 +88,7 @@
 
     function setTransitionEndSupport() {
       transition = transitionEndTest();
-      $.fn.emulateTransitionEnd = transitionEndEmulator;
+      $.fn.mmEmulateTransitionEnd = transitionEndEmulator;
 
       if (Util.supportsTransitionEnd()) {
         $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
@@ -241,7 +226,7 @@
           return;
         }
 
-        _el.height(_el[0].scrollHeight).one(Util.TRANSITION_END, complete).emulateTransitionEnd(TRANSITION_DURATION);
+        _el.height(_el[0].scrollHeight).one(Util.TRANSITION_END, complete).mmEmulateTransitionEnd(TRANSITION_DURATION);
       };
 
       MetisMenu.prototype._hide = function _hide(element) {
@@ -286,7 +271,7 @@
           return;
         }
 
-        _el.height() == 0 || _el.css('display') == 'none' ? complete() : _el.height(0).one(Util.TRANSITION_END, complete).emulateTransitionEnd(TRANSITION_DURATION);
+        _el.height() == 0 || _el.css('display') == 'none' ? complete() : _el.height(0).one(Util.TRANSITION_END, complete).mmEmulateTransitionEnd(TRANSITION_DURATION);
       };
 
       MetisMenu.prototype.setTransitioning = function setTransitioning(isTransitioning) {
