@@ -1,13 +1,6 @@
 const Util = (($) => {
   let transition = false;
 
-  const TransitionEndEvent = {
-    WebkitTransition: 'webkitTransitionEnd',
-    MozTransition: 'transitionend',
-    OTransition: 'oTransitionEnd otransitionend',
-    transition: 'transitionend'
-  };
-
   function getSpecialTransitionEndEvent() {
     return {
       bindType: transition.end,
@@ -28,18 +21,10 @@ const Util = (($) => {
     if (window.QUnit) {
       return false;
     }
-
-    const el = document.createElement('mm');
-
-    for (const name in TransitionEndEvent) {
-      if (el.style[name] !== undefined) {
-        return {
-          end: TransitionEndEvent[name]
-        };
-      }
-    }
-
-    return false;
+    
+    return {
+      end: 'transitionend'
+    };
   }
 
   function transitionEndEmulator(duration) {
@@ -60,7 +45,7 @@ const Util = (($) => {
 
   function setTransitionEndSupport() {
     transition = transitionEndTest();
-    $.fn.emulateTransitionEnd = transitionEndEmulator;
+    $.fn.mmEmulateTransitionEnd = transitionEndEmulator;
 
     if (Util.supportsTransitionEnd()) {
       $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
@@ -234,7 +219,7 @@ const MetisMenu = (($) => {
       _el
         .height(_el[0].scrollHeight)
         .one(Util.TRANSITION_END, complete)
-        .emulateTransitionEnd(TRANSITION_DURATION);
+        .mmEmulateTransitionEnd(TRANSITION_DURATION);
 
     }
 
@@ -290,7 +275,7 @@ const MetisMenu = (($) => {
       (_el.height() == 0 || _el.css('display') == 'none') ? complete() : _el
         .height(0)
         .one(Util.TRANSITION_END, complete)
-        .emulateTransitionEnd(TRANSITION_DURATION);
+        .mmEmulateTransitionEnd(TRANSITION_DURATION);
     }
 
     setTransitioning(isTransitioning) {
