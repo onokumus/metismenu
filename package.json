@@ -1,6 +1,6 @@
 {
   "name": "metismenu",
-  "version": "2.7.2",
+  "version": "2.7.3",
   "description": "A jQuery menu plugin",
   "main": "dist/metisMenu.js",
   "unpkg": "dist/metisMenu.min.js",
@@ -42,7 +42,8 @@
     "roman <rgnevashev@gmail.com> (https://github.com/rgnevashev)",
     "diegozhu <zhuhaiyang55@gmail.com> (http://sae.zhuhaiyang.me)",
     "WoMayr (https://github.com/WoMayr)",
-    "719media (https://github.com/719media)"
+    "719media (https://github.com/719media)",
+    "Boris Burkov (Boris Burkov)"
   ],
   "license": "MIT",
   "bugs": {
@@ -51,9 +52,9 @@
   "homepage": "https://github.com/onokumus/metismenu#readme",
   "devDependencies": {
     "assemble": "^0.24.3",
-    "autoprefixer": "^7.2.3",
+    "autoprefixer": "^8.0.0",
     "babel-core": "^6.26.0",
-    "babel-eslint": "^8.1.2",
+    "babel-eslint": "^8.2.1",
     "babel-preset-env": "^1.6.1",
     "cssnano": "^3.10.0",
     "grunt": "^1.0.1",
