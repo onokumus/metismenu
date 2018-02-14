@@ -59,7 +59,7 @@
     }
 
     function transitionEndTest() {
-      if (window.QUnit) {
+      if (typeof window !== 'undefined' && window.QUnit) {
         return false;
       }
 
