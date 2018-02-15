@@ -109,7 +109,7 @@
     setTransitionEndSupport();
 
     return Util;
-  }(jQuery);
+  }(_jquery2.default);
 
   var MetisMenu = function ($) {
 
@@ -333,5 +333,5 @@
       return MetisMenu._jQueryInterface;
     };
     return MetisMenu;
-  }(jQuery);
+  }(_jquery2.default);
 });
