@@ -68,7 +68,7 @@ const Util = (($) => {
 
   return Util;
 
-})(jQuery);
+})($);
 
 const MetisMenu = (($) => {
 
@@ -343,4 +343,4 @@ const MetisMenu = (($) => {
   };
   return MetisMenu;
 
-})(jQuery);
+})($);
