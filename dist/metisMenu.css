@@ -1,5 +1,5 @@
 /*
- * metismenu - v2.7.3
+ * metismenu - v2.7.4
  * A jQuery menu plugin
  * https://github.com/onokumus/metismenu#readme
  *
