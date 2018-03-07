@@ -12,7 +12,9 @@
     "src",
     "types"
   ],
-  "scripts": {},
+  "scripts": {
+    "lint": "eslint src/*.js"
+  },
   "repository": "onokumus/metismenu",
   "keywords": [
     "accordion",
@@ -92,5 +94,8 @@
       "onoffcanvas",
       "twbuttons"
     ]
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
   }
 }
