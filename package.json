@@ -12,9 +12,7 @@
     "src",
     "types"
   ],
-  "scripts": {
-    
-  },
+  "scripts": {},
   "repository": "onokumus/metismenu",
   "keywords": [
     "accordion",
@@ -52,10 +50,6 @@
   "homepage": "https://github.com/onokumus/metismenu#readme",
   "devDependencies": {
     "autoprefixer": "^8.0.0",
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^8.2.1",
-    "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
-    "babel-preset-env": "^1.6.1",
     "cssnano": "^3.10.0",
     "pixrem": "^4.0.1"
   },
