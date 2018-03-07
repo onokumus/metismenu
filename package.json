@@ -17,6 +17,9 @@
   "scripts": {
     "js:dev": "rollup -c -w",
     "js:prod": "rollup -c",
+    "css:dev": "postcss src/metisMenu.css -o dist/metisMenu.css --map",
+    "css:min": "NODE_ENV=production postcss src/metisMenu.css -o dist/metisMenu.min.css --map",
+    "build": "npm run js:prod && npm run css:dev && npm run css:min",
     "lint": "eslint src/*.js"
   },
   "repository": "onokumus/metismenu",
