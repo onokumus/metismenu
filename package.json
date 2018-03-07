@@ -2,7 +2,9 @@
   "name": "metismenu",
   "version": "2.7.4",
   "description": "A jQuery menu plugin",
-  "main": "dist/metisMenu.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/modules/index.js",
+  "browser": "dist/metisMenu.js",
   "unpkg": "dist/metisMenu.min.js",
   "jsdelivr": "dist/metisMenu.min.js",
   "typings": "types/metismenu.d.ts",
@@ -13,6 +15,8 @@
     "types"
   ],
   "scripts": {
+    "js:dev": "rollup -c -w",
+    "js:prod": "rollup -c",
     "lint": "eslint src/*.js"
   },
   "repository": "onokumus/metismenu",

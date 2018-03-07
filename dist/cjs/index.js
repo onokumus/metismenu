@@ -6,13 +6,11 @@
 * Made by Osman Nuri Okumus <onokumus@gmail.com> (https://github.com/onokumus)
 * Under MIT License
 */
-(function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('jquery')) :
-	typeof define === 'function' && define.amd ? define(['jquery'], factory) :
-	(global.metisMenu = factory(global.jQuery));
-}(this, (function ($) { 'use strict';
+'use strict';
 
-$ = $ && $.hasOwnProperty('default') ? $['default'] : $;
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var $ = _interopDefault(require('jquery'));
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -331,7 +329,4 @@ var MetisMenu = function ($$$1) {
   return MetisMenu;
 }($);
 
-return MetisMenu;
-
-})));
-//# sourceMappingURL=metisMenu.js.map
+module.exports = MetisMenu;
