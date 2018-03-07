@@ -21,7 +21,6 @@
     + [parentTrigger](#parenttrigger)
     + [subMenu](#submenu)
 - [Events](#events)
-- [Testing](#testing)
 - [Demo](#demo)
 - [About](#about)
   * [Related projects](#related-projects)
@@ -261,12 +260,6 @@ Default: `ul`
 |shown.metisMenu   |This event is fired when a collapse `ul` element has been made visible to the user (will wait for CSS transitions to complete).|
 |hide.metisMenu    |This event is fired immediately when the `_hide` method has been called. |
 |hidden.metisMenu  |This event is fired when a collapse `ul` element has been hidden from the user (will wait for CSS transitions to complete).|
-
-## Testing
-```sh
-$ npm install
-$ grunt serve
-```
 
 ## Demo
 [http://mm.onokumus.com](http://mm.onokumus.com)
