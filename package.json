@@ -13,7 +13,7 @@
     "types"
   ],
   "scripts": {
-    "test": "grunt travis --verbose"
+    
   },
   "repository": "onokumus/metismenu",
   "keywords": [
