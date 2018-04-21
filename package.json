@@ -1,6 +1,6 @@
 {
   "name": "metismenu",
-  "version": "2.7.5",
+  "version": "2.7.6",
   "description": "A jQuery menu plugin",
   "main": "dist/cjs/index.js",
   "module": "dist/modules/index.js",

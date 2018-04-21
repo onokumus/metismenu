@@ -1,5 +1,5 @@
 /*!
-* metismenu - v2.7.5
+* metismenu - v2.7.6
 * A jQuery menu plugin
 * https://github.com/onokumus/metismenu#readme
 *
@@ -234,7 +234,7 @@
           return;
         }
 
-        elem.height(elem[0].scrollHeight).one(Util.TRANSITION_END, complete).mmEmulateTransitionEnd(TRANSITION_DURATION);
+        elem.height(element[0].scrollHeight).one(Util.TRANSITION_END, complete).mmEmulateTransitionEnd(TRANSITION_DURATION);
       };
 
       _proto.hide = function hide(element) {

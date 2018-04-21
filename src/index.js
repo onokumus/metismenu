@@ -146,7 +146,7 @@ const MetisMenu = (($) => { // eslint-disable-line no-shadow
       }
 
       elem
-        .height(elem[0].scrollHeight)
+        .height(element[0].scrollHeight)
         .one(Util.TRANSITION_END, complete)
         .mmEmulateTransitionEnd(TRANSITION_DURATION);
     }
