@@ -59,8 +59,8 @@ const MetisMenu = (($) => { // eslint-disable-line no-shadow
         .find(conf.parentTrigger)
         .has(conf.subMenu)
         .children(conf.triggerElement)
-        .on(Event.CLICK_DATA_API, (e) => {
-          const eTar = $(e.target);
+        .on(Event.CLICK_DATA_API, function (e) { // eslint-disable-line func-names
+          const eTar = $(this);
           const paRent = eTar.parent(conf.parentTrigger);
           const sibLings = paRent
             .siblings(conf.parentTrigger)
@@ -233,12 +233,11 @@ const MetisMenu = (($) => { // eslint-disable-line no-shadow
       return this.each(function () {
         const $this = $(this);
         let data = $this.data(DATA_KEY);
-        const conf = $.extend(
-          {},
-          Default,
-          $this.data(),
-          typeof config === 'object' && config,
-        );
+        const conf = {
+          ...Default,
+          ...$this.data(),
+          ...typeof config === 'object' && config ? config : {},
+        };
 
         if (!data && /dispose/.test(config)) {
           this.dispose();

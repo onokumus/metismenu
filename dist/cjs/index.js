@@ -1,5 +1,5 @@
 /*!
-* metismenu - v2.7.6
+* metismenu - v2.7.7
 * A jQuery menu plugin
 * https://github.com/onokumus/metismenu#readme
 *
@@ -48,22 +48,22 @@ function _objectSpread(target) {
 
 var Util = function ($$$1) {
   // eslint-disable-line no-shadow
-  var transition = false;
+  var TRANSITION_END = 'transitionend';
   var Util = {
     // eslint-disable-line no-shadow
     TRANSITION_END: 'mmTransitionEnd',
     triggerTransitionEnd: function triggerTransitionEnd(element) {
-      $$$1(element).trigger(transition.end);
+      $$$1(element).trigger(TRANSITION_END);
     },
     supportsTransitionEnd: function supportsTransitionEnd() {
-      return Boolean(transition);
+      return Boolean(TRANSITION_END);
     }
   };
 
   function getSpecialTransitionEndEvent() {
     return {
-      bindType: transition.end,
-      delegateType: transition.end,
+      bindType: TRANSITION_END,
+      delegateType: TRANSITION_END,
       handle: function handle(event) {
         if ($$$1(event.target).is(this)) {
           return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
@@ -71,16 +71,6 @@ var Util = function ($$$1) {
 
         return undefined;
       }
-    };
-  }
-
-  function transitionEndTest() {
-    if (typeof window !== 'undefined' && window.QUnit) {
-      return false;
-    }
-
-    return {
-      end: 'transitionend'
     };
   }
 
@@ -100,13 +90,10 @@ var Util = function ($$$1) {
   }
 
   function setTransitionEndSupport() {
-    transition = transitionEndTest();
     $$$1.fn.mmEmulateTransitionEnd = transitionEndEmulator; // eslint-disable-line no-param-reassign
+    // eslint-disable-next-line no-param-reassign
 
-    if (Util.supportsTransitionEnd()) {
-      // eslint-disable-next-line no-param-reassign
-      $$$1.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
-    }
+    $$$1.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
   }
 
   setTransitionEndSupport();
@@ -159,7 +146,8 @@ var MetisMenu = function ($$$1) {
       $$$1(this.element).find(conf.parentTrigger + "." + conf.activeClass).has(conf.subMenu).children(conf.subMenu).attr('aria-expanded', true).addClass(conf.collapseClass + " " + conf.collapseInClass);
       $$$1(this.element).find(conf.parentTrigger).not("." + conf.activeClass).has(conf.subMenu).children(conf.subMenu).attr('aria-expanded', false).addClass(conf.collapseClass);
       $$$1(this.element).find(conf.parentTrigger).has(conf.subMenu).children(conf.triggerElement).on(Event.CLICK_DATA_API, function (e) {
-        var eTar = $$$1(e.target);
+        // eslint-disable-line func-names
+        var eTar = $$$1(this);
         var paRent = eTar.parent(conf.parentTrigger);
         var sibLings = paRent.siblings(conf.parentTrigger).children(conf.triggerElement);
         var List = paRent.children(conf.subMenu);
@@ -301,7 +289,8 @@ var MetisMenu = function ($$$1) {
       return this.each(function () {
         var $this = $$$1(this);
         var data = $this.data(DATA_KEY);
-        var conf = $$$1.extend({}, Default, $this.data(), typeof config === 'object' && config);
+
+        var conf = _objectSpread({}, Default, $this.data(), typeof config === 'object' && config ? config : {});
 
         if (!data && /dispose/.test(config)) {
           this.dispose();

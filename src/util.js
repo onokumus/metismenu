@@ -1,24 +1,24 @@
 import $ from 'jquery';
 
 const Util = (($) => { // eslint-disable-line no-shadow
-  let transition = false;
+  const TRANSITION_END = 'transitionend';
 
   const Util = { // eslint-disable-line no-shadow
     TRANSITION_END: 'mmTransitionEnd',
 
     triggerTransitionEnd(element) {
-      $(element).trigger(transition.end);
+      $(element).trigger(TRANSITION_END);
     },
 
     supportsTransitionEnd() {
-      return Boolean(transition);
+      return Boolean(TRANSITION_END);
     },
   };
 
   function getSpecialTransitionEndEvent() {
     return {
-      bindType: transition.end,
-      delegateType: transition.end,
+      bindType: TRANSITION_END,
+      delegateType: TRANSITION_END,
       handle(event) {
         if ($(event.target).is(this)) {
           return event
@@ -28,16 +28,6 @@ const Util = (($) => { // eslint-disable-line no-shadow
         }
         return undefined;
       },
-    };
-  }
-
-  function transitionEndTest() {
-    if (typeof window !== 'undefined' && window.QUnit) {
-      return false;
-    }
-
-    return {
-      end: 'transitionend',
     };
   }
 
@@ -58,13 +48,9 @@ const Util = (($) => { // eslint-disable-line no-shadow
   }
 
   function setTransitionEndSupport() {
-    transition = transitionEndTest();
     $.fn.mmEmulateTransitionEnd = transitionEndEmulator; // eslint-disable-line no-param-reassign
-
-    if (Util.supportsTransitionEnd()) {
-      // eslint-disable-next-line no-param-reassign
-      $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
-    }
+    // eslint-disable-next-line no-param-reassign
+    $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
   }
 
   setTransitionEndSupport();
