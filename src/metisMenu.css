@@ -109,3 +109,8 @@
 .metismenu .has-arrow[aria-expanded="true"]::after {
   transform: rotate(-135deg) translate(0, -50%);
 }
+
+*[dir="rtl"] .metismenu .active > .has-arrow::after,
+*[dir="rtl"] .metismenu .has-arrow[aria-expanded="true"]::after {
+  transform: rotate(225deg) translate(0, -50%);
+}
