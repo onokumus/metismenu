@@ -44,7 +44,6 @@ const MetisMenu = (($) => { // eslint-disable-line no-shadow
         .find(`${conf.parentTrigger}.${conf.activeClass}`)
         .has(conf.subMenu)
         .children(conf.subMenu)
-        .attr('aria-expanded', true)
         .addClass(`${conf.collapseClass} ${conf.collapseInClass}`);
 
       $(this.element)
@@ -52,7 +51,6 @@ const MetisMenu = (($) => { // eslint-disable-line no-shadow
         .not(`.${conf.activeClass}`)
         .has(conf.subMenu)
         .children(conf.subMenu)
-        .attr('aria-expanded', false)
         .addClass(conf.collapseClass);
 
       $(this.element)
@@ -113,8 +111,7 @@ const MetisMenu = (($) => { // eslint-disable-line no-shadow
           .hide(elem
             .parent(this.config.parentTrigger)
             .siblings()
-            .children(`${this.config.subMenu}.${this.config.collapseInClass}`)
-            .attr('aria-expanded', false));
+            .children(`${this.config.subMenu}.${this.config.collapseInClass}`));
       }
 
       elem
@@ -132,8 +129,7 @@ const MetisMenu = (($) => { // eslint-disable-line no-shadow
         elem
           .removeClass(this.config.collapsingClass)
           .addClass(`${this.config.collapseClass} ${this.config.collapseInClass}`)
-          .height('')
-          .attr('aria-expanded', true);
+          .height('');
 
         this.setTransitioning(false);
 
@@ -190,8 +186,7 @@ const MetisMenu = (($) => { // eslint-disable-line no-shadow
 
         elem
           .removeClass(this.config.collapsingClass)
-          .addClass(this.config.collapseClass)
-          .attr('aria-expanded', false);
+          .addClass(this.config.collapseClass);
       };
 
       if (!Util.supportsTransitionEnd()) {
