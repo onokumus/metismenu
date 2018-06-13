@@ -1,6 +1,6 @@
 {
   "name": "metismenu",
-  "version": "2.7.7",
+  "version": "2.7.8",
   "description": "A jQuery menu plugin",
   "main": "dist/cjs/index.js",
   "module": "dist/modules/index.js",
@@ -58,21 +58,21 @@
   },
   "homepage": "https://github.com/onokumus/metismenu#readme",
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.44",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.44",
-    "@babel/preset-env": "^7.0.0-beta.44",
-    "autoprefixer": "^8.3.0",
+    "@babel/core": "^7.0.0-beta.51",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.51",
+    "@babel/preset-env": "^7.0.0-beta.51",
+    "autoprefixer": "^8.6.2",
     "cssnano": "^4.0.0-rc.2",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-import": "^2.12.0",
     "postcss-cli": "^5.0.0",
     "postcss-header": "^1.0.0",
-    "rollup": "^0.58.1",
-    "rollup-plugin-babel": "^4.0.0-beta.2",
-    "rollup-plugin-commonjs": "^9.1.0",
+    "rollup": "^0.60.4",
+    "rollup-plugin-babel": "^4.0.0-beta.5",
+    "rollup-plugin-commonjs": "^9.1.3",
     "rollup-plugin-node-resolve": "^3.3.0",
-    "rollup-plugin-uglify": "^3.0.0"
+    "rollup-plugin-uglify": "^4.0.0"
   },
   "browserslist": [
     "last 1 major version",
