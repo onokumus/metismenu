@@ -6,11 +6,11 @@ import pkg from './package.json';
 
 const banner = `/*!
 * ${pkg.name} - v${pkg.version}
-* A jQuery menu plugin
-* https://github.com/onokumus/metismenu#readme
+* ${pkg.description}
+* ${pkg.homepage}
 *
-* Made by Osman Nuri Okumus <onokumus@gmail.com> (https://github.com/onokumus)
-* Under MIT License
+* Made by ${pkg.author}
+* Under ${pkg.license} License
 */`;
 
 
