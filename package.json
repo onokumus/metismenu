@@ -17,9 +17,10 @@
   "scripts": {
     "js:dev": "rollup -c -w",
     "js:prod": "rollup -c",
+    "js:minify": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/metisMenu.js.map,includeSources,url=metisMenu.min.js.map\" --output dist/metisMenu.min.js dist/metisMenu.js",
     "css:dev": "postcss src/metisMenu.css -o dist/metisMenu.css --map",
     "css:min": "NODE_ENV=production postcss src/metisMenu.css -o dist/metisMenu.min.css --map",
-    "build": "npm run js:prod && npm run css:dev && npm run css:min",
+    "build": "npm run js:prod && npm run js:minify && npm run css:dev && npm run css:min",
     "test": "eslint src/*.js"
   },
   "repository": "onokumus/metismenu",
@@ -72,7 +73,7 @@
     "rollup-plugin-babel": "^4.0.0-beta.5",
     "rollup-plugin-commonjs": "^9.1.3",
     "rollup-plugin-node-resolve": "^3.3.0",
-    "rollup-plugin-uglify": "^4.0.0"
+    "uglify-js": "^3.4.0"
   },
   "browserslist": [
     "last 1 major version",
