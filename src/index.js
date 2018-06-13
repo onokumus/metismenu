@@ -136,11 +136,6 @@ const MetisMenu = (($) => { // eslint-disable-line no-shadow
         elem.trigger(Event.SHOWN);
       };
 
-      if (!Util.supportsTransitionEnd()) {
-        complete();
-        return;
-      }
-
       elem
         .height(element[0].scrollHeight)
         .one(Util.TRANSITION_END, complete)
@@ -188,11 +183,6 @@ const MetisMenu = (($) => { // eslint-disable-line no-shadow
           .removeClass(this.config.collapsingClass)
           .addClass(this.config.collapseClass);
       };
-
-      if (!Util.supportsTransitionEnd()) {
-        complete();
-        return;
-      }
 
       if (elem.height() === 0 || elem.css('display') === 'none') {
         complete();
