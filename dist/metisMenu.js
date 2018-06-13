@@ -1,5 +1,5 @@
 /*!
-* metismenu - v2.7.7
+* metismenu - v2.7.8
 * A jQuery menu plugin
 * https://github.com/onokumus/metismenu#readme
 *
@@ -145,8 +145,8 @@
       _proto.init = function init() {
         var self = this;
         var conf = this.config;
-        $$$1(this.element).find(conf.parentTrigger + "." + conf.activeClass).has(conf.subMenu).children(conf.subMenu).attr('aria-expanded', true).addClass(conf.collapseClass + " " + conf.collapseInClass);
-        $$$1(this.element).find(conf.parentTrigger).not("." + conf.activeClass).has(conf.subMenu).children(conf.subMenu).attr('aria-expanded', false).addClass(conf.collapseClass);
+        $$$1(this.element).find(conf.parentTrigger + "." + conf.activeClass).has(conf.subMenu).children(conf.subMenu).addClass(conf.collapseClass + " " + conf.collapseInClass);
+        $$$1(this.element).find(conf.parentTrigger).not("." + conf.activeClass).has(conf.subMenu).children(conf.subMenu).addClass(conf.collapseClass);
         $$$1(this.element).find(conf.parentTrigger).has(conf.subMenu).children(conf.triggerElement).on(Event.CLICK_DATA_API, function (e) {
           // eslint-disable-line func-names
           var eTar = $$$1(this);
@@ -198,7 +198,7 @@
         elem.parent(this.config.parentTrigger).addClass(this.config.activeClass);
 
         if (this.config.toggle) {
-          this.hide(elem.parent(this.config.parentTrigger).siblings().children(this.config.subMenu + "." + this.config.collapseInClass).attr('aria-expanded', false));
+          this.hide(elem.parent(this.config.parentTrigger).siblings().children(this.config.subMenu + "." + this.config.collapseInClass));
         }
 
         elem.removeClass(this.config.collapseClass).addClass(this.config.collapsingClass).height(0);
@@ -210,17 +210,12 @@
             return;
           }
 
-          elem.removeClass(_this.config.collapsingClass).addClass(_this.config.collapseClass + " " + _this.config.collapseInClass).height('').attr('aria-expanded', true);
+          elem.removeClass(_this.config.collapsingClass).addClass(_this.config.collapseClass + " " + _this.config.collapseInClass).height('');
 
           _this.setTransitioning(false);
 
           elem.trigger(Event.SHOWN);
         };
-
-        if (!Util.supportsTransitionEnd()) {
-          complete();
-          return;
-        }
 
         elem.height(element[0].scrollHeight).one(Util.TRANSITION_END, complete).mmEmulateTransitionEnd(TRANSITION_DURATION);
       };
@@ -259,13 +254,8 @@
           _this2.setTransitioning(false);
 
           elem.trigger(Event.HIDDEN);
-          elem.removeClass(_this2.config.collapsingClass).addClass(_this2.config.collapseClass).attr('aria-expanded', false);
+          elem.removeClass(_this2.config.collapsingClass).addClass(_this2.config.collapseClass);
         };
-
-        if (!Util.supportsTransitionEnd()) {
-          complete();
-          return;
-        }
 
         if (elem.height() === 0 || elem.css('display') === 'none') {
           complete();

@@ -12,10 +12,10 @@
 - [Options](#options)
     + [toggle](#toggle)
     + [dispose](#dispose)
-    + [activeClass](#activeclass)
-    + [collapseClass](#collapseclass)
-    + [collapseInClass](#collapseinclass)
-    + [collapsingClass](#collapsingclass)
+    + [activeClass `deprecated`](#activeclass-deprecated)
+    + [collapseClass `deprecated`](#collapseclass-deprecated)
+    + [collapseInClass `deprecated`](#collapseinclass-deprecated)
+    + [collapsingClass `deprecated`](#collapsingclass-deprecated)
     + [preventDefault](#preventdefault)
     + [triggerElement](#triggerelement)
     + [parentTrigger](#parenttrigger)
@@ -60,7 +60,7 @@ $ composer require onokumus/metismenu:dev-master
 1. Include metismenu StyleSheet
 
   ```html
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.7/metisMenu.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.8/metisMenu.min.css">
   <!-- OR -->  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/metismenu/dist/metisMenu.min.css">
   ```
@@ -76,7 +76,7 @@ $ composer require onokumus/metismenu:dev-master
 3. Include metisMenu plugin's code
 
   ```html
-  <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.7/metisMenu.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.8/metisMenu.min.js"></script>
   <!-- OR -->
   <script src="https://cdn.jsdelivr.net/npm/metismenu"></script>
   ```
@@ -90,19 +90,19 @@ $ composer require onokumus/metismenu:dev-master
   ```
 5. Make expand/collapse controls accessible
 
-  > Be sure to add `aria-expanded` to the element `a` and the following `ul`. This attribute explicitly defines the current state of the collapsible element to screen readers and similar assistive technologies. If the collapsible element is closed by default, it should have a value of `aria-expanded="false"`. If you've set the collapsible element's parent `li` element to be open by default using the `active` class, set `aria-expanded="true"` on the control instead. The plugin will automatically toggle this attribute based on whether or not the collapsible element has been opened or closed.
+  > Be sure to add `aria-expanded` to the element `a`. This attribute explicitly defines the current state of the collapsible element to screen readers and similar assistive technologies. If the collapsible element is closed by default, it should have a value of `aria-expanded="false"`. If you've set the collapsible element's parent `li` element to be open by default using the `active` class, set `aria-expanded="true"` on the control instead. The plugin will automatically toggle this attribute based on whether or not the collapsible element has been opened or closed.
 
   ```html
   <ul class="metismenu" id="menu">
     <li class="active">
       <a href="#" aria-expanded="true">Menu 1</a>
-      <ul aria-expanded="true">
+      <ul>
       ...
       </ul>
     </li>
     <li>
       <a href="#" aria-expanded="false">Menu 2</a>
-      <ul aria-expanded="false">
+      <ul>
       ...
       </ul>
     </li>
@@ -117,13 +117,13 @@ $ composer require onokumus/metismenu:dev-master
   <ul class="metismenu" id="menu">
   <li class="active">
     <a class="has-arrow" href="#" aria-expanded="true">Menu 1</a>
-    <ul aria-expanded="true">
+    <ul>
     ...
     </ul>
   </li>
   <li>
     <a class="has-arrow" href="#" aria-expanded="false">Menu 2</a>
-    <ul aria-expanded="false">
+    <ul>
     ...
     </ul>
   </li>
@@ -168,7 +168,9 @@ For stop and destroy metisMenu.
  $("#menu").metisMenu('dispose');
 ```
 
-#### activeClass
+#### activeClass `deprecated`
+> This option will be remove from next version.
+
 Type: `String`
 Default: `active`
 
@@ -178,7 +180,9 @@ Default: `active`
  });
 ```
 
-#### collapseClass
+#### collapseClass `deprecated`
+> This option will be remove from next version.
+
 Type: `String`
 Default: `collapse`
 
@@ -188,7 +192,9 @@ Default: `collapse`
  });
 ```
 
-#### collapseInClass
+#### collapseInClass `deprecated`
+> This option will be remove from next version.
+
 Type: `String`
 Default: `in`
 
@@ -198,7 +204,9 @@ Default: `in`
  });
 ```
 
-#### collapsingClass
+#### collapsingClass `deprecated`
+> This option will be remove from next version.
+
 Type: `String`
 Default: `collapsing`
 
@@ -277,7 +285,7 @@ Contains a simple HTML file to demonstrate metisMenu plugin.
 ### Contributors
 | **Commits** | **Contributor** |  
 | --- | --- |  
-| 155 | [onokumus](https://github.com/onokumus) |  
+| 157 | [onokumus](https://github.com/onokumus) |  
 | 8   | [diegozhu](https://github.com/diegozhu) |  
 | 4   | [sinabs](https://github.com/sinabs) |  
 | 3   | [BurkovBA](https://github.com/BurkovBA) |  
@@ -301,6 +309,7 @@ Please read the [contributing guide](.github/contributing.md) for advice on open
 ### Release History
 |**DATE**      |**VERSION**   |**CHANGES**|
 |--------------|--------------|-----------|
+|2018-06-14    |v2.7.8        |remove aria-expanded attribute & remove transitionend check|
 |2018-02-14    |v2.7.4        |jQuery -> $ in src/metisMenu.js to fix import. [#158](https://github.com/onokumus/metismenu/pull/158)|
 |2018-02-14    |v2.7.3        |window might not be defined in node.js environment [#156](https://github.com/onokumus/metismenu/pull/156)|
 |2017-12-31    |v2.7.2        |isolate against bootstrap changes, remove old legacy ie9 code [#154](https://github.com/onokumus/metismenu/pull/154)|
@@ -343,7 +352,7 @@ Released under the [MIT License](LICENSE).
 
 ***
 
-_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.6.0, on April 23, 2018._
+_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.7.0, on June 14, 2018._
 
 [chl]: https://github.com/chaldene/chl
 [elektron]: https://github.com/onokumus/elektron
