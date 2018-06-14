@@ -7,7 +7,7 @@
   "browser": "dist/metisMenu.js",
   "unpkg": "dist/metisMenu.min.js",
   "jsdelivr": "dist/metisMenu.min.js",
-  "typings": "types/metismenu.d.ts",
+  "typings": "dist/types/metismenu.d.ts",
   "style": "dist/metisMenu.css",
   "files": [
     "dist",
