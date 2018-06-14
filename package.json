@@ -11,8 +11,7 @@
   "style": "dist/metisMenu.css",
   "files": [
     "dist",
-    "src",
-    "types"
+    "src"
   ],
   "scripts": {
     "js:dev": "rollup -c -w",
