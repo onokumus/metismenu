@@ -20,8 +20,7 @@
     "js:minify": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/metisMenu.js.map,includeSources,url=metisMenu.min.js.map\" --output dist/metisMenu.min.js dist/metisMenu.js",
     "css:dev": "postcss src/metisMenu.css -o dist/metisMenu.css --map",
     "css:min": "NODE_ENV=production postcss src/metisMenu.css -o dist/metisMenu.min.css --map",
-    "build": "npm run js:prod && npm run js:minify && npm run css:dev && npm run css:min",
-    "test": "eslint src/*.js"
+    "build": "npm run js:prod && npm run js:minify && npm run css:dev && npm run css:min"
   },
   "repository": "onokumus/metismenu",
   "keywords": [
@@ -64,9 +63,6 @@
     "@babel/preset-env": "^7.0.0-beta.51",
     "autoprefixer": "^8.6.2",
     "cssnano": "^4.0.0-rc.2",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.12.0",
     "postcss-cli": "^5.0.0",
     "postcss-header": "^1.0.0",
     "rollup": "^0.60.4",
