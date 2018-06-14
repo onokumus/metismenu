@@ -18,7 +18,6 @@ module.exports = ctx => ({
     },
     'autoprefixer': {
       cascade: false
-    },
-    cssnano: ctx.env === 'production' ? {} : false
+    }
   }
 })
