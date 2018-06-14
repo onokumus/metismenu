@@ -22,6 +22,7 @@
     "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/metisMenu.scss dist/metisMenu.css",
     "css-prefix": "postcss --config postcss.config.js --replace \"dist/*.css\" \"!dist/*.min.css\"",
     "css-minify": "cleancss --level 1 --source-map --source-map-inline-sources --output dist/metisMenu.min.css dist/metisMenu.css",
+    "watch-css": "nodemon --ignore src --ignore dist/ -e scss -x \"npm run css\"",
     "build": "npm-run-all --parallel css"
   },
   "repository": "onokumus/metismenu",
@@ -62,6 +63,7 @@
     "autoprefixer": "^8.6.2",
     "clean-css-cli": "^4.1.11",
     "node-sass": "^4.9.0",
+    "nodemon": "^1.17.5",
     "npm-run-all": "^4.1.3",
     "postcss-cli": "^5.0.0",
     "postcss-header": "^1.0.0",
