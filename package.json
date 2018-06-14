@@ -24,14 +24,10 @@
   "repository": "onokumus/metismenu",
   "keywords": [
     "accordion",
-    "bootstrap",
-    "jquery",
     "menu",
     "metis",
     "metisMenu",
-    "toggle",
-    "twbs",
-    "twitter"
+    "toggle"
   ],
   "author": "Osman Nuri Okumus <onokumus@gmail.com> (https://github.com/onokumus)",
   "contributors": [
