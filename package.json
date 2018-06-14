@@ -8,6 +8,7 @@
   "unpkg": "dist/metisMenu.min.js",
   "jsdelivr": "dist/metisMenu.min.js",
   "typings": "dist/types/metismenu.d.ts",
+  "sass": "scss/metisMenu.scss",
   "style": "dist/metisMenu.css",
   "files": [
     "dist",
@@ -17,6 +18,7 @@
     "js:dev": "rollup -c -w",
     "js:prod": "rollup -c",
     "js:minify": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/metisMenu.js.map,includeSources,url=metisMenu.min.js.map\" --output dist/metisMenu.min.js dist/metisMenu.js",
+    "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/metisMenu.scss dist/metisMenu.css",
     "css:dev": "postcss src/metisMenu.css -o dist/metisMenu.css --map",
     "css:min": "NODE_ENV=production postcss src/metisMenu.css -o dist/metisMenu.min.css --map",
     "build": "npm run js:prod && npm run js:minify && npm run css:dev && npm run css:min"
@@ -57,6 +59,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.51",
     "@babel/preset-env": "^7.0.0-beta.51",
     "autoprefixer": "^8.6.2",
+    "node-sass": "^4.9.0",
     "postcss-cli": "^5.0.0",
     "postcss-header": "^1.0.0",
     "rollup": "^0.60.4",
