@@ -1,6 +1,6 @@
 /*!
-* metismenu - v2.7.8
-* A jQuery menu plugin
+* metismenu - v3.0.0-alpha.0
+* A menu plugin
 * https://github.com/onokumus/metismenu#readme
 *
 * Made by Osman Nuri Okumus <onokumus@gmail.com> (https://github.com/onokumus)
@@ -10,76 +10,88 @@
   float: right;
   line-height: 1.42857;
 }
+
 *[dir="rtl"] .metismenu .arrow {
   float: left;
 }
 
 /*
- * Require Bootstrap 3.x
- * https://github.com/twbs/bootstrap
-*/
-
+   * Require Bootstrap 3.x
+   * https://github.com/twbs/bootstrap
+  */
 .metismenu .glyphicon.arrow:before {
   content: "\e079";
 }
+
 .metismenu .active > a > .glyphicon.arrow:before {
   content: "\e114";
 }
 
 /*
- * Require Font-Awesome
- * http://fortawesome.github.io/Font-Awesome/
-*/
-
+   * Require Font-Awesome
+   * http://fortawesome.github.io/Font-Awesome/
+  */
 .metismenu .fa.arrow:before {
   content: "\f104";
 }
+
 .metismenu .active > a > .fa.arrow:before {
   content: "\f107";
 }
 
 /*
- * Require Ionicons
- * http://ionicons.com/
-*/
-
+   * Require Ionicons
+   * http://ionicons.com/
+  */
 .metismenu .ion.arrow:before {
-  content: "\f3d2"
+  content: "\f3d2";
 }
+
 .metismenu .active > a > .ion.arrow:before {
   content: "\f3d0";
 }
+
 .metismenu .plus-times {
   float: right;
 }
+
 *[dir="rtl"] .metismenu .plus-times {
   float: left;
 }
+
 .metismenu .fa.plus-times:before {
   content: "\f067";
 }
+
 .metismenu .active > a > .fa.plus-times {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
 .metismenu .plus-minus {
   float: right;
 }
+
 *[dir="rtl"] .metismenu .plus-minus {
   float: left;
 }
+
 .metismenu .fa.plus-minus:before {
   content: "\f067";
 }
+
 .metismenu .active > a > .fa.plus-minus:before {
   content: "\f068";
 }
+
 .metismenu .collapse {
   display: none;
 }
+
 .metismenu .collapse.in {
   display: block;
 }
+
 .metismenu .collapsing {
   position: relative;
   height: 0;
@@ -128,5 +140,4 @@
   -webkit-transform: rotate(225deg) translate(0, -50%);
   transform: rotate(225deg) translate(0, -50%);
 }
-
 /*# sourceMappingURL=metisMenu.css.map */
