@@ -15,35 +15,38 @@ const banner = `/*!
 
 export default [
   {
-    input: 'src/index.js',
-    external: ['jquery'],
+    input: 'dist/modules/index.js',
     output: [
-      {
-        name: 'metisMenu',
-        banner,
-        globals: {
-          jquery: 'jQuery',
-        },
-        file: pkg.browser,
-        format: 'umd',
-        sourcemap: true,
-      },
       {
         file: pkg.main,
         banner,
         format: 'cjs',
-
-      },
-      {
-        file: pkg.module,
-        banner,
-        format: 'es',
       },
     ],
     plugins: [
       babel({ exclude: 'node_modules/**' }),
       resolve(),
       commonjs(),
+    ],
+  },
+  {
+    input: 'dist/cjs/index.js',
+    output: [
+      {
+        name: 'MetisMenu',
+        file: pkg.browser,
+        banner,
+        format: 'umd',
+        sourcemap: true,
+        external: ['events']
+      },
+    ],
+    plugins: [
+      babel({ exclude: 'node_modules/**' }),
+      resolve({
+        preferBuiltins: false,
+      }),
+      commonjs()
     ],
   },
 ];
