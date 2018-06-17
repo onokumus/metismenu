@@ -22,8 +22,15 @@
     "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/metisMenu.scss dist/metisMenu.css",
     "css-prefix": "postcss --config postcss.config.js --replace \"dist/*.css\" \"!dist/*.min.css\"",
     "css-minify": "cleancss --level 1 --source-map --source-map-inline-sources --output dist/metisMenu.min.css dist/metisMenu.css",
-    "watch-css": "nodemon --ignore src --ignore dist/ -e scss -x \"npm run css\"",
-    "build": "npm-run-all --parallel css"
+    "js": "npm-run-all --parallel lint ts-compile --sequential js-compile js-minify",
+    "lint": "tslint -c tslint.json src/**/*.ts",
+    "ts-compile": "tsc",
+    "js-compile": "rollup --config rollup.config.js",
+    "js-minify": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/metisMenu.js.map,includeSources,url=metisMenu.min.js.map\" --output dist/metisMenu.min.js dist/metisMenu.js",
+    "build": "npm-run-all --parallel css js",
+    "watch": "npm-run-all --parallel watch-css watch-js",
+    "watch-css": "nodemon --ignore src/ --ignore dist/ -e scss -x \"npm run css\"",
+    "watch-js": "nodemon --ignore scss/ --ignore dist/ -e ts -x \"npm run js\""
   },
   "repository": "onokumus/metismenu",
   "keywords": [
