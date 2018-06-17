@@ -76,7 +76,7 @@
     "postcss-cli": "^5.0.0",
     "postcss-header": "^1.0.0",
     "prettier": "^1.13.5",
-    "rollup": "^0.60.4",
+    "rollup": "^0.60.7",
     "rollup-plugin-babel": "^4.0.0-beta.5",
     "rollup-plugin-commonjs": "^9.1.3",
     "rollup-plugin-node-resolve": "^3.3.0",
