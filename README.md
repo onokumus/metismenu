@@ -55,7 +55,7 @@ $ composer require onokumus/metismenu:dev-master
 ```
 
 ### Download
-[download](https://github.com/onokumus/metisMenu/archive/master.zip)
+[download](https://github.com/onokumus/metismenu/archive/v3.zip)
 
 ## Usage
 
