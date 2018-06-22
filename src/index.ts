@@ -8,8 +8,6 @@ class MetisMenu extends EventEmitter {
   private isTransitioning: boolean;
   private disposed: boolean;
   private ulArr: any[];
-  private liArr: any[];
-  private aArr: any[];
   private cacheEl: HTMLElement;
   private cacheConfig: IMMOptions;
   private listenerOb: any[];
@@ -22,8 +20,6 @@ class MetisMenu extends EventEmitter {
     this.cacheConfig = this.config;
     this.disposed = false;
     this.ulArr = [];
-    this.liArr = [];
-    this.aArr = [];
     this.listenerOb = [];
     this.init();
   }
@@ -43,8 +39,6 @@ class MetisMenu extends EventEmitter {
       }
     }
     this.ulArr = [];
-    this.liArr = [];
-    this.aArr = [];
     this.listenerOb = [];
     this.config = null;
     this.element = null;
@@ -56,7 +50,6 @@ class MetisMenu extends EventEmitter {
     );
     for (const [index, ul] of this.ulArr.entries()) {
       const li = ul.parentNode;
-      this.liArr.push(li);
       if (li.getAttribute("id") === null) {
         li.setAttribute("id", `mm-item-${index}`);
         ul.setAttribute("aria-labelledby", `mm-item-${index}`);
