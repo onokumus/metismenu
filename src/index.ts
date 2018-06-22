@@ -119,7 +119,7 @@ class MetisMenu extends EventEmitter {
       return;
     }
     const li = ul.parentNode;
-    this.emit("show.metisMenu", li);
+    this.emit("show.metisMenu", ul);
     const complete = () => {
       ul.classList.remove(this.config.collapsingClass);
       ul.style.height = "";
@@ -165,7 +165,7 @@ class MetisMenu extends EventEmitter {
       return;
     }
     const li = ul.parentNode;
-    this.emit("hide.metisMenu", li);
+    this.emit("hide.metisMenu", ul);
     li.classList.remove(this.config.activeClass);
 
     const comp = () => {
@@ -189,7 +189,7 @@ class MetisMenu extends EventEmitter {
 
     const a = li.querySelector(this.config.triggerElement);
     a.setAttribute("aria-expanded", "false");
-    this.emit("hidden.metisMenu", li);
+    this.emit("hidden.metisMenu", ul);
   }
 
   private setTransitioning(isTransitioning) {
