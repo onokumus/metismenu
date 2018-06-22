@@ -10,8 +10,6 @@ class MetisMenu extends EventEmitter {
         this.cacheConfig = this.config;
         this.disposed = false;
         this.ulArr = [];
-        this.liArr = [];
-        this.aArr = [];
         this.listenerOb = [];
         this.init();
     }
@@ -31,8 +29,6 @@ class MetisMenu extends EventEmitter {
             }
         }
         this.ulArr = [];
-        this.liArr = [];
-        this.aArr = [];
         this.listenerOb = [];
         this.config = null;
         this.element = null;
@@ -42,7 +38,6 @@ class MetisMenu extends EventEmitter {
         this.ulArr = [].slice.call(this.element.querySelectorAll(this.config.subMenu));
         for (const [index, ul] of this.ulArr.entries()) {
             const li = ul.parentNode;
-            this.liArr.push(li);
             if (li.getAttribute("id") === null) {
                 li.setAttribute("id", `mm-item-${index}`);
                 ul.setAttribute("aria-labelledby", `mm-item-${index}`);
@@ -64,6 +59,9 @@ class MetisMenu extends EventEmitter {
                 this.hide(ul);
             }
             const a = li.querySelector(this.config.triggerElement);
+            if (a.getAttribute("aria-disabled") === "true") {
+                return;
+            }
             a.setAttribute("aria-controls", ulId);
             a.setAttribute("aria-expanded", "false");
             const listenerOb = {
@@ -102,7 +100,7 @@ class MetisMenu extends EventEmitter {
             return;
         }
         const li = ul.parentNode;
-        this.emit("show.metisMenu", li);
+        this.emit("show.metisMenu", ul);
         const complete = () => {
             ul.classList.remove(this.config.collapsingClass);
             ul.style.height = "";
@@ -140,7 +138,7 @@ class MetisMenu extends EventEmitter {
             return;
         }
         const li = ul.parentNode;
-        this.emit("hide.metisMenu", li);
+        this.emit("hide.metisMenu", ul);
         li.classList.remove(this.config.activeClass);
         const comp = () => {
             ul.classList.remove(this.config.collapsingClass);
@@ -158,7 +156,7 @@ class MetisMenu extends EventEmitter {
         ul.style.height = "0px";
         const a = li.querySelector(this.config.triggerElement);
         a.setAttribute("aria-expanded", "false");
-        this.emit("hidden.metisMenu", li);
+        this.emit("hidden.metisMenu", ul);
     }
     setTransitioning(isTransitioning) {
         this.isTransitioning = isTransitioning;

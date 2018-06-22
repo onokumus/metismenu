@@ -1,5 +1,5 @@
 /*!
-* metismenu - v3.0.0-alpha.0
+* metismenu - v3.0.0-alpha.1
 * A menu plugin
 * https://github.com/onokumus/metismenu#readme
 *
@@ -507,8 +507,6 @@
       _this.cacheConfig = _this.config;
       _this.disposed = false;
       _this.ulArr = [];
-      _this.liArr = [];
-      _this.aArr = [];
       _this.listenerOb = [];
 
       _this.init();
@@ -549,8 +547,6 @@
       }
 
       this.ulArr = [];
-      this.liArr = [];
-      this.aArr = [];
       this.listenerOb = [];
       this.config = null;
       this.element = null;
@@ -576,7 +572,6 @@
             index = _ref3[0],
             ul = _ref3[1];
         var li = ul.parentNode;
-        this.liArr.push(li);
 
         if (li.getAttribute("id") === null) {
           li.setAttribute("id", "mm-item-" + index);
@@ -600,6 +595,11 @@
         }
 
         var a = li.querySelector(this.config.triggerElement);
+
+        if (a.getAttribute("aria-disabled") === "true") {
+          return;
+        }
+
         a.setAttribute("aria-controls", ulId);
         a.setAttribute("aria-expanded", "false");
         var listenerOb = {
@@ -645,7 +645,7 @@
       }
 
       var li = ul.parentNode;
-      this.emit("show.metisMenu", li);
+      this.emit("show.metisMenu", ul);
 
       var complete = function complete() {
         ul.classList.remove(_this2.config.collapsingClass);
@@ -704,7 +704,7 @@
       }
 
       var li = ul.parentNode;
-      this.emit("hide.metisMenu", li);
+      this.emit("hide.metisMenu", ul);
       li.classList.remove(this.config.activeClass);
 
       var comp = function comp() {
@@ -725,7 +725,7 @@
       ul.style.height = "0px";
       var a = li.querySelector(this.config.triggerElement);
       a.setAttribute("aria-expanded", "false");
-      this.emit("hidden.metisMenu", li);
+      this.emit("hidden.metisMenu", ul);
     };
 
     _proto.setTransitioning = function setTransitioning(isTransitioning) {

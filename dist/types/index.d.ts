@@ -7,15 +7,13 @@ declare class MetisMenu extends EventEmitter {
     private isTransitioning;
     private disposed;
     private ulArr;
-    private liArr;
-    private aArr;
     private cacheEl;
     private cacheConfig;
     private listenerOb;
     constructor(element: HTMLElement, options?: IMMOptions);
     update(): void;
     dispose(): void;
-    init(): void;
+    private init;
     private clickEvent;
     private toggle;
     private show;
