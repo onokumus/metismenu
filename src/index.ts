@@ -44,7 +44,7 @@ class MetisMenu extends EventEmitter {
     this.element = null;
     this.disposed = true;
   }
-  public init(): void {
+  private init(): void {
     this.ulArr = [].slice.call(
       this.element.querySelectorAll(this.config.subMenu)
     );
