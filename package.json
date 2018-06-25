@@ -1,6 +1,6 @@
 {
   "name": "metismenu",
-  "version": "3.0.0-alpha.1",
+  "version": "3.0.0-alpha.2",
   "description": "A menu plugin",
   "main": "dist/cjs/index.js",
   "module": "dist/modules/index.js",

@@ -1,7 +1,6 @@
-/// <reference types="node" />
-import { EventEmitter } from "events";
+import { MetisMenuEvents } from "./constant";
 import { IMMOptions } from "./interface";
-declare class MetisMenu extends EventEmitter {
+declare class MetisMenu {
     config: IMMOptions;
     element: HTMLElement;
     private isTransitioning;
@@ -13,6 +12,9 @@ declare class MetisMenu extends EventEmitter {
     constructor(element: HTMLElement, options?: IMMOptions);
     update(): void;
     dispose(): void;
+    on(event: MetisMenuEvents, fn: EventListenerOrEventListenerObject): this;
+    off(event: MetisMenuEvents, fn: EventListenerOrEventListenerObject): this;
+    private emit;
     private init;
     private clickEvent;
     private toggle;
