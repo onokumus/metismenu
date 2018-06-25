@@ -46,17 +46,21 @@ class MetisMenu {
     this.disposed = true;
   }
 
-  public on(event: MetisMenuEvents, fn: EventListenerOrEventListenerObject){
+  public on(event: MetisMenuEvents, fn: EventListenerOrEventListenerObject) {
     this.element.addEventListener(event, fn, false);
     return this;
   }
 
-  public off(event:MetisMenuEvents, fn: EventListenerOrEventListenerObject) {
+  public off(event: MetisMenuEvents, fn: EventListenerOrEventListenerObject) {
     this.element.removeEventListener(event, fn);
     return this;
   }
 
-  private emit(event: MetisMenuEvents, eventDetail: object, shouldBubble = false){
+  private emit(
+    event: MetisMenuEvents,
+    eventDetail: object,
+    shouldBubble = false
+  ) {
     let evt;
     if (typeof CustomEvent === "function") {
       evt = new CustomEvent(event, {
@@ -154,7 +158,7 @@ class MetisMenu {
         shownElement: ul
       });
     };
-    
+
     const li = ul.parentNode;
     li.classList.add(this.config.activeClass);
 

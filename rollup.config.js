@@ -37,15 +37,12 @@ export default [
         file: pkg.browser,
         banner,
         format: 'umd',
-        sourcemap: true,
-        external: ['events']
+        sourcemap: true
       },
     ],
     plugins: [
       babel({ exclude: 'node_modules/**' }),
-      resolve({
-        preferBuiltins: false,
-      }),
+      resolve(),
       commonjs()
     ],
   },

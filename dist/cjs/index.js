@@ -1,5 +1,5 @@
 /*!
-* metismenu - v3.0.0-alpha.1
+* metismenu - v3.0.0-alpha.2
 * A menu plugin
 * https://github.com/onokumus/metismenu#readme
 *
@@ -7,8 +7,6 @@
 * Under MIT License
 */
 'use strict';
-
-var events = require('events');
 
 function _defineProperty(obj, key, value) {
   if (key in obj) {
@@ -44,12 +42,6 @@ function _objectSpread(target) {
   return target;
 }
 
-function _inheritsLoose(subClass, superClass) {
-  subClass.prototype = Object.create(superClass.prototype);
-  subClass.prototype.constructor = subClass;
-  subClass.__proto__ = superClass;
-}
-
 var Default = {
   activeClass: "active",
   collapseClass: "collapse",
@@ -64,24 +56,16 @@ var Default = {
 
 var MetisMenu =
 /*#__PURE__*/
-function (_EventEmitter) {
-  _inheritsLoose(MetisMenu, _EventEmitter);
-
+function () {
   function MetisMenu(element, options) {
-    var _this;
-
-    _this = _EventEmitter.call(this) || this;
-    _this.element = typeof element === "string" ? document.querySelector(element) : element;
-    _this.cacheEl = _this.element;
-    _this.config = _objectSpread({}, Default, options);
-    _this.cacheConfig = _this.config;
-    _this.disposed = false;
-    _this.ulArr = [];
-    _this.listenerOb = [];
-
-    _this.init();
-
-    return _this;
+    this.element = typeof element === "string" ? document.querySelector(element) : element;
+    this.cacheEl = this.element;
+    this.config = _objectSpread({}, Default, options);
+    this.cacheConfig = this.config;
+    this.disposed = false;
+    this.ulArr = [];
+    this.listenerOb = [];
+    this.init();
   }
 
   var _proto = MetisMenu.prototype;
@@ -121,6 +105,37 @@ function (_EventEmitter) {
     this.config = null;
     this.element = null;
     this.disposed = true;
+  };
+
+  _proto.on = function on(event, fn) {
+    this.element.addEventListener(event, fn, false);
+    return this;
+  };
+
+  _proto.off = function off(event, fn) {
+    this.element.removeEventListener(event, fn);
+    return this;
+  };
+
+  _proto.emit = function emit(event, eventDetail, shouldBubble) {
+    if (shouldBubble === void 0) {
+      shouldBubble = false;
+    }
+
+    var evt;
+
+    if (typeof CustomEvent === "function") {
+      evt = new CustomEvent(event, {
+        bubbles: shouldBubble,
+        detail: eventDetail
+      });
+    } else {
+      evt = document.createEvent("CustomEvent");
+      evt.initCustomEvent(event, shouldBubble, false, eventDetail);
+    }
+
+    this.element.dispatchEvent(evt);
+    return this;
   };
 
   _proto.init = function init() {
@@ -208,23 +223,25 @@ function (_EventEmitter) {
   };
 
   _proto.show = function show(ul) {
-    var _this2 = this;
+    var _this = this;
 
     if (this.isTransitioning || ul.classList.contains(this.config.collapseInClass)) {
       return;
     }
 
-    var li = ul.parentNode;
-    this.emit("show.metisMenu", ul);
-
     var complete = function complete() {
-      ul.classList.remove(_this2.config.collapsingClass);
+      ul.classList.remove(_this.config.collapsingClass);
       ul.style.height = "";
       ul.removeEventListener("transitionend", complete);
 
-      _this2.setTransitioning(false);
+      _this.setTransitioning(false);
+
+      _this.emit("shown.metisMenu", {
+        shownElement: ul
+      });
     };
 
+    var li = ul.parentNode;
     li.classList.add(this.config.activeClass);
     var a = li.querySelector(this.config.triggerElement);
     a.setAttribute("aria-expanded", "true");
@@ -262,27 +279,35 @@ function (_EventEmitter) {
     ul.classList.add(this.config.collapseClass);
     ul.classList.add(this.config.collapseInClass);
     ul.style.height = ul.scrollHeight + "px";
+    this.emit("show.metisMenu", {
+      showElement: ul
+    });
     ul.addEventListener("transitionend", complete);
-    this.emit("shown.metisMenu", ul);
   };
 
   _proto.hide = function hide(ul) {
-    var _this3 = this;
+    var _this2 = this;
 
     if (this.isTransitioning || !ul.classList.contains(this.config.collapseInClass)) {
       return;
     }
 
+    this.emit("hide.metisMenu", {
+      hideElement: ul
+    });
     var li = ul.parentNode;
-    this.emit("hide.metisMenu", ul);
     li.classList.remove(this.config.activeClass);
 
-    var comp = function comp() {
-      ul.classList.remove(_this3.config.collapsingClass);
-      ul.classList.add(_this3.config.collapseClass);
-      ul.removeEventListener("transitionend", comp);
+    var complete = function complete() {
+      ul.classList.remove(_this2.config.collapsingClass);
+      ul.classList.add(_this2.config.collapseClass);
+      ul.removeEventListener("transitionend", complete);
 
-      _this3.setTransitioning(false);
+      _this2.setTransitioning(false);
+
+      _this2.emit("hidden.metisMenu", {
+        hiddenElement: ul
+      });
     };
 
     ul.style.height = ul.getBoundingClientRect().height + "px";
@@ -291,11 +316,10 @@ function (_EventEmitter) {
     ul.classList.remove(this.config.collapseClass);
     ul.classList.remove(this.config.collapseInClass);
     this.setTransitioning(true);
-    ul.addEventListener("transitionend", comp);
+    ul.addEventListener("transitionend", complete);
     ul.style.height = "0px";
     var a = li.querySelector(this.config.triggerElement);
     a.setAttribute("aria-expanded", "false");
-    this.emit("hidden.metisMenu", ul);
   };
 
   _proto.setTransitioning = function setTransitioning(isTransitioning) {
@@ -303,6 +327,6 @@ function (_EventEmitter) {
   };
 
   return MetisMenu;
-}(events.EventEmitter);
+}();
 
 module.exports = MetisMenu;
