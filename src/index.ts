@@ -1,8 +1,7 @@
-import { EventEmitter } from "events";
-import { Default } from "./constant";
+import { Default, MetisMenuEvents } from "./constant";
 import { IMMOptions } from "./interface";
 
-class MetisMenu extends EventEmitter {
+class MetisMenu {
   public config: IMMOptions;
   public element: HTMLElement;
   private isTransitioning: boolean;
@@ -11,8 +10,8 @@ class MetisMenu extends EventEmitter {
   private cacheEl: HTMLElement;
   private cacheConfig: IMMOptions;
   private listenerOb: any[];
+
   constructor(element: HTMLElement, options?: IMMOptions) {
-    super();
     this.element =
       typeof element === "string" ? document.querySelector(element) : element;
     this.cacheEl = this.element;
@@ -23,12 +22,14 @@ class MetisMenu extends EventEmitter {
     this.listenerOb = [];
     this.init();
   }
+
   public update() {
     this.disposed = false;
     this.element = this.cacheEl;
     this.config = this.cacheConfig;
     this.init();
   }
+
   public dispose() {
     for (const lo of this.listenerOb) {
       for (const key in lo) {
@@ -44,6 +45,32 @@ class MetisMenu extends EventEmitter {
     this.element = null;
     this.disposed = true;
   }
+
+  public on(event: MetisMenuEvents, fn: EventListenerOrEventListenerObject){
+    this.element.addEventListener(event, fn, false);
+    return this;
+  }
+
+  public off(event:MetisMenuEvents, fn: EventListenerOrEventListenerObject) {
+    this.element.removeEventListener(event, fn);
+    return this;
+  }
+
+  private emit(event: MetisMenuEvents, eventDetail: object, shouldBubble = false){
+    let evt;
+    if (typeof CustomEvent === "function") {
+      evt = new CustomEvent(event, {
+        bubbles: shouldBubble,
+        detail: eventDetail
+      });
+    } else {
+      evt = document.createEvent("CustomEvent");
+      evt.initCustomEvent(event, shouldBubble, false, eventDetail);
+    }
+    this.element.dispatchEvent(evt);
+    return this;
+  }
+
   private init(): void {
     this.ulArr = [].slice.call(
       this.element.querySelectorAll(this.config.subMenu)
@@ -118,15 +145,17 @@ class MetisMenu extends EventEmitter {
     ) {
       return;
     }
-    const li = ul.parentNode;
-    this.emit("show.metisMenu", ul);
     const complete = () => {
       ul.classList.remove(this.config.collapsingClass);
       ul.style.height = "";
       ul.removeEventListener("transitionend", complete);
       this.setTransitioning(false);
+      this.emit("shown.metisMenu", {
+        shownElement: ul
+      });
     };
-
+    
+    const li = ul.parentNode;
     li.classList.add(this.config.activeClass);
 
     const a = li.querySelector(this.config.triggerElement);
@@ -153,8 +182,10 @@ class MetisMenu extends EventEmitter {
     ul.classList.add(this.config.collapseClass);
     ul.classList.add(this.config.collapseInClass);
     ul.style.height = ul.scrollHeight + "px";
+    this.emit("show.metisMenu", {
+      showElement: ul
+    });
     ul.addEventListener("transitionend", complete);
-    this.emit("shown.metisMenu", ul);
   }
 
   private hide(ul) {
@@ -164,15 +195,21 @@ class MetisMenu extends EventEmitter {
     ) {
       return;
     }
+    this.emit("hide.metisMenu", {
+      hideElement: ul
+    });
+
     const li = ul.parentNode;
-    this.emit("hide.metisMenu", ul);
     li.classList.remove(this.config.activeClass);
 
-    const comp = () => {
+    const complete = () => {
       ul.classList.remove(this.config.collapsingClass);
       ul.classList.add(this.config.collapseClass);
-      ul.removeEventListener("transitionend", comp);
+      ul.removeEventListener("transitionend", complete);
       this.setTransitioning(false);
+      this.emit("hidden.metisMenu", {
+        hiddenElement: ul
+      });
     };
 
     ul.style.height = ul.getBoundingClientRect().height + "px";
@@ -183,13 +220,12 @@ class MetisMenu extends EventEmitter {
     ul.classList.remove(this.config.collapseInClass);
     this.setTransitioning(true);
 
-    ul.addEventListener("transitionend", comp);
+    ul.addEventListener("transitionend", complete);
 
     ul.style.height = "0px";
 
     const a = li.querySelector(this.config.triggerElement);
     a.setAttribute("aria-expanded", "false");
-    this.emit("hidden.metisMenu", ul);
   }
 
   private setTransitioning(isTransitioning) {

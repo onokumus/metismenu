@@ -1,5 +1,11 @@
 import { IMMOptions } from "./interface";
 
+export type MetisMenuEvents =
+  | "show.metisMenu"
+  | "shown.metisMenu"
+  | "hide.metisMenu"
+  | "hidden.metisMenu";
+
 export const Default: IMMOptions = {
   activeClass: "active",
   collapseClass: "collapse",
