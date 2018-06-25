@@ -19,8 +19,5 @@
   "support": {
     "issues": "https://github.com/onokumus/metisMenu/issues"
   },
-  "license": "MIT",
-  "suggest": {
-    "components/jquery": ">=1.9"
-  }
+  "license": "MIT"
 }
