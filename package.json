@@ -116,7 +116,7 @@
       "twbuttons"
     ]
   },
-  "dependencies": {
+  "peerDependencies": {
     "jquery": "^3.3.1"
   }
 }
