@@ -6,5 +6,9 @@
         "es6": true,
         "jquery": true
     },
+    "rules": {
+        "import/no-unresolved": ["error", { "ignore": ["jquery"] }],
+        "import/extensions": ["error", { "jquery": "never" }]
+    },
     "extends": "airbnb-base"
 }
