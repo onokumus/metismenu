@@ -1,6 +1,6 @@
 {
   "name": "metismenu",
-  "version": "2.7.8",
+  "version": "2.7.9",
   "description": "A jQuery menu plugin",
   "main": "dist/cjs/index.js",
   "module": "dist/modules/index.js",
@@ -51,7 +51,8 @@
     "diegozhu <zhuhaiyang55@gmail.com> (http://sae.zhuhaiyang.me)",
     "WoMayr (https://github.com/WoMayr)",
     "719media (https://github.com/719media)",
-    "Boris Burkov (Boris Burkov)"
+    "Boris Burkov (Boris Burkov)",
+    "Matt Dziuban (http://mattdziuban.com)"
   ],
   "license": "MIT",
   "bugs": {
