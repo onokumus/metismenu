@@ -1,4 +1,4 @@
-import { IMMOptions } from "./interface";
+import { IMMClassNames, IMMOptions } from "./interface";
 
 export type MetisMenuEvents =
   | "show.metisMenu"
@@ -7,13 +7,15 @@ export type MetisMenuEvents =
   | "hidden.metisMenu";
 
 export const Default: IMMOptions = {
-  activeClass: "active",
-  collapseClass: "collapse",
-  collapseInClass: "in",
-  collapsingClass: "collapsing",
   parentTrigger: "li",
-  preventDefault: true,
   subMenu: "ul",
   toggle: true,
   triggerElement: "a"
+};
+
+export const ClassNames: IMMClassNames = {
+  activeClass: "active",
+  collapseClass: "collapse",
+  collapseInClass: "in",
+  collapsingClass: "collapsing"
 };

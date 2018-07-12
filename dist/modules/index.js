@@ -1,4 +1,4 @@
-import { Default } from "./constant";
+import { ClassNames, Default } from "./constant";
 class MetisMenu {
     constructor(element, options) {
         this.element =
@@ -57,23 +57,10 @@ class MetisMenu {
     }
     init() {
         this.ulArr = [].slice.call(this.element.querySelectorAll(this.config.subMenu));
-        for (const [index, ul] of this.ulArr.entries()) {
+        for (const ul of this.ulArr) {
             const li = ul.parentNode;
-            if (li.getAttribute("id") === null) {
-                li.setAttribute("id", `mm-item-${index}`);
-                ul.setAttribute("aria-labelledby", `mm-item-${index}`);
-            }
-            else {
-                ul.setAttribute("aria-labelledby", li.getAttribute("id"));
-            }
-            const ulId = ul.getAttribute("id") !== null
-                ? ul.getAttribute("id")
-                : `mm-item-ul-${index}`;
-            if (ul.getAttribute("id") === null) {
-                ul.setAttribute("id", ulId);
-            }
-            ul.classList.add(this.config.collapseClass);
-            if (li.classList.contains(this.config.activeClass)) {
+            ul.classList.add(ClassNames.collapseClass);
+            if (li.classList.contains(ClassNames.activeClass)) {
                 this.show(ul);
             }
             else {
@@ -83,7 +70,6 @@ class MetisMenu {
             if (a.getAttribute("aria-disabled") === "true") {
                 return;
             }
-            a.setAttribute("aria-controls", ulId);
             a.setAttribute("aria-expanded", "false");
             const listenerOb = {
                 aClick: ["click", a, this.clickEvent.bind(this)]
@@ -108,7 +94,7 @@ class MetisMenu {
         }
     }
     toggle(ul) {
-        if (ul.parentNode.classList.contains(this.config.activeClass)) {
+        if (ul.parentNode.classList.contains(ClassNames.activeClass)) {
             this.hide(ul);
         }
         else {
@@ -117,11 +103,11 @@ class MetisMenu {
     }
     show(ul) {
         if (this.isTransitioning ||
-            ul.classList.contains(this.config.collapseInClass)) {
+            ul.classList.contains(ClassNames.collapseInClass)) {
             return;
         }
         const complete = () => {
-            ul.classList.remove(this.config.collapsingClass);
+            ul.classList.remove(ClassNames.collapsingClass);
             ul.style.height = "";
             ul.removeEventListener("transitionend", complete);
             this.setTransitioning(false);
@@ -130,13 +116,13 @@ class MetisMenu {
             });
         };
         const li = ul.parentNode;
-        li.classList.add(this.config.activeClass);
+        li.classList.add(ClassNames.activeClass);
         const a = li.querySelector(this.config.triggerElement);
         a.setAttribute("aria-expanded", "true");
         ul.style.height = "0px";
-        ul.classList.remove(this.config.collapseClass);
-        ul.classList.remove(this.config.collapseInClass);
-        ul.classList.add(this.config.collapsingClass);
+        ul.classList.remove(ClassNames.collapseClass);
+        ul.classList.remove(ClassNames.collapseInClass);
+        ul.classList.add(ClassNames.collapsingClass);
         const eleParentSiblins = [].slice
             .call(li.parentNode.children)
             .filter(c => c !== li);
@@ -149,8 +135,8 @@ class MetisMenu {
             }
         }
         this.setTransitioning(true);
-        ul.classList.add(this.config.collapseClass);
-        ul.classList.add(this.config.collapseInClass);
+        ul.classList.add(ClassNames.collapseClass);
+        ul.classList.add(ClassNames.collapseInClass);
         ul.style.height = ul.scrollHeight + "px";
         this.emit("show.metisMenu", {
             showElement: ul
@@ -159,17 +145,17 @@ class MetisMenu {
     }
     hide(ul) {
         if (this.isTransitioning ||
-            !ul.classList.contains(this.config.collapseInClass)) {
+            !ul.classList.contains(ClassNames.collapseInClass)) {
             return;
         }
         this.emit("hide.metisMenu", {
             hideElement: ul
         });
         const li = ul.parentNode;
-        li.classList.remove(this.config.activeClass);
+        li.classList.remove(ClassNames.activeClass);
         const complete = () => {
-            ul.classList.remove(this.config.collapsingClass);
-            ul.classList.add(this.config.collapseClass);
+            ul.classList.remove(ClassNames.collapsingClass);
+            ul.classList.add(ClassNames.collapseClass);
             ul.removeEventListener("transitionend", complete);
             this.setTransitioning(false);
             this.emit("hidden.metisMenu", {
@@ -178,9 +164,9 @@ class MetisMenu {
         };
         ul.style.height = ul.getBoundingClientRect().height + "px";
         ul.style.height = ul.offsetHeight + "px";
-        ul.classList.add(this.config.collapsingClass);
-        ul.classList.remove(this.config.collapseClass);
-        ul.classList.remove(this.config.collapseInClass);
+        ul.classList.add(ClassNames.collapsingClass);
+        ul.classList.remove(ClassNames.collapseClass);
+        ul.classList.remove(ClassNames.collapseInClass);
         this.setTransitioning(true);
         ul.addEventListener("transitionend", complete);
         ul.style.height = "0px";
