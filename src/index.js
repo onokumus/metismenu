@@ -224,10 +224,6 @@ const MetisMenu = (($) => { // eslint-disable-line no-shadow
           ...typeof config === 'object' && config ? config : {},
         };
 
-        if (data && /dispose/.test(config)) {
-          this.dispose();
-        }
-
         if (!data) {
           data = new MetisMenu(this, conf);
           $this.data(DATA_KEY, data);
