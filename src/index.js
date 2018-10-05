@@ -49,15 +49,18 @@ class MetisMenu {
 
     $(this.element).addClass(ClassName.METIS); // add metismenu class to element
 
-    const activeLi = $(this.element).find(`${conf.parentTrigger}.${ClassName.ACTIVE}`); // find the active li element
+    $(this.element)
+      .find(`${conf.parentTrigger}.${ClassName.ACTIVE}`)
+      .children(conf.triggerElement)
+      .attr('aria-expanded', 'true'); // add attribute aria-expanded=true the trigger element
 
-    activeLi.children(conf.triggerElement).attr('aria-expanded', true); // add attribute aria-expanded=true the trigger element
+    $(this.element)
+      .find(`${conf.parentTrigger}.${ClassName.ACTIVE}`)
+      .parents(conf.parentTrigger).children(conf.triggerElement)
+      .attr('aria-expanded', 'true'); // add attribute aria-expanded=true the triggers of all parents
 
-    activeLi.parents(conf.parentTrigger).children(conf.triggerElement).attr('aria-expanded', true); // add attribute aria-expanded=true the triggers of all parents
-
-    this.show(activeLi.parents(conf.subMenu).not($(this.element))); // show all parents's ul
-
-    activeLi
+    $(this.element)
+      .find(`${conf.parentTrigger}.${ClassName.ACTIVE}`)
       .has(conf.subMenu)
       .children(conf.subMenu)
       .addClass(`${ClassName.COLLAPSE} ${ClassName.SHOW}`);
@@ -87,13 +90,13 @@ class MetisMenu {
           return;
         }
         if (paRent.hasClass(ClassName.ACTIVE)) {
-          eTar.attr('aria-expanded', false);
+          eTar.attr('aria-expanded', 'false');
           self.hide(List);
         } else {
           self.show(List);
-          eTar.attr('aria-expanded', true);
+          eTar.attr('aria-expanded', 'true');
           if (conf.toggle) {
-            sibLings.attr('aria-expanded', false);
+            sibLings.attr('aria-expanded', 'false');
           }
         }
 
