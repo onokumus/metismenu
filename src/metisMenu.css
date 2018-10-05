@@ -65,13 +65,13 @@
 .metismenu .active > a > .fa.plus-minus:before {
   content: "\f068";
 }
-.metismenu .collapse {
+.metismenu .mm-collapse {
   display: none;
 }
-.metismenu .collapse.in {
+.metismenu .mm-collapse.mm-show {
   display: block;
 }
-.metismenu .collapsing {
+.metismenu .mm-collapsing {
   position: relative;
   height: 0;
   overflow: hidden;
