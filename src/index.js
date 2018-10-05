@@ -56,7 +56,13 @@ class MetisMenu {
 
     $(this.element)
       .find(`${conf.parentTrigger}.${ClassName.ACTIVE}`)
-      .parents(conf.parentTrigger).children(conf.triggerElement)
+      .parents(conf.parentTrigger)
+      .addClass(ClassName.ACTIVE);
+
+    $(this.element)
+      .find(`${conf.parentTrigger}.${ClassName.ACTIVE}`)
+      .parents(conf.parentTrigger)
+      .children(conf.triggerElement)
       .attr('aria-expanded', 'true'); // add attribute aria-expanded=true the triggers of all parents
 
     $(this.element)
