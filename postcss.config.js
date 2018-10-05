@@ -1,12 +1,11 @@
 const pkg = require('./package.json');
 
 const banner = `/*!
-* ${pkg.name} - v${pkg.version}
+* ${pkg.name} ${pkg.homepage}
 * ${pkg.description}
-* ${pkg.homepage}
-*
-* Made by ${pkg.author}
-* Under ${pkg.license} License
+* @version ${pkg.version}
+* @author ${pkg.author}
+* @license: ${pkg.license} 
 */`;
 
 
