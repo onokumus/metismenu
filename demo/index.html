@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>metisMenu - index</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/metismenu/dist/metisMenu.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noty/lib/noty.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noty/lib/themes/relax.css">
+
+  <link rel="stylesheet" href="assets/css/app.css">
+
+  <script>
+    if (location.hostname === "mm.onokumus.com") {
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  
+      ga('create', 'UA-1669764-16', 'auto');
+      ga('send', 'pageview', { page: location.pathname + location.search + location.hash });
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/metismenu"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/noty"></script>
+</head>
+
+<body>
+  <header>
+    <div class="navbar navbar-expand-md navbar-dark bg-dark box-shadow">
+      <div class="container d-flex justify-content-between">
+        <a href="index.html" class="navbar-brand d-flex align-items-center">
+          <strong>metisMenu</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+          aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav ml-auto">
+  
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">Examples</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <a class="dropdown-item" href="mm-vertical.html">Vertical Menu</a>
+                <a class="dropdown-item" href="mm-horizontal.html">Horizontal Menu</a>
+                <a class="dropdown-item" href="mm-folder.html">Folder View</a>
+                <a class="dropdown-item" href="mm-vertical-hover.html">Hover Option For Desktop</a>
+                <a class="dropdown-item" href="mm-animate.html">Animate</a>
+                <a class="dropdown-item" href="mm-event.html">Event</a>
+                <a class="dropdown-item" href="mm-event2.html">Event 2</a>
+                <a class="dropdown-item" href="mm-dispose.html">Stop &amp; Start metisMenu</a>
+                <a class="dropdown-item" href="mm-ajax.html">Ajax</a>
+                <a class="dropdown-item" href="mm-faq.html">FAQ</a>
+                <a class="dropdown-item" href="mm-bs-card.html">Bootstrap Card</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">Templates</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown02">
+                <a class="dropdown-item" href="http://chl.onokumus.com" target="_blank">Chaldene Admin</a>
+                <a class="dropdown-item" href="http://elk.onokumus.com" target="_blank">Elektron Admin</a>
+                <a class="dropdown-item" href="http://onokumus.github.io/twbuttons/" target="_blank">twbuttons</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://onokumus.com" target="_blank">onokumus</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>  
+  <div class="container">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    
+    <section class="jumbotron text-center">
+      <h1 class="jumbotron-heading">metisMenu</h1>
+      <p class="lead text-muted">A jQuery menu plugin</p>
+      <p>
+        <a class="github-button" href="https://github.com/onokumus/metismenu" data-icon="octicon-star" data-size="large"
+          data-show-count="true" aria-label="Star onokumus/metismenu on GitHub">Star</a>
+        <a class="github-button" href="https://github.com/onokumus/metismenu/fork" data-icon="octicon-repo-forked"
+          data-size="large" data-show-count="true" aria-label="Fork onokumus/metismenu on GitHub">Fork</a>
+        <a class="github-button" href="https://github.com/onokumus/metismenu/archive/master.zip" data-icon="octicon-cloud-download"
+          data-size="large" aria-label="Download onokumus/metismenu on GitHub">Download</a>
+      </p>
+      <p>
+        <a href="https://www.npmjs.com/package/metismenu"><img src="https://img.shields.io/npm/v/metismenu.svg?style=flat"
+            alt="NPM version"></a>
+        <a href="https://npmjs.org/package/metismenu"><img src="https://img.shields.io/npm/dm/metismenu.svg?style=flat" alt="NPM monthly downloads"></a>
+        <a href="https://npmjs.org/package/metismenu"><img src="https://img.shields.io/npm/dt/metismenu.svg?style=flat" alt="NPM total downloads"></a>
+        <a href="https://travis-ci.org/onokumus/metismenu"><img src="https://img.shields.io/travis/onokumus/metismenu.svg?style=flat&amp;label=Travis"
+            alt="Linux Build Status"></a>
+        <a href="https://www.jsdelivr.com/package/npm/metismenu"><img src="https://data.jsdelivr.com/v1/package/npm/metismenu/badge"
+            alt=""></a>
+        <a href="https://packagist.org/packages/onokumus/metismenu"><img src="https://img.shields.io/packagist/v/onokumus/metismenu.svg"
+            alt="Packagist"></a>
+      </p>
+    </section><h2>Table of Contents</h2>
+<ul>
+<li><a href="#getting-started">Getting started</a>
+<ul>
+<li><a href="#install">Install</a></li>
+<li><a href="#download">Download</a></li>
+</ul></li>
+<li><a href="#usage">Usage</a>
+<ul>
+<li><a href="#stopping-list-opening-on-certain-elements">Stopping list opening on certain elements</a></li>
+</ul></li>
+<li><a href="#options">Options</a>
+<ul>
+<li><a href="#toggle">toggle</a></li>
+<li><a href="#dispose">dispose</a></li>
+<li><a href="#activeclass">activeClass</a></li>
+<li><a href="#collapseclass">collapseClass</a></li>
+<li><a href="#collapseinclass">collapseInClass</a></li>
+<li><a href="#collapsingclass">collapsingClass</a></li>
+<li><a href="#preventdefault">preventDefault</a></li>
+<li><a href="#triggerelement">triggerElement</a></li>
+<li><a href="#parenttrigger">parentTrigger</a></li>
+<li><a href="#submenu">subMenu</a></li>
+</ul></li>
+<li><a href="#events">Events</a></li>
+<li><a href="#testing">Testing</a></li>
+<li><a href="#demo">Demo</a></li>
+<li><a href="#about">About</a>
+<ul>
+<li><a href="#related-projects">Related projects</a></li>
+<li><a href="#contributors">Contributors</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#release-history">Release History</a></li>
+<li><a href="#author">Author</a></li>
+<li><a href="#license">License</a></li>
+</ul></li>
+</ul>
+<p><em>(TOC generated by <a href="https://github.com/verbose/verb">verb</a> using <a href="https://github.com/jonschlinkert/markdown-toc">markdown-toc</a>)</em></p>
+<h2>Getting started</h2>
+<h3>Install</h3>
+<p>Install with <a href="https://www.npmjs.com/">npm</a>:</p>
+<pre><code class="language-sh">$ npm install --save metismenu
+</code></pre>
+<p>Install with <a href="https://yarnpkg.com">yarn</a>:</p>
+<pre><code class="language-sh">$ yarn add metismenu
+</code></pre>
+<p>Install with <a href="https://bower.io/">bower</a></p>
+<pre><code class="language-sh">$ bower install metismenu --save
+</code></pre>
+<p>Install with <a href="https://getcomposer.org/">composer</a></p>
+<pre><code class="language-sh">$ composer require onokumus/metismenu:dev-master
+</code></pre>
+<h3>Download</h3>
+<p><a href="https://github.com/onokumus/metisMenu/archive/master.zip">download</a></p>
+<h2>Usage</h2>
+<ol>
+<li>Include metismenu StyleSheet</li>
+</ol>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.1/metisMenu.min.css"</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- OR --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/metismenu/dist/metisMenu.min.css"</span>&gt;</span>
+</code></pre>
+<ol start="2">
+<li>Include jQuery</li>
+</ol>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- OR --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/jquery"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<ol start="3">
+<li>Include metisMenu plugin's code</li>
+</ol>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.1/metisMenu.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- OR --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/metismenu"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<ol start="4">
+<li>Add class <code>metismenu</code> to unordered list</li>
+</ol>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"metismenu"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"menu"</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+</code></pre>
+<ol start="5">
+<li>Make expand/collapse controls accessible</li>
+</ol>
+<blockquote>
+<p>Be sure to add <code>aria-expanded</code> to the element <code>a</code> and the following <code>ul</code>. This attribute explicitly defines the current state of the collapsible element to screen readers and similar assistive technologies. If the collapsible element is closed by default, it should have a value of <code>aria-expanded=&quot;false&quot;</code>. If you've set the collapsible element's parent <code>li</code> element to be open by default using the <code>active</code> class, set <code>aria-expanded=&quot;true&quot;</code> on the control instead. The plugin will automatically toggle this attribute based on whether or not the collapsible element has been opened or closed.</p>
+</blockquote>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"metismenu"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"menu"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"active"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span>&gt;</span>Menu 1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span>&gt;</span>
+    ...
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span>&gt;</span>Menu 2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span>&gt;</span>
+    ...
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  ...
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+</code></pre>
+<ol start="6">
+<li>Arrow Options</li>
+</ol>
+<blockquote>
+<p>add <code>has-arrow</code> class to <code>a</code> element</p>
+</blockquote>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"metismenu"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"menu"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"active"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"has-arrow"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span>&gt;</span>Menu 1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span>&gt;</span>
+  ...
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"has-arrow"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span>&gt;</span>Menu 2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span>&gt;</span>
+  ...
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+...
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+</code></pre>
+<ol start="7">
+<li>Call the plugin:</li>
+</ol>
+<pre><code class="language-javascript">  $(<span class="hljs-string">"#menu"</span>).metisMenu();
+</code></pre>
+<h3>Stopping list opening on certain elements</h3>
+<p>Setting aria-disabled=&quot;true&quot; in the <code>&lt;a&gt;</code> element as shown will stop metisMenu opening the menu for that particular list. This can be changed dynamically and will be obeyed correctly:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-disabled</span>=<span class="hljs-string">"true"</span>&gt;</span>List 1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+</code></pre>
+<h2>Options</h2>
+<h4>toggle</h4>
+<p>Type: <code>Boolean</code><br>
+Default: <code>true</code></p>
+<p>For auto collapse support.</p>
+<pre><code class="language-javascript"> $(<span class="hljs-string">"#menu"</span>).metisMenu({
+   <span class="hljs-attr">toggle</span>: <span class="hljs-literal">false</span>
+ });
+</code></pre>
+<h4>dispose</h4>
+<p>Type: <code>String</code><br>
+Default: <code>null</code></p>
+<p>For stop and destroy metisMenu.</p>
+<pre><code class="language-javascript"> $(<span class="hljs-string">"#menu"</span>).metisMenu(<span class="hljs-string">'dispose'</span>);
+</code></pre>
+<h4>activeClass</h4>
+<p>Type: <code>String</code><br>
+Default: <code>active</code></p>
+<pre><code class="language-javascript"> $(<span class="hljs-string">"#menu"</span>).metisMenu({
+   <span class="hljs-attr">activeClass</span>: <span class="hljs-string">'active'</span>
+ });
+</code></pre>
+<h4>collapseClass</h4>
+<p>Type: <code>String</code><br>
+Default: <code>collapse</code></p>
+<pre><code class="language-javascript"> $(<span class="hljs-string">"#menu"</span>).metisMenu({
+   <span class="hljs-attr">collapseClass</span>: <span class="hljs-string">'collapse'</span>
+ });
+</code></pre>
+<h4>collapseInClass</h4>
+<p>Type: <code>String</code><br>
+Default: <code>in</code></p>
+<pre><code class="language-javascript"> $(<span class="hljs-string">"#menu"</span>).metisMenu({
+   <span class="hljs-attr">collapseInClass</span>: <span class="hljs-string">'in'</span>
+ });
+</code></pre>
+<h4>collapsingClass</h4>
+<p>Type: <code>String</code><br>
+Default: <code>collapsing</code></p>
+<pre><code class="language-javascript"> $(<span class="hljs-string">"#menu"</span>).metisMenu({
+   <span class="hljs-attr">collapsingClass</span>: <span class="hljs-string">'collapsing'</span>
+ });
+</code></pre>
+<h4>preventDefault</h4>
+<p>Type: <code>Boolean</code><br>
+Default: <code>true</code></p>
+<blockquote>
+<p>Prevents or allows dropdowns' onclick events after expanding/collapsing.</p>
+</blockquote>
+<pre><code class="language-javascript"> $(<span class="hljs-string">"#menu"</span>).metisMenu({
+   <span class="hljs-attr">preventDefault</span>: <span class="hljs-literal">false</span>
+ });
+</code></pre>
+<p><em>since from version 2.7.0</em></p>
+<h4>triggerElement</h4>
+<p>Type: <code>jQuery selector</code><br>
+Default: <code>a</code></p>
+<pre><code class="language-javascript"> $(<span class="hljs-string">"#menu"</span>).metisMenu({
+   <span class="hljs-attr">triggerElement</span>: <span class="hljs-string">'.nav-link'</span> <span class="hljs-comment">// bootstrap 4</span>
+ });
+</code></pre>
+<h4>parentTrigger</h4>
+<p>Type: <code>jQuery selector</code><br>
+Default: <code>li</code></p>
+<pre><code class="language-javascript"> $(<span class="hljs-string">"#menu"</span>).metisMenu({
+   <span class="hljs-attr">parentTrigger</span>: <span class="hljs-string">'.nav-item'</span> <span class="hljs-comment">// bootstrap 4</span>
+ });
+</code></pre>
+<h4>subMenu</h4>
+<p>Type: <code>jQuery selector</code><br>
+Default: <code>ul</code></p>
+<pre><code class="language-javascript"> $(<span class="hljs-string">"#menu"</span>).metisMenu({
+   <span class="hljs-attr">subMenu</span>: <span class="hljs-string">'.nav.flex-column'</span> <span class="hljs-comment">// bootstrap 4</span>
+ });
+</code></pre>
+<h2>Events</h2>
+<table>
+<thead>
+<tr><th><strong>Event Type</strong></th><th><strong>Description</strong></th></tr>
+</thead>
+<tbody>
+<tr><td>show.metisMenu</td><td>This event fires immediately when the <code>_show</code> instance method is called.</td></tr>
+<tr><td>shown.metisMenu</td><td>This event is fired when a collapse <code>ul</code> element has been made visible to the user (will wait for CSS transitions to complete).</td></tr>
+<tr><td>hide.metisMenu</td><td>This event is fired immediately when the <code>_hide</code> method has been called.</td></tr>
+<tr><td>hidden.metisMenu</td><td>This event is fired when a collapse <code>ul</code> element has been hidden from the user (will wait for CSS transitions to complete).</td></tr>
+</tbody>
+</table>
+<h2>Testing</h2>
+<pre><code class="language-sh">$ npm install
+$ grunt serve
+</code></pre>
+<h2>Demo</h2>
+<p><a href="http://mm.onokumus.com">http://mm.onokumus.com</a></p>
+<p>Contains a simple HTML file to demonstrate metisMenu plugin.</p>
+<h2>About</h2>
+<h3>Related projects</h3>
+<ul>
+<li><a href="https://www.npmjs.com/package/chl">chl</a>: flexbox admin layout | <a href="https://github.com/chaldene/chl#readme" title="flexbox admin layout">homepage</a></li>
+<li><a href="https://www.npmjs.com/package/elektron">elektron</a>: An Admin Toolkit | <a href="https://github.com/onokumus/elektron#readme" title="An Admin Toolkit">homepage</a></li>
+<li><a href="https://www.npmjs.com/package/onoffcanvas">onoffcanvas</a>: An offcanvas plugin | <a href="https://github.com/onokumus/onoffcanvas#readme" title="An offcanvas plugin">homepage</a></li>
+<li><a href="https://www.npmjs.com/package/twbuttons">twbuttons</a>: alexwolfe/Buttons for Twitter Bootstrap 3 | <a href="https://github.com/onokumus/twbuttons" title="alexwolfe/Buttons for Twitter Bootstrap 3">homepage</a></li>
+</ul>
+<h3>Contributors</h3>
+<table>
+<thead>
+<tr><th><strong>Commits</strong></th><th><strong>Contributor</strong></th></tr>
+</thead>
+<tbody>
+<tr><td>117</td><td><a href="https://github.com/onokumus">onokumus</a></td></tr>
+<tr><td>8</td><td><a href="https://github.com/diegozhu">diegozhu</a></td></tr>
+<tr><td>4</td><td><a href="https://github.com/sinabs">sinabs</a></td></tr>
+<tr><td>2</td><td><a href="https://github.com/arthurtalkgoal">arthurtalkgoal</a></td></tr>
+<tr><td>2</td><td><a href="https://github.com/PeterDaveHello">PeterDaveHello</a></td></tr>
+<tr><td>2</td><td><a href="https://github.com/kalidema">kalidema</a></td></tr>
+<tr><td>2</td><td><a href="https://github.com/AndrewEastwood">AndrewEastwood</a></td></tr>
+<tr><td>2</td><td><a href="https://github.com/rgnevashev">rgnevashev</a></td></tr>
+<tr><td>1</td><td><a href="https://github.com/chriswiggins">chriswiggins</a></td></tr>
+<tr><td>1</td><td><a href="https://github.com/jmagnusson">jmagnusson</a></td></tr>
+<tr><td>1</td><td><a href="https://github.com/LukasDrgon">LukasDrgon</a></td></tr>
+<tr><td>1</td><td><a href="https://github.com/Cediddi">Cediddi</a></td></tr>
+<tr><td>1</td><td><a href="https://github.com/capynet">capynet</a></td></tr>
+</tbody>
+</table>
+<h3>Contributing</h3>
+<p>Pull requests and stars are always welcome. For bugs and feature requests, <a href="../../issues/new">please create an issue</a>.</p>
+<p>Please read the <a href=".github/contributing.md">contributing guide</a> for advice on opening issues, pull requests, and coding standards.</p>
+<h3>Release History</h3>
+<table>
+<thead>
+<tr><th><strong>DATE</strong></th><th><strong>VERSION</strong></th><th><strong>CHANGES</strong></th></tr>
+</thead>
+<tbody>
+<tr><td>2017-10-30</td><td>v2.7.1</td><td>added check in complete()-callback to break when menu was disposed #150</td></tr>
+<tr><td>2017-03-08</td><td>v2.7.0</td><td>fixed <code>has-arrow</code> class border color &amp; added new 3 options</td></tr>
+<tr><td>2017-02-23</td><td>v2.6.3</td><td>fixed #129</td></tr>
+<tr><td>2017-02-02</td><td>v2.6.2</td><td>doubleTapToGo option is deprecated</td></tr>
+<tr><td>2016-12-06</td><td>v2.6.1</td><td>fix require.js</td></tr>
+<tr><td>2016-11-29</td><td>v2.6.0</td><td>dispose support</td></tr>
+<tr><td>2016-05-06</td><td>v2.5.2</td><td>fix Menu failed to remove collapsing class</td></tr>
+<tr><td>2016-05-06</td><td>v2.5.1</td><td>fixed bootstrap conflict</td></tr>
+<tr><td>2016-03-31</td><td>v2.5.0</td><td>Event support</td></tr>
+<tr><td>2016-03-11</td><td>v2.4.3</td><td>create meteor package</td></tr>
+<tr><td>2016-03-04</td><td>v2.4.2</td><td>back to version 2.4.0</td></tr>
+<tr><td>2016-03-03</td><td>v2.4.1</td><td><del>Transition element passed to methods</del> (removed)</td></tr>
+<tr><td>2016-01-25</td><td>v2.4.0</td><td>Support AMD / Node / CommonJS</td></tr>
+<tr><td>2016-01-08</td><td>v2.3.0</td><td>Adding aria-disabled=true to the link element prevents the dropdown from opening</td></tr>
+<tr><td>2015-09-27</td><td>v2.2.0</td><td>Events supported &amp; added preventDefault options</td></tr>
+<tr><td>2015-08-06</td><td>v2.1.0</td><td>RTL &amp; <code>aria-expanded</code> attribute &amp; TypeScript type definitions support</td></tr>
+<tr><td>2015-07-25</td><td>v2.0.3</td><td>When the active item has doubleTapToGo should not collapse</td></tr>
+<tr><td>2015-05-23</td><td>v2.0.2</td><td><a href="https://github.com/onokumus/metisMenu/issues/34#issuecomment-104656754">fixed</a></td></tr>
+<tr><td>2015-05-22</td><td>v2.0.1</td><td>changeable classname support</td></tr>
+<tr><td>2015-04-03</td><td>v2.0.0</td><td>Remove Bootstrap dependency</td></tr>
+<tr><td>2015-03-24</td><td>v1.1.3</td><td>composer support</td></tr>
+<tr><td>2014-11-01</td><td>v1.1.3</td><td>Bootstrap 3.3.0</td></tr>
+<tr><td>2014-07-07</td><td>v1.1.0</td><td>Add double tap functionality</td></tr>
+<tr><td>2014-06-24</td><td>v1.0.3</td><td>cdnjs support &amp; rename plugin</td></tr>
+<tr><td>2014-06-18</td><td>v1.0.3</td><td>Create grunt task</td></tr>
+<tr><td>2014-06-10</td><td>v1.0.2</td><td>Fixed for IE8 &amp; IE9</td></tr>
+</tbody>
+</table>
+<h3>Author</h3>
+<p><strong>Osman Nuri Okumus</strong></p>
+<ul>
+<li><a href="https://github.com/onokumus">github/onokumus</a></li>
+<li><a href="https://twitter.com/onokumus">twitter/onokumus</a></li>
+</ul>
+<h3>License</h3>
+<p>Copyright © 2017, <a href="https://github.com/onokumus">Osman Nuri Okumus</a>.<br>
+Released under the <a href="LICENSE">MIT License</a>.</p>
+<hr>
+<p><em>This file was generated by <a href="https://github.com/verbose/verb-generate-readme">verb-generate-readme</a>, v0.6.0, on October 30, 2017.</em></p>
+
+
+<script>
+  $(function () {
+    $('table').addClass('table table-bordered table-striped');
+  });
+</script>
+
+  </div>
+
+  <footer class="text-muted">
+    <div class="container">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- responsive reklam -->
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5671633872085649" data-ad-slot="6251877391"
+        data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>
+        if (location.hostname === "mm.onokumus.com") {
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        }
+      </script>
+    </div>
+  </footer>
+</body>
+
+</html>

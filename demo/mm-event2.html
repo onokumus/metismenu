@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>metisMenu - events 2</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/metismenu/dist/metisMenu.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noty/lib/noty.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noty/lib/themes/relax.css">
+
+  <link rel="stylesheet" href="assets/css/app.css">
+
+  <script>
+    if (location.hostname === "mm.onokumus.com") {
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  
+      ga('create', 'UA-1669764-16', 'auto');
+      ga('send', 'pageview', { page: location.pathname + location.search + location.hash });
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/metismenu"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/noty"></script>
+</head>
+
+<body>
+  <header>
+    <div class="navbar navbar-expand-md navbar-dark bg-dark box-shadow">
+      <div class="container d-flex justify-content-between">
+        <a href="index.html" class="navbar-brand d-flex align-items-center">
+          <strong>metisMenu</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+          aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav ml-auto">
+  
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">Examples</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <a class="dropdown-item" href="mm-vertical.html">Vertical Menu</a>
+                <a class="dropdown-item" href="mm-horizontal.html">Horizontal Menu</a>
+                <a class="dropdown-item" href="mm-folder.html">Folder View</a>
+                <a class="dropdown-item" href="mm-vertical-hover.html">Hover Option For Desktop</a>
+                <a class="dropdown-item" href="mm-animate.html">Animate</a>
+                <a class="dropdown-item" href="mm-event.html">Event</a>
+                <a class="dropdown-item" href="mm-event2.html">Event 2</a>
+                <a class="dropdown-item" href="mm-dispose.html">Stop &amp; Start metisMenu</a>
+                <a class="dropdown-item" href="mm-ajax.html">Ajax</a>
+                <a class="dropdown-item" href="mm-faq.html">FAQ</a>
+                <a class="dropdown-item" href="mm-bs-card.html">Bootstrap Card</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">Templates</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown02">
+                <a class="dropdown-item" href="http://chl.onokumus.com" target="_blank">Chaldene Admin</a>
+                <a class="dropdown-item" href="http://elk.onokumus.com" target="_blank">Elektron Admin</a>
+                <a class="dropdown-item" href="http://onokumus.github.io/twbuttons/" target="_blank">twbuttons</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://onokumus.com" target="_blank">onokumus</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>  
+  <div class="container">
+    <link href="assets/css/mm-vertical.css" rel="stylesheet" type="text/css"/>
+<section class="jumbotron text-center">
+  <h2 class="jumbotron-heading">Events</h2>
+  <a class="btn btn-outline-info" href="assets/css/mm-vertical.css" target="_top">
+  <i class="fa fa-fw fa-css3"></i>
+  Download CSS
+  </a>
+  <a class="btn btn-outline-warning" href="assets/js/mm-event2.js" target="_top">
+  <i class="fa fa-fw fa-file-code-o"></i>
+  Download JS</a>
+</section>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <nav class="sidebar-nav">
+        <ul class="metismenu" id="menu">
+          <li class="mm-active">
+            <a href="#" aria-expanded="true">
+              <span class="sidebar-nav-item-icon fa fa-github fa-lg"></span>
+              <span class="sidebar-nav-item">metisMenu</span>
+              <span class="fa arrow"></span>
+            </a>
+            <ul aria-expanded="true">
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">item</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" aria-expanded="false">
+                  Menu 1<span class="fa arrow"></span>
+                </a>
+            <ul aria-expanded="false">
+              <li>
+                <a href="#">Sub Menu 1</a>
+                <ul class="animated bounceIn">
+                  <li>
+                    <a href="#">item</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">Sub Menu 2</a>
+                <ul>
+                  <li>
+                    <a href="#">item</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" aria-expanded="false">
+                  Menu 2<span class="fa arrow"></span>
+                </a>
+            <ul aria-expanded="false">
+              <li>
+                <a href="#">Sub Menu 2</a>
+                <ul class="animated bounceIn">
+                  <li>
+                    <a href="#">item</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">Sub Menu 2</a>
+                <ul>
+                  <li>
+                    <a href="#">item</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" aria-expanded="false">
+                  Menu 3<span class="fa arrow"></span>
+                </a>
+            <ul aria-expanded="false">
+              <li>
+                <a href="#">Sub Menu 3</a>
+                <ul class="animated bounceIn">
+                  <li>
+                    <a href="#">item</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">Sub Menu 2</a>
+                <ul>
+                  <li>
+                    <a href="#">item</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" aria-expanded="false">
+                  Menu 4<span class="fa arrow"></span>
+                </a>
+            <ul aria-expanded="false">
+              <li>
+                <a href="#">Sub Menu 4</a>
+                <ul class="animated bounceIn">
+                  <li>
+                    <a href="#">item</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">Sub Menu 2</a>
+                <ul>
+                  <li>
+                    <a href="#">item</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" aria-expanded="false">
+                  Menu 5<span class="fa arrow"></span>
+                </a>
+            <ul aria-expanded="false">
+              <li>
+                <a href="#">Sub Menu 5</a>
+                <ul class="animated bounceIn">
+                  <li>
+                    <a href="#">item</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">Sub Menu 2</a>
+                <ul>
+                  <li>
+                    <a href="#">item</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+        </ul>
+      </nav>
+    </div>
+
+<div class="col-md-9">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Events 
+          <small>Thanks <a href="http://callmecavs.com/jump.js/" target="_blank">callmecavs</a> for jump.js</small>
+        </h5>
+
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+$(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+$(<span class="hljs-string">'#menu'</span>)
+  .metisMenu()
+  .on(<span class="hljs-string">'shown.metisMenu'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{
+    Jump(<span class="hljs-string">"#menu"</span>)
+  });
+});
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+        
+      </div>
+    </div>
+          
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+          <p>
+            ...
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jump.js"></script>
+<script src="assets/js/mm-event2.js"></script>
+  </div>
+
+  <footer class="text-muted">
+    <div class="container">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- responsive reklam -->
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5671633872085649" data-ad-slot="6251877391"
+        data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>
+        if (location.hostname === "mm.onokumus.com") {
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        }
+      </script>
+    </div>
+  </footer>
+</body>
+
+</html>
