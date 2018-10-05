@@ -1,4 +1,4 @@
-// Type definitions for metisMenu 2.7
+// Type definitions for metisMenu 3.0
 // Project: http://github.com/onokumus/metisMenu
 // Definitions by: onokumus <https://github.com/onokumus/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -7,10 +7,6 @@
 
 interface MetisMenuOptions {
     toggle?: boolean;
-    activeClass?: string;
-    collapseClass?: string;
-    collapseInClass?: string;
-    collapsingClass?: string;
     preventDefault?: boolean;
     triggerElement?: string;
     parentTrigger?: string;
