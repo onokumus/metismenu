@@ -1,6 +1,6 @@
 {
   "name": "metismenu",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A jQuery menu plugin",
   "main": "dist/cjs/index.js",
   "module": "dist/modules/index.js",
@@ -21,7 +21,8 @@
     "css:dev": "postcss src/metisMenu.css -o dist/metisMenu.css --map",
     "css:min": "NODE_ENV=production postcss src/metisMenu.css -o dist/metisMenu.min.css --map",
     "build": "npm run js:prod && npm run js:minify && npm run css:dev && npm run css:min",
-    "test": "eslint src/*.js"
+    "test": "eslint src/*.js",
+    "deploy": "gh-pages -d demo"
   },
   "repository": "onokumus/metismenu",
   "keywords": [
@@ -63,11 +64,13 @@
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
+    "@types/jquery": "^3.3.11",
     "autoprefixer": "^9.1.5",
     "cssnano": "^4.1.4",
     "eslint": "^5.6.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
+    "gh-pages": "^2.0.1",
     "postcss-cli": "^6.0.0",
     "postcss-header": "^1.0.0",
     "rollup": "^0.66.4",
