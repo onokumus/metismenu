@@ -278,10 +278,6 @@ var MetisMenu = function ($$$1) {
 
         var conf = _objectSpread({}, Default, $this.data(), typeof config === 'object' && config ? config : {});
 
-        if (!data && /dispose/.test(config)) {
-          this.dispose();
-        }
-
         if (!data) {
           data = new MetisMenu(this, conf);
           $this.data(DATA_KEY, data);
