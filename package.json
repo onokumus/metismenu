@@ -37,7 +37,6 @@
   ],
   "author": "Osman Nuri Okumus <onokumus@gmail.com> (https://github.com/onokumus)",
   "contributors": [
-    "Osman Nuri Okumus <onokumus@gmail.com> (https://github.com/onokumus)",
     "Rein de Vries <info@reinos.nl> (https://github.com/reinos/)",
     "Arthur CHAN <arthur@talkgoal.com> (http://catchtop.com)",
     "Andrew Eastwood (https://github.com/AndrewEastwood)",
@@ -52,7 +51,8 @@
     "WoMayr (https://github.com/WoMayr)",
     "719media (https://github.com/719media)",
     "Boris Burkov (Boris Burkov)",
-    "Matt Dziuban (http://mattdziuban.com)"
+    "Matt Dziuban (http://mattdziuban.com)",
+    "Valerio Belli (https://github.com/DrugoLebowski)"
   ],
   "license": "MIT",
   "bugs": {
