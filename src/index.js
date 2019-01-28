@@ -66,6 +66,23 @@ class MetisMenu {
       .attr('aria-expanded', 'true'); // add attribute aria-expanded=true the triggers of all parents
 
     $(this.element)
+      .find(`${conf.parentTrigger}:not(:has(${conf.subMenu}))`)
+      .children(conf.triggerElement)
+      .on(Event.CLICK_DATA_API, function () { // eslint-disable-line func-names
+        const eTar = $(this);
+        const parentTar = eTar.parents(conf.parentTrigger).last()[0];
+        if (eTar.parent(conf.parentTrigger).hasClass(ClassName.ACTIVE)) {
+          return;
+        }
+        eTar.parent(conf.parentTrigger).addClass(ClassName.ACTIVE);
+        eTar.parents(`${conf.subMenu}.${ClassName.METIS}`).children(`${conf.parentTrigger}.${ClassName.ACTIVE}:not(:has(${conf.subMenu}.${ClassName.SHOW}.${ClassName.COLLAPSED}:has(${conf.parentTrigger}.${ClassName.ACTIVE})))`).not(parentTar).children(conf.triggerElement)
+          .attr('aria-expanded', 'false');
+        eTar.parents(`${conf.subMenu}.${ClassName.METIS}`).children(`${conf.parentTrigger}.${ClassName.ACTIVE}:not(:has(${conf.subMenu}.${ClassName.SHOW}.${ClassName.COLLAPSED}:has(${conf.parentTrigger}.${ClassName.ACTIVE})))`).not(parentTar).children(conf.subMenu)
+          .removeClass(ClassName.SHOW);
+        eTar.parents(`${conf.subMenu}.${ClassName.METIS}`).children(`${conf.parentTrigger}.${ClassName.ACTIVE}:not(:has(${conf.subMenu}.${ClassName.SHOW}.${ClassName.COLLAPSED}:has(${conf.parentTrigger}.${ClassName.ACTIVE})))`).not(parentTar).removeClass(ClassName.ACTIVE);
+      });
+
+    $(this.element)
       .find(`${conf.parentTrigger}.${ClassName.ACTIVE}`)
       .has(conf.subMenu)
       .children(conf.subMenu)
@@ -128,7 +145,7 @@ class MetisMenu {
     elem.parent(this.config.parentTrigger).addClass(ClassName.ACTIVE);
 
     if (this.config.toggle) {
-      const toggleElem = elem.parent(this.config.parentTrigger).siblings().children(`${this.config.subMenu}.${ClassName.SHOW}`);
+      const toggleElem = elem.parent(this.config.parentTrigger).siblings().children(`${this.config.subMenu}.${ClassName.SHOW}:has(${this.config.parentTrigger}.${this.config.ACTIVE})`);
       this.hide(toggleElem);
     }
 
