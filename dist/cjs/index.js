@@ -1,7 +1,7 @@
 /*!
 * metismenu https://github.com/onokumus/metismenu#readme
 * A jQuery menu plugin
-* @version 3.0.3
+* @version 3.0.4
 * @author Osman Nuri Okumus <onokumus@gmail.com> (https://github.com/onokumus)
 * @license: MIT 
 */
@@ -151,6 +151,20 @@ function () {
     $(this.element).find(conf.parentTrigger + "." + ClassName.ACTIVE).parents(conf.parentTrigger).addClass(ClassName.ACTIVE);
     $(this.element).find(conf.parentTrigger + "." + ClassName.ACTIVE).parents(conf.parentTrigger).children(conf.triggerElement).attr('aria-expanded', 'true'); // add attribute aria-expanded=true the triggers of all parents
 
+    $(this.element).find(conf.parentTrigger + ":not(:has(" + conf.subMenu + "))").children(conf.triggerElement).on(Event.CLICK_DATA_API, function () {
+      // eslint-disable-line func-names
+      var eTar = $(this);
+      var parentTar = eTar.parents(conf.parentTrigger).last()[0];
+
+      if (eTar.parent(conf.parentTrigger).hasClass(ClassName.ACTIVE)) {
+        return;
+      }
+
+      eTar.parent(conf.parentTrigger).addClass(ClassName.ACTIVE);
+      eTar.parents(conf.subMenu + "." + ClassName.METIS).children(conf.parentTrigger + "." + ClassName.ACTIVE + ":not(:has(" + conf.subMenu + "." + ClassName.SHOW + "." + ClassName.COLLAPSED + ":has(" + conf.parentTrigger + "." + ClassName.ACTIVE + ")))").not(parentTar).children(conf.triggerElement).attr('aria-expanded', 'false');
+      eTar.parents(conf.subMenu + "." + ClassName.METIS).children(conf.parentTrigger + "." + ClassName.ACTIVE + ":not(:has(" + conf.subMenu + "." + ClassName.SHOW + "." + ClassName.COLLAPSED + ":has(" + conf.parentTrigger + "." + ClassName.ACTIVE + ")))").not(parentTar).children(conf.subMenu).removeClass(ClassName.SHOW);
+      eTar.parents(conf.subMenu + "." + ClassName.METIS).children(conf.parentTrigger + "." + ClassName.ACTIVE + ":not(:has(" + conf.subMenu + "." + ClassName.SHOW + "." + ClassName.COLLAPSED + ":has(" + conf.parentTrigger + "." + ClassName.ACTIVE + ")))").not(parentTar).removeClass(ClassName.ACTIVE);
+    });
     $(this.element).find(conf.parentTrigger + "." + ClassName.ACTIVE).has(conf.subMenu).children(conf.subMenu).addClass(ClassName.COLLAPSE + " " + ClassName.SHOW);
     $(this.element).find(conf.parentTrigger).not("." + ClassName.ACTIVE).has(conf.subMenu).children(conf.subMenu).addClass(ClassName.COLLAPSE);
     $(this.element).find(conf.parentTrigger).has(conf.subMenu).children(conf.triggerElement).on(Event.CLICK_DATA_API, function (e) {
@@ -204,7 +218,7 @@ function () {
     elem.parent(this.config.parentTrigger).addClass(ClassName.ACTIVE);
 
     if (this.config.toggle) {
-      var toggleElem = elem.parent(this.config.parentTrigger).siblings().children(this.config.subMenu + "." + ClassName.SHOW);
+      var toggleElem = elem.parent(this.config.parentTrigger).siblings().children(this.config.subMenu + "." + ClassName.SHOW + ":has(" + this.config.parentTrigger + "." + this.config.ACTIVE + ")");
       this.hide(toggleElem);
     }
 
