@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>metisMenu - docs</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/metismenu/dist/metisMenu.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noty/lib/noty.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noty/lib/themes/relax.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/elektron/dist/elektron.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/metismenu"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/noty"></script>
+
+  <style>
+    @media (min-width: 992px) {
+      .elk-app {
+        height: 100%;
+      }
+
+      .elk-container,
+      .elk-main,
+      .elk-side {
+        overflow-y: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <!-- BEGIN .elk-app -->
+  <div class="elk-app">
+    <!-- BEGIN .elk-wrap -->
+    <div class="elk-wrap">
+      <!-- BEGIN .elk-header -->
+      <header class="elk-header ">
+        <div class="navbar navbar-expand-md navbar-dark bg-dark box-shadow">
+          <div class="container d-flex justify-content-between">
+            <a href="index.html" class="navbar-brand d-flex align-items-center">
+              <strong>metisMenu</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+              aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+              <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Examples</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="mm-vertical.html">Vertical Menu</a>
+                    <a class="dropdown-item" href="mm-horizontal.html">Horizontal Menu</a>
+                    <a class="dropdown-item" href="mm-folder.html">Folder View</a>
+                    <a class="dropdown-item" href="mm-vertical-hover.html">Hover Option For Desktop</a>
+                    <a class="dropdown-item" href="mm-animate.html">Animate</a>
+                    <a class="dropdown-item" href="mm-event.html">Event</a>
+                    <a class="dropdown-item" href="mm-event2.html">Event 2</a>
+                    <a class="dropdown-item" href="mm-dispose.html">Stop &amp; Start metisMenu</a>
+                    <a class="dropdown-item" href="mm-ajax.html">Ajax</a>
+                    <a class="dropdown-item" href="mm-faq.html">FAQ</a>
+                    <a class="dropdown-item" href="mm-bs-card.html">Bootstrap Card</a>
+                    <a class="dropdown-item active" href="mm-docs.html">Docs</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Templates</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown02">
+                    <a class="dropdown-item" href="http://chl.onokumus.com" target="_blank">Chaldene Admin</a>
+                    <a class="dropdown-item" href="http://elk.onokumus.com" target="_blank">Elektron Admin</a>
+                    <a class="dropdown-item" href="http://onokumus.github.io/twbuttons/" target="_blank">twbuttons</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://onokumus.com" target="_blank">onokumus</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- END:  .elk-header -->
+
+      <!-- BEGIN .elk-container -->
+      <div class="elk-container flex-column flex-md-row">
+        <!-- BEGIN .elk-side -->
+        <aside class="elk-side is-open bg-light border-right position-relative" id="elk-side">
+
+          <!-- BEGIN .elk-side-content -->
+          <div class="elk-side-content ">
+            <!-- BEGIN .elk-side-nav -->
+            <nav class="elk-side-nav">
+
+              <ul class="nav flex-column" id="menu1">
+                <li class="nav-item">
+                  <a class="nav-link text-dark has-arrow" href="#getting-started">Getting Started</a>
+                  <ul class="nav flex-column pl-1">
+                    <li class="nav-item">
+                      <a class="nav-link" href="#install">Install</a>
+                      <a class="nav-link" href="#download">Download</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-dark has-arrow" href="#usage">Usage</a>
+                  <ul class="nav flex-column pl-1">
+                    <li class="nav-item">
+                      <a class="nav-link" href="#stopping-list-opening-on-certain-elements">Stopping list opening on
+                        certain
+                        elements</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link text-dark has-arrow" href="#options">Options</a>
+                  <ul class="nav flex-column pl-1">
+                    <li class="nav-item"><a class="nav-link" href="#toggle">toggle</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#dispose">dispose</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#preventdefault">preventDefault</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#triggerelement">triggerElement</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#parenttrigger">parentTrigger</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#submenu">subMenu</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link text-dark" href="#events">Events</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="#migrating-to-v3-from-v2">Migrating to v3 from
+                    v2</a></li>
+              </ul>
+
+            </nav>
+            <!-- END: .elk-side-nav -->
+          </div>
+          <!-- END: .elk-side-content -->
+
+        </aside>
+        <!-- END: .elk-side -->
+        <!-- BEGIN .elk-main -->
+        <div class="elk-main">
+          <!-- BEGIN .elk-main-content -->
+          <div class="elk-main-content">
+
+            <div class="container-fluid">
+              <div class="row">
+
+                <div class="col">
+                  <h2 id="getting-started">Getting started</h2>
+                  <h3 id="install">Install</h3>
+                  <p>Install with <a href="https://www.npmjs.com/">npm</a>:</p>
+                  <pre><code class="lang-sh">$ npm <span class="hljs-keyword">install</span> <span class="hljs-comment">--save metismenu</span>
+                      </code></pre>
+                  <p>Install with <a href="https://yarnpkg.com">yarn</a>:</p>
+                  <pre><code class="lang-sh">$ yarn <span class="hljs-keyword">add</span><span class="bash"> metismenu</span>
+                      </code></pre>
+                  <p>Install with <a href="https://getcomposer.org/">composer</a></p>
+                  <pre><code class="lang-sh">$ composer <span class="hljs-keyword">require</span> onokumus/<span class="hljs-symbol">metismenu:</span>dev-master
+                      </code></pre>
+                  <h3 id="download">Download</h3>
+                  <p><a href="https://github.com/onokumus/metisMenu/archive/master.zip">download</a></p>
+                  <h2 id="usage">Usage</h2>
+                  <ol>
+                    <li>
+                      <p>Include metismenu StyleSheet</p>
+                      <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://unpkg.com/metismenu/dist/metisMenu.min.css"</span>&gt;</span>
+                      <span class="hljs-comment">&lt;!-- OR --&gt;</span>  
+                      <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/metismenu/dist/metisMenu.min.css"</span>&gt;</span>
+                      </code></pre>
+                    </li>
+                    <li>
+                      <p>Include jQuery</p>
+                      <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/jquery"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+                      <span class="hljs-comment">&lt;!-- OR --&gt;</span>
+                      <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/jquery"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+                      </code></pre>
+                    </li>
+                    <li>
+                      <p>Include metisMenu plugin&#39;s code</p>
+                      <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/metismenu"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+                      <span class="hljs-comment">&lt;!-- OR --&gt;</span>
+                      <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/metismenu"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+                      </code></pre>
+                    </li>
+                    <li>
+                      <p>Add id attribute to unordered list</p>
+                      <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"metismenu"</span>&gt;</span>
+                      
+                      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                      </code></pre>
+                    </li>
+                    <li>
+                      <p>Make expand/collapse controls accessible</p>
+                      <blockquote>
+                        <p>Be sure to add <code>aria-expanded</code> to the element <code>a</code>. This attribute
+                          explicitly
+                          defines
+                          the current state of the collapsible element to screen readers and similar assistive
+                          technologies. If
+                          the
+                          collapsible element is closed by default, it should have a value of
+                          <code>aria-expanded=&quot;false&quot;</code>.
+                          If you&#39;ve set the collapsible element&#39;s parent <code>li</code> element to be open by
+                          default
+                          using
+                          the <code>mm-active</code> class, set <code>aria-expanded=&quot;true&quot;</code> on the
+                          control
+                          instead.
+                          The plugin will automatically toggle this attribute based on whether or not the collapsible
+                          element has
+                          been opened or closed.</p>
+                      </blockquote>
+                      <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"metismenu"</span>&gt;</span>
+                       <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mm-active"</span>&gt;</span>
+                         <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span>&gt;</span>Menu 1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                         <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+                         ...
+                         <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                       <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                       <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                         <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span>&gt;</span>Menu 2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                         <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+                         ...
+                         <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                       <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                       ...
+                       <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                      </code></pre>
+                    </li>
+                    <li>
+                      <p>Arrow Options</p>
+                      <blockquote>
+                        <p>add <code>has-arrow</code> class to <code>a</code> element</p>
+                      </blockquote>
+                      <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"metismenu"</span>&gt;</span>
+                      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mm-active"</span>&gt;</span>
+                       <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"has-arrow"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span>&gt;</span>Menu 1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                       <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+                       ...
+                       <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                      <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                       <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"has-arrow"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span>&gt;</span>Menu 2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                       <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+                       ...
+                       <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                      ...
+                      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                      </code></pre>
+                    </li>
+                    <li>
+                      <p>Call the plugin:</p>
+                      <pre><code class="lang-javascript"> <span class="hljs-variable">$(</span><span class="hljs-string">"#metismenu"</span>).metisMenu();
+                      </code></pre>
+                    </li>
+                  </ol>
+                  <h3 id="stopping-list-opening-on-certain-elements">Stopping list opening on certain elements</h3>
+                  <p>Setting aria-disabled=&quot;true&quot; in the <code>&lt;a&gt;</code> element as shown will stop
+                    metisMenu
+                    opening the menu for that particular list. This can be changed dynamically and will be obeyed
+                    correctly:</p>
+                  <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-disabled</span>=<span class="hljs-string">"true"</span>&gt;</span>List 1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                      </code></pre>
+                  <h2 id="options">Options</h2>
+                  <h4 id="toggle">toggle</h4>
+                  <p>Type: <code>Boolean</code>
+                    Default: <code>true</code></p>
+                  <p>For auto collapse support.</p>
+                  <pre><code class="lang-javascript"> <span class="hljs-variable">$(</span><span class="hljs-string">"#metismenu"</span>).metisMenu({
+                         <span class="hljs-symbol">toggle:</span> <span class="hljs-keyword">false</span>
+                       });
+                      </code></pre>
+                  <h4 id="dispose">dispose</h4>
+                  <p>Type: <code>String</code>
+                    Default: <code>null</code></p>
+                  <p>For stop and destroy metisMenu.</p>
+                  <pre><code class="lang-javascript"> <span class="hljs-variable">$(</span><span class="hljs-string">"#metismenu"</span>).metisMenu(<span class="hljs-string">'dispose'</span>);
+                      </code></pre>
+                  <h4 id="preventdefault">preventDefault</h4>
+                  <p>Type: <code>Boolean</code>
+                    Default: <code>true</code></p>
+                  <blockquote>
+                    <p>Prevents or allows dropdowns&#39; onclick events after expanding/collapsing.</p>
+                  </blockquote>
+                  <pre><code class="lang-javascript">   <span class="hljs-variable">$(</span><span class="hljs-string">"#menu"</span>).metisMenu({
+                           <span class="hljs-symbol">preventDefault:</span> <span class="hljs-keyword">false</span>
+                         });
+                      </code></pre>
+                  <p><em>since from version 2.7.0</em></p>
+                  <h4 id="triggerelement">triggerElement</h4>
+                  <p>Type: <code>jQuery selector</code>
+                    Default: <code>a</code></p>
+                  <pre><code class="lang-javascript"> <span class="hljs-symbol">$</span>(<span class="hljs-string">"#metismenu"</span>).metisMenu({
+                         triggerElement: <span class="hljs-string">'.nav-link'</span> <span class="hljs-comment">// bootstrap 4</span>
+                       });
+                      </code></pre>
+                  <h4 id="parenttrigger">parentTrigger</h4>
+                  <p>Type: <code>jQuery selector</code>
+                    Default: <code>li</code></p>
+                  <pre><code class="lang-javascript"> <span class="hljs-symbol">$</span>(<span class="hljs-string">"#metismenu"</span>).metisMenu({
+                         parentTrigger: <span class="hljs-string">'.nav-item'</span> <span class="hljs-comment">// bootstrap 4</span>
+                       });
+                      </code></pre>
+                  <h4 id="submenu">subMenu</h4>
+                  <p>Type: <code>jQuery selector</code>
+                    Default: <code>ul</code></p>
+                  <pre><code class="lang-javascript"> <span class="hljs-symbol">$</span>(<span class="hljs-string">"#metismenu"</span>).metisMenu({
+                         subMenu: <span class="hljs-string">'.nav.flex-column'</span> <span class="hljs-comment">// bootstrap 4</span>
+                       });
+                      </code></pre>
+                  <h2 id="events">Events</h2>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th><strong>Event Type</strong></th>
+                        <th><strong>Description</strong></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>show.metisMenu</td>
+                        <td>This event fires immediately when the <code>_show</code> instance method is called.</td>
+                      </tr>
+                      <tr>
+                        <td>shown.metisMenu</td>
+                        <td>This event is fired when a collapse <code>ul</code> element has been made visible to the
+                          user (will
+                          wait
+                          for CSS transitions to complete).</td>
+                      </tr>
+                      <tr>
+                        <td>hide.metisMenu</td>
+                        <td>This event is fired immediately when the <code>_hide</code> method has been called.</td>
+                      </tr>
+                      <tr>
+                        <td>hidden.metisMenu</td>
+                        <td>This event is fired when a collapse <code>ul</code> element has been hidden from the user
+                          (will wait
+                          for
+                          CSS transitions to complete).</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h2 id="migrating-to-v3-from-v2">Migrating to v3 from v2</h2>
+                  <ul>
+                    <li>Update <code>metisMenu.js</code> &amp; <code>metisMenu.css</code> files</li>
+                    <li>Change <code>active</code> class to <code>mm-active</code></li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!-- END: .elk-main-content -->
+        </div>
+        <!-- END: .elk-main -->
+      </div>
+      <!-- END: .elk-container -->
+    </div>
+    <!-- END: .elk-wrap -->
+
+  </div>
+  <!-- END: .elk-app -->
+
+
+
+  <script>
+    $(function () {
+      $('#menu1').metisMenu();
+    });
+  </script>
+</body>
+
+</html>
