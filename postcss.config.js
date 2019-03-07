@@ -15,8 +15,11 @@ module.exports = ctx => ({
     'postcss-header': {
       header: banner,
     },
-    'autoprefixer': {
-      cascade: false
+    'postcss-preset-env': {
+      autoprefixer: {
+        flexbox: 'no-2009'
+      },
+      stage: 3
     },
     cssnano: ctx.env === 'production' ? {} : false
   }
