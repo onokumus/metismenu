@@ -8,53 +8,37 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('jquery')) :
   typeof define === 'function' && define.amd ? define(['jquery'], factory) :
-  (global.metisMenu = factory(global.jQuery));
-}(this, (function ($) { 'use strict';
+  (global = global || self, global.metisMenu = factory(global.jQuery));
+}(this, function ($) { 'use strict';
 
   $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
 
-  function _defineProperty(obj, key, value) {
-    if (key in obj) {
-      Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true
-      });
-    } else {
-      obj[key] = value;
-    }
+  function _extends() {
+    _extends = Object.assign || function (target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = arguments[i];
 
-    return obj;
-  }
-
-  function _objectSpread(target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i] != null ? arguments[i] : {};
-      var ownKeys = Object.keys(source);
-
-      if (typeof Object.getOwnPropertySymbols === 'function') {
-        ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
-          return Object.getOwnPropertyDescriptor(source, sym).enumerable;
-        }));
+        for (var key in source) {
+          if (Object.prototype.hasOwnProperty.call(source, key)) {
+            target[key] = source[key];
+          }
+        }
       }
 
-      ownKeys.forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      });
-    }
+      return target;
+    };
 
-    return target;
+    return _extends.apply(this, arguments);
   }
 
-  var Util = function ($$$1) {
+  var Util = function ($) {
     // eslint-disable-line no-shadow
     var TRANSITION_END = 'transitionend';
     var Util = {
       // eslint-disable-line no-shadow
       TRANSITION_END: 'mmTransitionEnd',
       triggerTransitionEnd: function triggerTransitionEnd(element) {
-        $$$1(element).trigger(TRANSITION_END);
+        $(element).trigger(TRANSITION_END);
       },
       supportsTransitionEnd: function supportsTransitionEnd() {
         return Boolean(TRANSITION_END);
@@ -66,7 +50,7 @@
         bindType: TRANSITION_END,
         delegateType: TRANSITION_END,
         handle: function handle(event) {
-          if ($$$1(event.target).is(this)) {
+          if ($(event.target).is(this)) {
             return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
           }
 
@@ -79,7 +63,7 @@
       var _this = this;
 
       var called = false;
-      $$$1(this).one(Util.TRANSITION_END, function () {
+      $(this).one(Util.TRANSITION_END, function () {
         called = true;
       });
       setTimeout(function () {
@@ -91,10 +75,10 @@
     }
 
     function setTransitionEndSupport() {
-      $$$1.fn.mmEmulateTransitionEnd = transitionEndEmulator; // eslint-disable-line no-param-reassign
+      $.fn.mmEmulateTransitionEnd = transitionEndEmulator; // eslint-disable-line no-param-reassign
       // eslint-disable-next-line no-param-reassign
 
-      $$$1.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
+      $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
     }
 
     setTransitionEndSupport();
@@ -136,7 +120,7 @@
     // eslint-disable-line no-shadow
     function MetisMenu(element, config) {
       this.element = element;
-      this.config = _objectSpread({}, Default, config);
+      this.config = _extends({}, Default, config);
       this.transitioning = null;
       this.init();
     }
@@ -146,53 +130,43 @@
     _proto.init = function init() {
       var self = this;
       var conf = this.config;
-      $(this.element).addClass(ClassName.METIS); // add metismenu class to element
+      var el = $(this.element);
+      el.addClass(ClassName.METIS); // add metismenu class to element
 
-      $(this.element).find(conf.parentTrigger + "." + ClassName.ACTIVE).children(conf.triggerElement).attr('aria-expanded', 'true'); // add attribute aria-expanded=true the trigger element
+      el.find(conf.parentTrigger + "." + ClassName.ACTIVE).children(conf.triggerElement).attr('aria-expanded', 'true'); // add attribute aria-expanded=true the trigger element
 
-      $(this.element).find(conf.parentTrigger + "." + ClassName.ACTIVE).parents(conf.parentTrigger).addClass(ClassName.ACTIVE);
-      $(this.element).find(conf.parentTrigger + "." + ClassName.ACTIVE).parents(conf.parentTrigger).children(conf.triggerElement).attr('aria-expanded', 'true'); // add attribute aria-expanded=true the triggers of all parents
+      el.find(conf.parentTrigger + "." + ClassName.ACTIVE).parents(conf.parentTrigger).addClass(ClassName.ACTIVE);
+      el.find(conf.parentTrigger + "." + ClassName.ACTIVE).parents(conf.parentTrigger).children(conf.triggerElement).attr('aria-expanded', 'true'); // add attribute aria-expanded=true the triggers of all parents
 
-      $(this.element).find(conf.parentTrigger + ":not(:has(" + conf.subMenu + "))").children(conf.triggerElement).on(Event.CLICK_DATA_API, function () {
+      el.find(conf.parentTrigger + "." + ClassName.ACTIVE).has(conf.subMenu).children(conf.subMenu).addClass(ClassName.COLLAPSE + " " + ClassName.SHOW);
+      el.find(conf.parentTrigger).not("." + ClassName.ACTIVE).has(conf.subMenu).children(conf.subMenu).addClass(ClassName.COLLAPSE);
+      el.find(conf.parentTrigger) // .has(conf.subMenu)
+      .children(conf.triggerElement).on(Event.CLICK_DATA_API, function (e) {
         // eslint-disable-line func-names
         var eTar = $(this);
-        var parentTar = eTar.parents(conf.parentTrigger).last()[0];
-
-        if (eTar.parent(conf.parentTrigger).hasClass(ClassName.ACTIVE)) {
-          return;
-        }
-
-        eTar.parent(conf.parentTrigger).addClass(ClassName.ACTIVE);
-        eTar.parents(conf.subMenu + "." + ClassName.METIS).children(conf.parentTrigger + "." + ClassName.ACTIVE + ":not(:has(" + conf.subMenu + "." + ClassName.SHOW + "." + ClassName.COLLAPSED + ":has(" + conf.parentTrigger + "." + ClassName.ACTIVE + ")))").not(parentTar).children(conf.triggerElement).attr('aria-expanded', 'false');
-        eTar.parents(conf.subMenu + "." + ClassName.METIS).children(conf.parentTrigger + "." + ClassName.ACTIVE + ":not(:has(" + conf.subMenu + "." + ClassName.SHOW + "." + ClassName.COLLAPSED + ":has(" + conf.parentTrigger + "." + ClassName.ACTIVE + ")))").not(parentTar).children(conf.subMenu).removeClass(ClassName.SHOW);
-        eTar.parents(conf.subMenu + "." + ClassName.METIS).children(conf.parentTrigger + "." + ClassName.ACTIVE + ":not(:has(" + conf.subMenu + "." + ClassName.SHOW + "." + ClassName.COLLAPSED + ":has(" + conf.parentTrigger + "." + ClassName.ACTIVE + ")))").not(parentTar).removeClass(ClassName.ACTIVE);
-      });
-      $(this.element).find(conf.parentTrigger + "." + ClassName.ACTIVE).has(conf.subMenu).children(conf.subMenu).addClass(ClassName.COLLAPSE + " " + ClassName.SHOW);
-      $(this.element).find(conf.parentTrigger).not("." + ClassName.ACTIVE).has(conf.subMenu).children(conf.subMenu).addClass(ClassName.COLLAPSE);
-      $(this.element).find(conf.parentTrigger).has(conf.subMenu).children(conf.triggerElement).on(Event.CLICK_DATA_API, function (e) {
-        // eslint-disable-line func-names
-        var eTar = $(this);
-        var paRent = eTar.parent(conf.parentTrigger);
-        var sibLings = paRent.siblings(conf.parentTrigger).children(conf.triggerElement);
-        var List = paRent.children(conf.subMenu);
-
-        if (conf.preventDefault) {
-          e.preventDefault();
-        }
 
         if (eTar.attr('aria-disabled') === 'true') {
           return;
         }
 
+        if (conf.preventDefault && eTar.attr('href') === '#') {
+          e.preventDefault();
+        }
+
+        var paRent = eTar.parent(conf.parentTrigger);
+        var sibLi = paRent.siblings(conf.parentTrigger);
+        var sibTrigger = sibLi.children(conf.triggerElement);
+
         if (paRent.hasClass(ClassName.ACTIVE)) {
           eTar.attr('aria-expanded', 'false');
-          self.hide(List);
+          self.removeActive(paRent);
         } else {
-          self.show(List);
           eTar.attr('aria-expanded', 'true');
+          self.setActive(paRent);
 
           if (conf.toggle) {
-            sibLings.attr('aria-expanded', 'false');
+            self.removeActive(sibLi);
+            sibTrigger.attr('aria-expanded', 'false');
           }
         }
 
@@ -200,6 +174,24 @@
           conf.onTransitionStart(e);
         }
       });
+    };
+
+    _proto.setActive = function setActive(li) {
+      $(li).addClass(ClassName.ACTIVE);
+      var ul = $(li).children(this.config.subMenu);
+
+      if (ul.length > 0 && !ul.hasClass(ClassName.SHOW)) {
+        this.show(ul);
+      }
+    };
+
+    _proto.removeActive = function removeActive(li) {
+      $(li).removeClass(ClassName.ACTIVE);
+      var ul = $(li).children(this.config.subMenu + "." + ClassName.SHOW);
+
+      if (ul.length > 0) {
+        this.hide(ul);
+      }
     };
 
     _proto.show = function show(element) {
@@ -220,7 +212,7 @@
       elem.parent(this.config.parentTrigger).addClass(ClassName.ACTIVE);
 
       if (this.config.toggle) {
-        var toggleElem = elem.parent(this.config.parentTrigger).siblings().children(this.config.subMenu + "." + ClassName.SHOW + ":has(" + this.config.parentTrigger + "." + this.config.ACTIVE + ")");
+        var toggleElem = elem.parent(this.config.parentTrigger).siblings().children(this.config.subMenu + "." + ClassName.SHOW);
         this.hide(toggleElem);
       }
 
@@ -305,7 +297,7 @@
         var $this = $(this);
         var data = $this.data(DATA_KEY);
 
-        var conf = _objectSpread({}, Default, $this.data(), typeof config === 'object' && config ? config : {});
+        var conf = _extends({}, Default, $this.data(), typeof config === 'object' && config ? config : {});
 
         if (!data) {
           data = new MetisMenu(this, conf);
@@ -344,5 +336,5 @@
 
   return MetisMenu;
 
-})));
+}));
 //# sourceMappingURL=metisMenu.js.map
