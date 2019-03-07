@@ -63,7 +63,8 @@
 
 .sidebar-nav .metismenu a:hover,
 .sidebar-nav .metismenu a:focus,
-.sidebar-nav .metismenu a:active {
+.sidebar-nav .metismenu a:active,
+.sidebar-nav .metismenu .mm-active > a {
     color: #f8f9fa;
     text-decoration: none;
     background: #0b7285;
