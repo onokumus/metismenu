@@ -37,7 +37,10 @@ class MetisMenu {
   // eslint-disable-line no-shadow
   constructor(element, config) {
     this.element = element;
-    this.config = { ...Default, ...config };
+    this.config = {
+      ...Default,
+      ...config,
+    };
     this.transitioning = null;
 
     this.init();
@@ -46,80 +49,63 @@ class MetisMenu {
   init() {
     const self = this;
     const conf = this.config;
+    const el = $(this.element);
 
-    $(this.element).addClass(ClassName.METIS); // add metismenu class to element
+    el.addClass(ClassName.METIS); // add metismenu class to element
 
-    $(this.element)
-      .find(`${conf.parentTrigger}.${ClassName.ACTIVE}`)
+    el.find(`${conf.parentTrigger}.${ClassName.ACTIVE}`)
       .children(conf.triggerElement)
       .attr('aria-expanded', 'true'); // add attribute aria-expanded=true the trigger element
 
-    $(this.element)
-      .find(`${conf.parentTrigger}.${ClassName.ACTIVE}`)
+    el.find(`${conf.parentTrigger}.${ClassName.ACTIVE}`)
       .parents(conf.parentTrigger)
       .addClass(ClassName.ACTIVE);
 
-    $(this.element)
-      .find(`${conf.parentTrigger}.${ClassName.ACTIVE}`)
+    el.find(`${conf.parentTrigger}.${ClassName.ACTIVE}`)
       .parents(conf.parentTrigger)
       .children(conf.triggerElement)
       .attr('aria-expanded', 'true'); // add attribute aria-expanded=true the triggers of all parents
 
-    $(this.element)
-      .find(`${conf.parentTrigger}:not(:has(${conf.subMenu}))`)
-      .children(conf.triggerElement)
-      .on(Event.CLICK_DATA_API, function () { // eslint-disable-line func-names
-        const eTar = $(this);
-        const parentTar = eTar.parents(conf.parentTrigger).last()[0];
-        if (eTar.parent(conf.parentTrigger).hasClass(ClassName.ACTIVE)) {
-          return;
-        }
-        eTar.parent(conf.parentTrigger).addClass(ClassName.ACTIVE);
-        eTar.parents(`${conf.subMenu}.${ClassName.METIS}`).children(`${conf.parentTrigger}.${ClassName.ACTIVE}:not(:has(${conf.subMenu}.${ClassName.SHOW}.${ClassName.COLLAPSED}:has(${conf.parentTrigger}.${ClassName.ACTIVE})))`).not(parentTar).children(conf.triggerElement)
-          .attr('aria-expanded', 'false');
-        eTar.parents(`${conf.subMenu}.${ClassName.METIS}`).children(`${conf.parentTrigger}.${ClassName.ACTIVE}:not(:has(${conf.subMenu}.${ClassName.SHOW}.${ClassName.COLLAPSED}:has(${conf.parentTrigger}.${ClassName.ACTIVE})))`).not(parentTar).children(conf.subMenu)
-          .removeClass(ClassName.SHOW);
-        eTar.parents(`${conf.subMenu}.${ClassName.METIS}`).children(`${conf.parentTrigger}.${ClassName.ACTIVE}:not(:has(${conf.subMenu}.${ClassName.SHOW}.${ClassName.COLLAPSED}:has(${conf.parentTrigger}.${ClassName.ACTIVE})))`).not(parentTar).removeClass(ClassName.ACTIVE);
-      });
-
-    $(this.element)
-      .find(`${conf.parentTrigger}.${ClassName.ACTIVE}`)
+    el.find(`${conf.parentTrigger}.${ClassName.ACTIVE}`)
       .has(conf.subMenu)
       .children(conf.subMenu)
       .addClass(`${ClassName.COLLAPSE} ${ClassName.SHOW}`);
 
-    $(this.element)
+    el
       .find(conf.parentTrigger)
       .not(`.${ClassName.ACTIVE}`)
       .has(conf.subMenu)
       .children(conf.subMenu)
       .addClass(ClassName.COLLAPSE);
 
-    $(this.element)
+    el
       .find(conf.parentTrigger)
-      .has(conf.subMenu)
+      // .has(conf.subMenu)
       .children(conf.triggerElement)
       .on(Event.CLICK_DATA_API, function (e) { // eslint-disable-line func-names
         const eTar = $(this);
-        const paRent = eTar.parent(conf.parentTrigger);
-        const sibLings = paRent
-          .siblings(conf.parentTrigger)
-          .children(conf.triggerElement);
-        const List = paRent.children(conf.subMenu);
-        if (conf.preventDefault) {
-          e.preventDefault();
-        }
+
         if (eTar.attr('aria-disabled') === 'true') {
           return;
         }
+
+        if (conf.preventDefault && eTar.attr('href') === '#') {
+          e.preventDefault();
+        }
+
+        const paRent = eTar.parent(conf.parentTrigger);
+        const sibLi = paRent.siblings(conf.parentTrigger);
+        const sibTrigger = sibLi.children(conf.triggerElement);
+
         if (paRent.hasClass(ClassName.ACTIVE)) {
           eTar.attr('aria-expanded', 'false');
-          self.hide(List);
+          self.removeActive(paRent);
         } else {
-          self.show(List);
           eTar.attr('aria-expanded', 'true');
+          self.setActive(paRent);
           if (conf.toggle) {
-            sibLings.attr('aria-expanded', 'false');
+            self.removeActive(sibLi);
+            sibTrigger.attr('aria-expanded', 'false');
           }
         }
 
@@ -127,6 +113,22 @@ class MetisMenu {
           conf.onTransitionStart(e);
         }
       });
+  }
+
+  setActive(li) {
+    $(li).addClass(ClassName.ACTIVE);
+    const ul = $(li).children(this.config.subMenu);
+    if (ul.length > 0 && !ul.hasClass(ClassName.SHOW)) {
+      this.show(ul);
+    }
+  }
+
+  removeActive(li) {
+    $(li).removeClass(ClassName.ACTIVE);
+    const ul = $(li).children(`${this.config.subMenu}.${ClassName.SHOW}`);
+    if (ul.length > 0) {
+      this.hide(ul);
+    }
   }
 
   show(element) {
@@ -145,7 +147,7 @@ class MetisMenu {
     elem.parent(this.config.parentTrigger).addClass(ClassName.ACTIVE);
 
     if (this.config.toggle) {
-      const toggleElem = elem.parent(this.config.parentTrigger).siblings().children(`${this.config.subMenu}.${ClassName.SHOW}:has(${this.config.parentTrigger}.${this.config.ACTIVE})`);
+      const toggleElem = elem.parent(this.config.parentTrigger).siblings().children(`${this.config.subMenu}.${ClassName.SHOW}`);
       this.hide(toggleElem);
     }
 
