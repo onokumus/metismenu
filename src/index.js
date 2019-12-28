@@ -242,9 +242,9 @@ class MetisMenu {
 
     $(this.element)
       .find(this.config.parentTrigger)
-      .has(this.config.subMenu)
+      // .has(this.config.subMenu)
       .children(this.config.triggerElement)
-      .off('click');
+      .off(Event.CLICK_DATA_API);
 
     this.transitioning = null;
     this.config = null;
