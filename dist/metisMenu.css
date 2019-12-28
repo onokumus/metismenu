@@ -1,7 +1,7 @@
 /*!
 * metismenu https://github.com/onokumus/metismenu#readme
 * A jQuery menu plugin
-* @version 3.0.4
+* @version 3.0.5
 * @author Osman Nuri Okumus <onokumus@gmail.com> (https://github.com/onokumus)
 * @license: MIT 
 */
@@ -81,8 +81,11 @@
   position: relative;
   height: 0;
   overflow: hidden;
-  transition-timing-function: ease;
-  transition-duration: .35s;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
+  -webkit-transition-duration: .35s;
+          transition-duration: .35s;
+  -webkit-transition-property: height, visibility;
   transition-property: height, visibility;
 }
 
@@ -105,6 +108,7 @@
   -webkit-transform-origin: top;
           transform-origin: top;
   top: 50%;
+  -webkit-transition: all .3s ease-out;
   transition: all .3s ease-out;
 }
 
