@@ -1,6 +1,6 @@
 Package.describe({
   name: 'onokumus:metismenu',
-  version: '3.0.4',
+  version: '3.0.6',
   summary: 'A jQuery menu plugin',
   git: 'https://github.com/onokumus/metisMenu',
   documentation: 'README.md'

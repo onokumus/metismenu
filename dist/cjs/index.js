@@ -1,7 +1,7 @@
 /*!
 * metismenu https://github.com/onokumus/metismenu#readme
 * A jQuery menu plugin
-* @version 3.0.5
+* @version 3.0.6
 * @author Osman Nuri Okumus <onokumus@gmail.com> (https://github.com/onokumus)
 * @license: MIT 
 */
@@ -112,9 +112,7 @@ var ClassName = {
   COLLAPSED: 'mm-collapsed'
 };
 
-var MetisMenu =
-/*#__PURE__*/
-function () {
+var MetisMenu = /*#__PURE__*/function () {
   // eslint-disable-line no-shadow
   function MetisMenu(element, config) {
     this.element = element;

@@ -1,7 +1,7 @@
 /*!
 * metismenu https://github.com/onokumus/metismenu#readme
 * A jQuery menu plugin
-* @version 3.0.5
+* @version 3.0.6
 * @author Osman Nuri Okumus <onokumus@gmail.com> (https://github.com/onokumus)
 * @license: MIT 
 */
@@ -11,7 +11,7 @@
   (global = global || self, global.metisMenu = factory(global.jQuery));
 }(this, (function ($) { 'use strict';
 
-  $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
+  $ = $ && Object.prototype.hasOwnProperty.call($, 'default') ? $['default'] : $;
 
   function _extends() {
     _extends = Object.assign || function (target) {
@@ -114,9 +114,7 @@
     COLLAPSED: 'mm-collapsed'
   };
 
-  var MetisMenu =
-  /*#__PURE__*/
-  function () {
+  var MetisMenu = /*#__PURE__*/function () {
     // eslint-disable-line no-shadow
     function MetisMenu(element, config) {
       this.element = element;

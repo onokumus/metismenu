@@ -1,7 +1,7 @@
 /*!
 * metismenu https://github.com/onokumus/metismenu#readme
 * A jQuery menu plugin
-* @version 3.0.5
+* @version 3.0.6
 * @author Osman Nuri Okumus <onokumus@gmail.com> (https://github.com/onokumus)
 * @license: MIT 
 */
@@ -58,8 +58,7 @@
   content: "\f067";
 }
 .metismenu .mm-active > a > .fa.plus-times {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 .metismenu .plus-minus {
   float: right;
@@ -81,11 +80,8 @@
   position: relative;
   height: 0;
   overflow: hidden;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-duration: .35s;
-          transition-duration: .35s;
-  -webkit-transition-property: height, visibility;
+  transition-timing-function: ease;
+  transition-duration: .35s;
   transition-property: height, visibility;
 }
 
@@ -103,32 +99,26 @@
   border-color: currentColor;
   border-color: initial;
   right: 1em;
-  -webkit-transform: rotate(-45deg) translate(0, -50%);
-          transform: rotate(-45deg) translate(0, -50%);
-  -webkit-transform-origin: top;
-          transform-origin: top;
+  transform: rotate(-45deg) translate(0, -50%);
+  transform-origin: top;
   top: 50%;
-  -webkit-transition: all .3s ease-out;
   transition: all .3s ease-out;
 }
 
 *[dir="rtl"] .metismenu .has-arrow::after {
   right: auto;
   left: 1em;
-  -webkit-transform: rotate(135deg) translate(0, -50%);
-          transform: rotate(135deg) translate(0, -50%);
+  transform: rotate(135deg) translate(0, -50%);
 }
 
 .metismenu .mm-active > .has-arrow::after,
 .metismenu .has-arrow[aria-expanded="true"]::after {
-  -webkit-transform: rotate(-135deg) translate(0, -50%);
-          transform: rotate(-135deg) translate(0, -50%);
+  transform: rotate(-135deg) translate(0, -50%);
 }
 
 *[dir="rtl"] .metismenu .mm-active > .has-arrow::after,
 *[dir="rtl"] .metismenu .has-arrow[aria-expanded="true"]::after {
-  -webkit-transform: rotate(225deg) translate(0, -50%);
-          transform: rotate(225deg) translate(0, -50%);
+  transform: rotate(225deg) translate(0, -50%);
 }
 
 /*# sourceMappingURL=metisMenu.css.map */
