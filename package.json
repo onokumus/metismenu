@@ -1,7 +1,7 @@
 {
   "name": "metismenu",
   "version": "3.0.6",
-  "description": "A jQuery menu plugin",
+  "description": "A collapsible jQuery menu plugin",
   "main": "dist/cjs/index.js",
   "module": "dist/modules/index.js",
   "browser": "dist/metisMenu.js",
@@ -99,12 +99,12 @@
     "related": {
       "list": [
         "metismenujs",
-        "onoffcanvas"
+        "@metismenu/react"
       ]
     },
     "reflinks": [
       "metismenujs",
-      "chl",
+      "@metsimenu/react",
       "elektron",
       "onoffcanvas",
       "twbuttons"
