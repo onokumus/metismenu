@@ -1,5 +1,4 @@
 /dist
-/demo
+/docs
 /node_modules
 package.js
-postcss.config.js
