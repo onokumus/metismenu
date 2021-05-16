@@ -1,6 +1,4 @@
 import resolve from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
-import babel from 'rollup-plugin-babel';
 import pkg from './package.json';
 
 const banner = `/*!
@@ -11,6 +9,7 @@ const banner = `/*!
 * @license: ${pkg.license} 
 */`;
 
+const production = !process.env.ROLLUP_WATCH;
 
 export default [
   {
@@ -21,28 +20,21 @@ export default [
         name: 'metisMenu',
         banner,
         globals: {
-          jquery: 'jQuery',
+          jquery: '$',
         },
-        file: pkg.browser,
+        file: production ? pkg.main : 'demo/assets/js/metisMenu.js',
         format: 'umd',
         sourcemap: true,
       },
       {
-        file: pkg.main,
-        banner,
-        format: 'cjs',
-
-      },
-      {
         file: pkg.module,
         banner,
-        format: 'es',
+        format: 'esm',
+        sourcemap: true,
       },
     ],
     plugins: [
-      babel({ exclude: 'node_modules/**' }),
       resolve(),
-      commonjs(),
     ],
   },
 ];
