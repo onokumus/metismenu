@@ -17,5 +17,5 @@ type MetisMenuEvents = "show.metisMenu" | "shown.metisMenu" | "hide.metisMenu" |
 
 interface JQuery {
     metisMenu(options?: MetisMenuOptions | "dispose"): JQuery;
-    on(events: MetisMenuEvents, handler: (eventObject: JQueryEventObject) => any): JQuery;
+    on(events: MetisMenuEvents, handler: (eventObject: JQuery.Event) => any): JQuery;
 }
