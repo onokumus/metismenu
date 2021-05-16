@@ -2,6 +2,7 @@
 
 
 > A collapsible jQuery menu plugin
+> This version does not support any version of IE browser.
 
 - [Getting started](#getting-started)
   * [Install](#install)
