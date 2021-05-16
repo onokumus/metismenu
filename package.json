@@ -1,14 +1,15 @@
 {
   "name": "metismenu",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "A collapsible jQuery menu plugin",
-  "main": "dist/cjs/index.js",
-  "module": "dist/modules/index.js",
-  "browser": "dist/metisMenu.js",
+  "main": "dist/metisMenu.js",
+  "module": "dist/metisMenu.esm.js",
+  "browser": "dist/metisMenu.min.js",
   "unpkg": "dist/metisMenu.min.js",
   "jsdelivr": "dist/metisMenu.min.js",
   "typings": "types/metismenu.d.ts",
   "style": "dist/metisMenu.css",
+  "sass": "src/metisMenu.scss",
   "files": [
     "dist",
     "src",
@@ -17,24 +18,22 @@
   "scripts": {
     "js:dev": "rollup -c -w",
     "js:prod": "rollup -c",
-    "js:minify": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/metisMenu.js.map,includeSources,url=metisMenu.min.js.map\" --output dist/metisMenu.min.js dist/metisMenu.js",
-    "css:dev": "postcss src/metisMenu.css -o dist/metisMenu.css --map",
-    "css:min": "cross-env NODE_ENV=production postcss src/metisMenu.css -o dist/metisMenu.min.css --map",
-    "build": "npm run js:prod && npm run js:minify && npm run css:dev && npm run css:min",
-    "test": "eslint src/*.js",
-    "deploy": "gh-pages -d demo"
+    "js:umd:min": "terser --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/metisMenu.js.map,includeSources,url=metisMenu.min.js.map\" --output dist/metisMenu.min.js dist/metisMenu.js",
+    "js:esm:min": "terser --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/metisMenu.esm.js.map,includeSources,url=metisMenu.esm.min.js.map\" --output dist/metisMenu.esm.min.js dist/metisMenu.esm.js",
+    "css:dev": "sass src:demo/assets/css -w",
+    "css:prod": "sass src:dist",
+    "css:min": "sass src/metisMenu.scss dist/metisMenu.min.css -s compressed",
+    "build": "npm run js:prod && npm run js:umd:min && npm run js:esm:min && npm run css:prod && npm run css:min",
+    "test": "eslint src/*.js"
   },
   "repository": "onokumus/metismenu",
   "keywords": [
     "accordion",
-    "bootstrap",
     "jquery",
     "menu",
     "metis",
     "metisMenu",
-    "toggle",
-    "twbs",
-    "twitter"
+    "toggle"
   ],
   "author": "Osman Nuri Okumus <onokumus@gmail.com> (https://github.com/onokumus)",
   "contributors": [
@@ -63,52 +62,15 @@
   },
   "homepage": "https://github.com/onokumus/metismenu#readme",
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.9.0",
-    "@babel/preset-env": "^7.9.0",
-    "@rollup/plugin-commonjs": "^11.0.2",
-    "@rollup/plugin-node-resolve": "^7.1.1",
-    "@types/jquery": "^3.3.33",
-    "cross-env": "^7.0.2",
-    "cssnano": "^4.1.10",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.1",
-    "gh-pages": "^2.2.0",
-    "postcss-cli": "^7.1.0",
-    "postcss-header": "^2.0.0",
-    "postcss-preset-env": "^6.7.0",
-    "rollup": "^2.1.0",
-    "rollup-plugin-babel": "^4.4.0",
-    "uglify-js": "^3.8.0"
-  },
-  "verb": {
-    "toc": {
-      "collapsible": false,
-      "method": "preWrite"
-    },
-    "tasks": [
-      "readme"
-    ],
-    "plugins": [
-      "gulp-format-md"
-    ],
-    "helpers": [
-      "helper-changelog"
-    ],
-    "related": {
-      "list": [
-        "metismenujs",
-        "@metismenu/react"
-      ]
-    },
-    "reflinks": [
-      "metismenujs",
-      "@metsimenu/react",
-      "elektron",
-      "onoffcanvas",
-      "twbuttons"
-    ]
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@types/jquery": "^3.5.5",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.26.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.2",
+    "rollup": "^2.48.0",
+    "sass": "^1.32.13",
+    "terser": "^5.7.0"
   },
   "peerDependencies": {
     "jquery": "^3.4.1"
