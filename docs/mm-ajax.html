@@ -8,7 +8,7 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/metismenu/dist/metisMenu.min.css" />
+  <link rel="stylesheet" href="assets/css/metisMenu.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noty/lib/noty.css">
@@ -18,7 +18,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://unpkg.com/metismenu"></script>
+  <script src="assets/js/metisMenu.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs"></script>
   <script src="https://cdn.jsdelivr.net/npm/noty"></script>
 
@@ -26,52 +26,96 @@
 
 <body>
   <header>
-    <div class="navbar navbar-expand-md navbar-dark bg-dark box-shadow">
-      <div class="container d-flex justify-content-between">
-        <a href="index.html" class="navbar-brand d-flex align-items-center">
-          <strong>metisMenu</strong>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-          aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">metisMenu</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-          <ul class="navbar-nav ml-auto">
-  
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">Examples</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown01">
-                <a class="dropdown-item" href="mm-vertical.html">Vertical Menu</a>
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Examples
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" href="mm-vertical.html">Vertical Menu</a>
+                </li>
+                <li>
+
                 <a class="dropdown-item" href="mm-horizontal.html">Horizontal Menu</a>
+                </li>
+                <li>
+
                 <a class="dropdown-item" href="mm-folder.html">Folder View</a>
+                </li>
+                <li>
+
                 <a class="dropdown-item" href="mm-vertical-hover.html">Hover Option For Desktop</a>
-                <a class="dropdown-item" href="mm-animate.html">Animate</a>
-                <a class="dropdown-item" href="mm-event.html">Event</a>
-                <a class="dropdown-item" href="mm-event2.html">Event 2</a>
-                <a class="dropdown-item" href="mm-dispose.html">Stop &amp; Start metisMenu</a>
-                <a class="dropdown-item" href="mm-ajax.html">Ajax</a>
-                <a class="dropdown-item" href="mm-faq.html">FAQ</a>
-                <a class="dropdown-item" href="mm-bs-card.html">Bootstrap Card</a><a class="dropdown-item" href="mm-docs.html">Docs</a>
-              </div>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="mm-animate.html">Animate</a></li>
+                  <li>
+
+                  <a class="dropdown-item" href="mm-event.html">Event</a>
+                  </li>
+                  <li>
+
+                  <a class="dropdown-item" href="mm-event2.html">Event 2</a>
+                  </li>
+                  <li>
+
+                  <a class="dropdown-item" href="mm-dispose.html">Stop &amp; Start metisMenu</a>
+                  </li>
+                  <li>
+
+                  <a class="dropdown-item" href="mm-ajax.html">Ajax</a>
+                  </li>
+                  <li>
+
+                  <a class="dropdown-item" href="mm-faq.html">FAQ</a>
+                  </li>
+                  <li>
+
+                  <a class="dropdown-item" href="mm-bs-card.html">Bootstrap Card</a>
+                  </li>
+                  <li>
+
+                  <a class="dropdown-item" href="mm-docs.html">Docs</a>
+                  </li>
+              </ul>
             </li>
+
+
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">Templates</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown02">
-                <a class="dropdown-item" href="https://onokumus.com/chaldene" target="_blank">Chaldene Admin</a>
-                <a class="dropdown-item" href="https://onokumus.com/elektron" target="_blank">Elektron Admin</a>
-                <a class="dropdown-item" href="https://onokumus.com/twbuttons/" target="_blank">twbuttons</a>
-              </div>
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Templates
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" href="https://onokumus.com/chaldene" target="_blank">Chaldene Admin</a>
+                </li>
+                <li>
+
+                  <a class="dropdown-item" href="https://onokumus.com/elektron" target="_blank">Elektron Admin</a>
+                </li>
+                <li>
+
+                  <a class="dropdown-item" href="https://onokumus.com/twbuttons/" target="_blank">twbuttons</a>
+                </li>
+              </ul>
             </li>
+
+
             <li class="nav-item">
               <a class="nav-link" href="https://onokumus.com" target="_blank">onokumus</a>
             </li>
           </ul>
         </div>
       </div>
-    </div>
-  </header>  
+    </nav>
+  </header>
   <div class="container">
     <link href="assets/css/mm-vertical.css" rel="stylesheet" type="text/css" />
 
@@ -200,10 +244,10 @@ $(<span class="hljs-string">"#ajaxButton"</span>).one(<span class="hljs-string">
       <nav class="sidebar-nav">
 
         <ul class="metismenu" id="menu2">
-          <li><a href="" class="has-arrow" data-url="ajax-1.html">Ajax Menu 1</a></li>
-          <li><a href="" class="has-arrow" data-url="ajax-2.html">Ajax Menu 2</a></li>
-          <li><a href="" class="has-arrow" data-url="ajax-3.html">Ajax Menu 3</a></li>
-          <li><a href="" class="has-arrow" data-url="ajax-4.html">Ajax Menu 4</a></li>
+          <li><a href="#" class="has-arrow" data-url="ajax-1.html">Ajax Menu 1</a></li>
+          <li><a href="#" class="has-arrow" data-url="ajax-2.html">Ajax Menu 2</a></li>
+          <li><a href="#" class="has-arrow" data-url="ajax-3.html">Ajax Menu 3</a></li>
+          <li><a href="#" class="has-arrow" data-url="ajax-4.html">Ajax Menu 4</a></li>
         </ul>
 
       </nav>

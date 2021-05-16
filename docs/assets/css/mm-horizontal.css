@@ -1,0 +1,58 @@
+.topbar-nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.topbar-nav .metismenu {
+  display: flex;
+  flex-direction: column;
+}
+.topbar-nav .metismenu > li {
+  flex: 1 1 0%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.topbar-nav .metismenu a {
+  text-decoration: none;
+  position: relative;
+  display: block;
+  padding: 15px;
+  color: #212529;
+  outline-width: 0;
+  transition: all 0.3s ease-out;
+}
+
+.topbar-nav .metismenu a:hover,
+.topbar-nav .metismenu a:focus,
+.topbar-nav .metismenu a:active {
+  color: #0c63e4;
+  text-decoration: none;
+}
+
+@media (min-width: 992px) {
+  .topbar-nav .metismenu {
+    flex-direction: row;
+  }
+  .topbar-nav .metismenu > li {
+    flex-direction: column;
+  }
+  .topbar-nav .metismenu > li > ul {
+    position: absolute;
+    top: 100%;
+    min-width: 100%;
+    z-index: 1001;
+    background: #fff;
+    border: 1px solid #e7f1ff;
+  }
+  .topbar-nav.is-hoverable .metismenu > li > ul {
+    height: auto !important;
+  }
+  .topbar-nav.is-hoverable .metismenu > li:hover > ul {
+    display: block;
+  }
+  .topbar-nav.is-hoverable .metismenu > li:hover > a.has-arrow:after {
+    transform: rotate(-135deg);
+  }
+}

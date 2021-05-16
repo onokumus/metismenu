@@ -1,0 +1,63 @@
+
+.sidebar-nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.sidebar-nav .metismenu {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-nav .metismenu > li {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.sidebar-nav .metismenu > li > ul {
+  background: #fff;
+  border: 1px solid #e7f1ff;
+}
+
+.sidebar-nav .metismenu a {
+  text-decoration: none;
+  position: relative;
+  display: block;
+  padding: 15px;
+  color: #212529;
+  outline-width: 0;
+  transition: all 0.3s ease-out;
+}
+
+.sidebar-nav .metismenu a:hover,
+.sidebar-nav .metismenu a:focus,
+.sidebar-nav .metismenu a:active {
+  color: #0c63e4;
+  text-decoration: none;
+}
+
+@media (min-width: 992px) {
+  .sidebar-nav .metismenu li {
+    position: relative;
+  }
+  .sidebar-nav .metismenu > li > ul {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    min-width: 200px;
+    z-index: 1001;
+  }
+  .sidebar-nav .metismenu > li:hover > ul {
+    height: auto !important;
+  }
+  .sidebar-nav .metismenu > li:hover > ul,
+  .sidebar-nav .metismenu > li:hover > ul.collapse {
+    display: block;
+  }
+
+  .sidebar-nav .metismenu > li:hover > a.has-arrow:after {
+    transform: rotate(135deg);
+  }
+}

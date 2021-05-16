@@ -30,7 +30,7 @@
   content: "";
   width: 30px;
   top: 13px;
-  left: -33px;
+  left: -26px;
 }
 li.active > a > span.fa-folder-o:before {
   content: "\f115" !important;
