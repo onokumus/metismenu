@@ -2,6 +2,7 @@
   "name": "metismenu",
   "version": "3.0.7",
   "description": "A collapsible jQuery menu plugin",
+  "type": "module",
   "main": "dist/metisMenu.js",
   "module": "dist/metisMenu.esm.js",
   "browser": "dist/metisMenu.min.js",
@@ -62,15 +63,15 @@
   },
   "homepage": "https://github.com/onokumus/metismenu#readme",
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^13.0.0",
-    "@types/jquery": "^3.5.5",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@types/jquery": "^3.5.14",
     "cross-env": "^7.0.3",
-    "eslint": "^7.26.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.23.2",
-    "rollup": "^2.48.0",
-    "sass": "^1.32.13",
-    "terser": "^5.7.0"
+    "eslint": "^8.27.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "rollup": "^3.3.0",
+    "sass": "^1.56.1",
+    "terser": "^5.15.1"
   },
   "peerDependencies": {
     "jquery": "^3.4.1"
